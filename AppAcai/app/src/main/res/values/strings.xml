@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">AppAcai</string>
+    <string name="text_nome_field">Nome*</string>
+    <string name="text_nomeEmpresa_field">Nome Fantasia*</string>
+    <string name="text_email_field">Email*</string>
+    <string name="text_pix_field">Chave pix*</string>
+    <string name="text_confirmarSenha_field">Confirmar senha*</string>
+    <string name="text_senha_field">Senha*</string>
+    <string name="cadastrar">Cadastrar</string>
 </resources>

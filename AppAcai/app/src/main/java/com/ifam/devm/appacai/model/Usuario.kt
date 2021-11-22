@@ -19,8 +19,8 @@ data class Usuario (
         var nomeEmpresa: String = "",
         @ColumnInfo(name = COLUMN_EMAIL)
         var email: String = "",
-        @ColumnInfo(name = COLUMN_SENHA)
-        var senha: String = "",
         @ColumnInfo(name = COLUMN_CHAVEPIX)
         var chavePix: String = "",
+        @ColumnInfo(name = COLUMN_SENHA)
+        var senha: String = "",
 ) : Parcelable
