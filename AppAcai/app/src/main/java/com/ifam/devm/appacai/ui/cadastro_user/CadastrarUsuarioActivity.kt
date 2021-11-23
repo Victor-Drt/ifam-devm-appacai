@@ -9,6 +9,7 @@ import com.ifam.devm.appacai.MainActivity
 import com.ifam.devm.appacai.R
 import com.ifam.devm.appacai.model.Usuario
 import com.ifam.devm.appacai.repository.room.AppDatabase
+import com.ifam.devm.appacai.ui.login.LoginActivity
 import kotlinx.android.synthetic.main.activity_cadastrar_usuario.*
 import org.jetbrains.anko.doAsync
 import java.util.regex.Matcher
@@ -46,7 +47,7 @@ class CadastrarUsuarioActivity : AppCompatActivity() {
                     db.usuarioDao().insert(novoCadastro)
                 }
                 //inicia outra activity
-                startActivity(Intent(this, MainActivity::class.java))
+                startActivity(Intent(this, LoginActivity::class.java))
                 finish()
             }
         }

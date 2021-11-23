@@ -7,4 +7,5 @@
     <string name="text_confirmarSenha_field">Confirmar senha*</string>
     <string name="text_senha_field">Senha*</string>
     <string name="cadastrar">Cadastrar</string>
+    <string name="text_fazerLogin">Login</string>
 </resources>
