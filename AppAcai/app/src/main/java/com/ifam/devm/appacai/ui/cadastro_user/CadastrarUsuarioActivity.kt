@@ -3,9 +3,7 @@ package com.ifam.devm.appacai.ui.cadastro_user
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.util.Patterns
-import com.ifam.devm.appacai.MainActivity
 import com.ifam.devm.appacai.R
 import com.ifam.devm.appacai.model.Usuario
 import com.ifam.devm.appacai.repository.room.AppDatabase

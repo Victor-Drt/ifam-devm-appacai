@@ -10,8 +10,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppAcai">
         <activity
-            android:name=".ui.senha.AlterarSenhaActivity"
-            android:exported="false" />
+            android:name=".ui.startup.SplashActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".ui.senha.RecuperarSenhaActivity"
             android:exported="false" />
@@ -25,13 +30,8 @@
             android:name=".ui.cadastro_user.CadastrarUsuarioActivity"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".ui.startup.StartupActivity"
             android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
     </application>
 

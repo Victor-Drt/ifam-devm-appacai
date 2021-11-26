@@ -10,9 +10,11 @@ import android.view.View
 import android.view.inputmethod.InputMethodManager
 import android.widget.Button
 import android.widget.Toast
+import com.google.gson.Gson
 import com.ifam.devm.appacai.R
 import com.ifam.devm.appacai.model.Usuario
 import com.ifam.devm.appacai.repository.room.AppDatabase
+import com.ifam.devm.appacai.repository.sqlite.PREF_DATA_NAME
 import com.ifam.devm.appacai.ui.home.HomeActivity
 import com.ifam.devm.appacai.ui.senha.RecuperarSenhaActivity
 import kotlinx.android.synthetic.main.activity_login.*
@@ -82,7 +84,7 @@ class LoginActivity : AppCompatActivity() {
         } else {
             //Se a senha for válida vai para a próxima activity, a HomeActivity
             uiThread {
-//                escreverNoSharedPreferences(usuario)
+                escreverNoSharedPreferences(usuario)
                 Toast.makeText(this@LoginActivity, "Login com sucesso!", Toast.LENGTH_SHORT).show()
                 startActivity(Intent(this@LoginActivity, HomeActivity::class.java))
                 finishAffinity()
@@ -121,5 +123,19 @@ class LoginActivity : AppCompatActivity() {
             return false
         }
         return true
+    }
+
+    //armazena informações que foram logadas
+    private fun escreverNoSharedPreferences(usuario: Usuario) {
+        if (materialCheckBox.isChecked){
+            val usuarioJson = Gson().toJson(usuario)
+            val usuarioNomeJson = Gson().toJson(usuario.nomeUsuario)
+            val sharedPreferences = getSharedPreferences(PREF_DATA_NAME, MODE_PRIVATE)
+            val sharedEditor = sharedPreferences.edit()
+            sharedEditor.putString("login", usuarioJson)
+            sharedEditor.putString("nome", usuarioNomeJson)
+            sharedEditor.putString("email_usuario", txtEmailLogin.text.toString())
+            sharedEditor.apply()
+        }
     }
 }
