@@ -14,6 +14,7 @@ import com.ifam.devm.appacai.R
 import com.ifam.devm.appacai.model.Usuario
 import com.ifam.devm.appacai.repository.room.AppDatabase
 import com.ifam.devm.appacai.ui.home.HomeActivity
+import com.ifam.devm.appacai.ui.senha.RecuperarSenhaActivity
 import kotlinx.android.synthetic.main.activity_login.*
 import org.jetbrains.anko.AnkoAsyncContext
 import org.jetbrains.anko.doAsync
@@ -29,6 +30,12 @@ class LoginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
         title = "Login"
+
+        //tela de recuperacao de senha
+        txtViewEsqueciSenha.setOnClickListener {
+            //Quando o "esqueci a senha" for clicado abre a activity RecuperarSenhaActivity
+            startActivity(Intent(this, RecuperarSenhaActivity::class.java))
+        }
 
         //setando botao entrar
         btLogin.setOnClickListener {

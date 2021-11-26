@@ -8,4 +8,10 @@
     <string name="text_senha_field">Senha*</string>
     <string name="cadastrar">Cadastrar</string>
     <string name="text_fazerLogin">Login</string>
+    <string name="text_recuperarSenha">Esqueci a senha</string>
+    <string name="text_manterConectado">Mantenha-me conectado</string>
+    <string name="instrucao_recuperar_senha1">Insira o e-mail cadastrado para alterar a senha</string>
+    <string name="text_continuar_rec">continuar</string>
+    <string name="text_recuperarSenha2">Insira a nova senha</string>
+    <string name="text_alterar_senha">Alterar Senha</string>
 </resources>
