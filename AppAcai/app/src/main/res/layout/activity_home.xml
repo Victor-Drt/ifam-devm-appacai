@@ -6,25 +6,23 @@
     android:layout_height="match_parent"
     tools:context=".ui.home.HomeActivity">
 
-    <TextView
-        android:id="@+id/txtUsername"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="VOCE LOGOU COM SUCESSO"
-        android:textSize="50sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <FrameLayout
+        android:id="@+id/fragment_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toTopOf="@id/bottom_navigation"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/btLogOff"
-        android:layout_width="wrap_content"
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_navigation"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Sair"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtUsername"
-        app:layout_constraintVertical_bias="0.517" />
+        app:menu="@menu/menu_bottom_navigation"
+        android:background="@color/purple_500"
+        app:itemIconTint="@color/white"
+        app:itemTextColor="@color/white"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

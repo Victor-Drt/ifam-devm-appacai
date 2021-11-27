@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/page_admin"
+        android:enabled="true"
+        android:icon="@drawable/ic_account_circle"
+        android:title="@string/text_page_admin"/>
+    <item
+        android:id="@+id/page_vendedores"
+        android:enabled="true"
+        android:icon="@drawable/ic_badge"
+        android:title="@string/text_page_vendedores"/>
+
+    <item
+        android:id="@+id/page_home"
+        android:enabled="true"
+        android:icon="@drawable/ic_home"
+        android:title="@string/text_page_home"/>
+    <item
+        android:id="@+id/page_produtos"
+        android:enabled="true"
+        android:icon="@drawable/ic_inventory"
+        android:title="@string/text_page_produtos"/>
+    <item
+        android:id="@+id/page_vendas"
+        android:enabled="true"
+        android:icon="@drawable/ic_local_mall"
+        android:title="@string/text_page_vendas"/>
+</menu>

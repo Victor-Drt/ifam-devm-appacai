@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import androidx.fragment.app.Fragment
 import com.ifam.devm.appacai.R
 import com.ifam.devm.appacai.model.Usuario
 import com.ifam.devm.appacai.repository.room.AppDatabase
@@ -16,47 +17,59 @@ import org.jetbrains.anko.uiThread
 import java.lang.Exception
 
 class HomeActivity : AppCompatActivity() {
-    private lateinit var usuario: Usuario
-    private lateinit var viewModel: RecuperarSenhaViewModel
+
+    private val adminFragment = AdminFragment()
+    private val vendedoresFragment = VendedoresFragment()
+    private val homeFragment = HomeFragment()
+    private val produtosFragment = ProdutosFragment()
+    private val vendasFragment = VendasFragment()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
 
-        btLogOff.setOnClickListener {
-            val sharedPreferences = getSharedPreferences(PREF_DATA_NAME, MODE_PRIVATE)
-            val sharedEditor = sharedPreferences.edit()
-            sharedEditor.putString("login", "")
-            sharedEditor.apply()
-            startActivity(Intent(this@HomeActivity, StartupActivity::class.java))
-            finishAffinity()
-        }
-    }
+        replaceFragment(homeFragment)
 
-    override fun onStart() {
-        carregaNomeUsuarioDoBanco()
-        super.onStart()
-    }
-
-    private fun carregaNomeUsuarioDoBanco() {
-        doAsync {
-            viewModel =
-                RecuperarSenhaViewModel(AppDatabase.getDatabase(this@HomeActivity))
-            viewModel.carregaDadosALTERAR()
-            uiThread {
-                usuario = viewModel.pegaDadosUsuario()
-                try {
-                    val sharedPreferences = getSharedPreferences(PREF_DATA_NAME, MODE_PRIVATE)
-                    txtUsername.text =
-                        sharedPreferences.getString("nome", "")
-                } catch (e: Exception) {
-                    Toast.makeText(
-                        this@HomeActivity,
-                        "Nao foi possivel carregar o nome",
-                        Toast.LENGTH_SHORT
-                    ).show()
+        bottom_navigation.setOnNavigationItemSelectedListener {
+            when (it.itemId) {
+                R.id.page_admin -> {
+                    replaceFragment(adminFragment)
+                    true
                 }
+                R.id.page_vendedores -> {
+                    replaceFragment(vendedoresFragment)
+                    true
+                }
+                R.id.page_home -> {
+                    replaceFragment(homeFragment)
+                    true
+                }
+                R.id.page_produtos -> {
+                    replaceFragment(produtosFragment)
+                    true
+                }
+                R.id.page_vendas -> {
+                    replaceFragment(vendasFragment)
+                    true
+                }
+                else -> false
             }
+        }
+
+    }
+
+    override fun onStop() {
+        super.onStop()
+        finish()
+    }
+
+    private fun replaceFragment(fragment: Fragment) {
+        if (fragment != null) {
+            val transaction = supportFragmentManager.beginTransaction()
+            transaction.replace(R.id.fragment_container, fragment)
+            transaction.commit()
         }
     }
 }
+
+

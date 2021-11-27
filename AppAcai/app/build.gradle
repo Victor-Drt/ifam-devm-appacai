@@ -80,6 +80,7 @@ dependencies {
     implementation 'androidx.navigation:navigation-ui-ktx:2.3.4'
     implementation 'androidx.room:room-common:2.3.0'
     implementation 'androidx.room:room-ktx:2.3.0'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     kapt "androidx.room:room-compiler:2.2.5"
 
     /*************************************************************

@@ -30,4 +30,8 @@ class StartupActivity : AppCompatActivity() {
             startActivity(Intent(this, LoginActivity::class.java))
         }
     }
+
+    override fun onResume() {
+        super.onResume()
+    }
 }
