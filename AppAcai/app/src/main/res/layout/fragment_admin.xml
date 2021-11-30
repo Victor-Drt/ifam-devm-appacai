@@ -1,23 +1,135 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.home.AdminFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:id="@+id/textonome"
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/toolbarDadosLoja"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            app:titleTextColor="@color/white"
+            app:title="@string/text_dados_loja"
+            app:menu="@menu/menu_editar_dados"/>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="ADMIN PAGE" />
+        android:layout_marginTop="?attr/actionBarSize"
+        android:paddingTop="20dp">
 
-    <Button
-        android:id="@+id/btLogOff"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="250dp"
-        android:layout_marginStart="150dp"
-        android:text="LogOff" />
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/dadosUserLayoutInputTextUserName"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="286dp"
+            android:layout_height="82dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="15dp"
+            app:errorEnabled="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/txtNomeVisualizar"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:text="Nome do Admin"
+                android:editable="false"
+                android:hint="@string/text_nome_field"
+                android:singleLine="true" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/dadosUserLayoutInputTextEmpresa"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="286dp"
+            android:layout_height="82dp"
+            app:errorEnabled="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/dadosUserLayoutInputTextUserName"
+            app:layout_constraintVertical_bias="0.029">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/txtNomeFantasiaVisualizar"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:text="Nome Fantasia da loja"
+                android:editable="false"
+                android:hint="@string/text_nomeEmpresa_field"
+                android:singleLine="true" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/dadosUserLayoutInputTextEmail"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="284dp"
+            android:layout_height="82dp"
+            app:errorEnabled="true"
+            app:layout_constraintBottom_toTopOf="@+id/dadosUserLayoutInputTextPix"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/dadosUserLayoutInputTextEmpresa">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/txtEmailVisualizar"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:text="Email"
+                android:editable="false"
+                android:hint="@string/text_email_field"
+                android:singleLine="true" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/dadosUserLayoutInputTextPix"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="286dp"
+            android:layout_height="82dp"
+            app:errorEnabled="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/dadosUserLayoutInputTextEmail">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/txtPixVisualizar"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:text="929922222"
+                android:editable="false"
+                android:hint="@string/text_pix_field"
+                android:singleLine="true" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Button
+            android:id="@+id/btLogOff"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/text_sair"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/dadosUserLayoutInputTextPix"
+            app:layout_constraintVertical_bias="0.185" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
 
 </FrameLayout>

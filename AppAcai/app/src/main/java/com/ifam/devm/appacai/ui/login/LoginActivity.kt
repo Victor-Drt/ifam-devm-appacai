@@ -13,6 +13,7 @@ import android.widget.Toast
 import com.google.gson.Gson
 import com.ifam.devm.appacai.R
 import com.ifam.devm.appacai.model.Usuario
+import com.ifam.devm.appacai.repository.UserViewModel
 import com.ifam.devm.appacai.repository.room.AppDatabase
 import com.ifam.devm.appacai.repository.sqlite.PREF_DATA_NAME
 import com.ifam.devm.appacai.ui.home.HomeActivity
@@ -26,7 +27,7 @@ class LoginActivity : AppCompatActivity() {
     //variaveis quue serão utilizadas
     private lateinit var email: String
     private lateinit var senha: String
-    private lateinit var loginViewModel: LoginViewModel //variavel para usar os metodos da viewModel
+    private lateinit var loginViewModel: UserViewModel //variavel para usar os metodos da viewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -57,7 +58,7 @@ class LoginActivity : AppCompatActivity() {
     private fun fazerLogin() {
         //Coletando dados do usuario
         doAsync {
-            loginViewModel = LoginViewModel(AppDatabase.getDatabase(this@LoginActivity))
+            loginViewModel = UserViewModel(AppDatabase.getDatabase(this@LoginActivity))
             val usuario = loginViewModel.consultarLoginExistente(email)
             try {
                 Log.d("email", usuario.email)

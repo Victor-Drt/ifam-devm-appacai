@@ -1,15 +1,15 @@
-package com.ifam.devm.appacai.ui.senha
+package com.ifam.devm.appacai.repository
 
 import com.ifam.devm.appacai.model.Usuario
 import com.ifam.devm.appacai.repository.room.AppDatabase
 import com.ifam.devm.appacai.repository.room.UsuarioRepository
 
-class RecuperarSenhaViewModel (appDatabase: AppDatabase) {
+class UserViewModel (appDatabase: AppDatabase) {
     private var usuarioRepository = UsuarioRepository(appDatabase)
     private lateinit var mostrarDados: Usuario //coletor dos dados
 
-    // Funçõs do view model
-    fun consultarLoginExistente(email: String): Usuario {
+    //    consulta login atraves do email
+    fun consultarLoginExistente(email:String): Usuario {
         return usuarioRepository.usuarioEstaRegistrado(email)
     }
 
@@ -17,7 +17,11 @@ class RecuperarSenhaViewModel (appDatabase: AppDatabase) {
         mostrarDados = usuarioRepository.getUsuario()
     }
 
-    fun pegaDadosUsuario(): Usuario {
+    fun CarregaDadosUsuario(){
+        mostrarDados = usuarioRepository.getDadosUsuario()
+    }
+
+    fun getTodosDadosUsuario(): Usuario{
         return mostrarDados
     }
 
@@ -29,7 +33,26 @@ class RecuperarSenhaViewModel (appDatabase: AppDatabase) {
         return usuarioRepository.getAllUsuario()
     }
 
+    // Editar Usuario
+    fun CarregaDadosEDITAR() {
+        mostrarDados = usuarioRepository.getUsuario()
+    }
+
+    fun pegaDadosUsuario(): Usuario {
+        return mostrarDados
+    }
+
+    fun atualizarDados(usuario: Usuario) {
+        usuarioRepository.update(usuario)
+    }
+
+    fun removerDados(usuario: Usuario) {
+        usuarioRepository.delete(usuario)
+    }
+
+    // Senha
     fun atualizaSenha(objUsuario: Usuario) {
         return usuarioRepository.update(objUsuario)
     }
+
 }

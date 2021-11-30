@@ -1,20 +1,12 @@
 package com.ifam.devm.appacai.ui.home
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.ifam.devm.appacai.R
-import com.ifam.devm.appacai.model.Usuario
-import com.ifam.devm.appacai.repository.room.AppDatabase
-import com.ifam.devm.appacai.repository.sqlite.PREF_DATA_NAME
-import com.ifam.devm.appacai.ui.senha.RecuperarSenhaViewModel
-import com.ifam.devm.appacai.ui.startup.StartupActivity
+import com.ifam.devm.appacai.ui.cadastro_user.EditarDadosUserActivity
 import kotlinx.android.synthetic.main.activity_home.*
-import org.jetbrains.anko.doAsync
-import org.jetbrains.anko.uiThread
-import java.lang.Exception
 
 class HomeActivity : AppCompatActivity() {
 
@@ -28,28 +20,34 @@ class HomeActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
 
+
         replaceFragment(homeFragment)
 
         bottom_navigation.setOnNavigationItemSelectedListener {
             when (it.itemId) {
                 R.id.page_admin -> {
                     replaceFragment(adminFragment)
+                    title = "Dados Loja"
                     true
                 }
                 R.id.page_vendedores -> {
                     replaceFragment(vendedoresFragment)
+                    title = "Vendedores"
                     true
                 }
                 R.id.page_home -> {
                     replaceFragment(homeFragment)
+                    title = "Home"
                     true
                 }
                 R.id.page_produtos -> {
                     replaceFragment(produtosFragment)
+                    title = "Produtos"
                     true
                 }
                 R.id.page_vendas -> {
                     replaceFragment(vendasFragment)
+                    title = "Vendas"
                     true
                 }
                 else -> false
@@ -58,17 +56,15 @@ class HomeActivity : AppCompatActivity() {
 
     }
 
-    override fun onStop() {
-        super.onStop()
-        finish()
-    }
+//    override fun onStop() {
+//        super.onStop()
+//        finish()
+//    }
 
     private fun replaceFragment(fragment: Fragment) {
-        if (fragment != null) {
-            val transaction = supportFragmentManager.beginTransaction()
-            transaction.replace(R.id.fragment_container, fragment)
-            transaction.commit()
-        }
+        val transaction = supportFragmentManager.beginTransaction()
+        transaction.replace(R.id.fragment_container, fragment)
+        transaction.commit()
     }
 }
 

@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.cadastro_user.EditarDadosUserActivity">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/toolbarDadosLojaEditar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            app:navigationIcon="@drawable/ic_arrow_back"
+            app:title="@string/text_dados_loja_editar"
+            app:titleTextColor="@color/white" />
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/editUserLayoutInputTextUserName"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="286dp"
+            android:layout_height="82dp"
+            android:layout_marginBottom="15dp"
+            app:errorEnabled="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/txtNomeCadastrar"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:hint="@string/text_nome_field"
+                android:singleLine="true" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/cadUserLayoutInputTextEmpresa"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="286dp"
+            android:layout_height="82dp"
+            app:errorEnabled="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cadUserLayoutInputTextUserName"
+            app:layout_constraintVertical_bias="0.029">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/txtNomeFantasiaCadastrar"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:hint="@string/text_nomeEmpresa_field"
+                android:singleLine="true" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/cadUserLayoutInputTextEmail"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="284dp"
+            android:layout_height="82dp"
+            app:errorEnabled="true"
+            app:layout_constraintBottom_toTopOf="@+id/cadUserLayoutInputTextPix"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cadUserLayoutInputTextEmpresa">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/txtEmailCadastrar"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:hint="@string/text_email_field"
+                android:inputType="textEmailAddress"
+                android:singleLine="true" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/cadUserLayoutInputTextPix"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="286dp"
+            android:layout_height="82dp"
+            app:errorEnabled="true"
+            app:layout_constraintBottom_toTopOf="@+id/cadUserLayoutInputTextSenha"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cadUserLayoutInputTextEmail">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/txtPixCadastrar"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:hint="@string/text_pix_field"
+                android:singleLine="true" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/cadUserLayoutInputTextConfirmaSenha"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="286dp"
+            android:layout_height="82dp"
+            app:endIconMode="password_toggle"
+            app:errorEnabled="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cadUserLayoutInputTextSenha">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/txtConfirmarSenhaCadastrar"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:hint="@string/text_confirmarSenha_field"
+                android:inputType="textPassword"
+                android:singleLine="true" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/cadUserLayoutInputTextSenha"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="286dp"
+            android:layout_height="82dp"
+            app:endIconMode="password_toggle"
+            app:errorEnabled="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.494"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cadUserLayoutInputTextPix">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/txtSenhaCadastrar"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:hint="@string/text_senha_field"
+                android:inputType="textPassword"
+                android:singleLine="true" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+    </LinearLayout>
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

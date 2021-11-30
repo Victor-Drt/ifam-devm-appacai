@@ -15,7 +15,7 @@
         android:id="@+id/page_home"
         android:enabled="true"
         android:icon="@drawable/ic_home"
-        android:title="@string/text_page_home"/>
+        android:title="@string/text_page_home" />
     <item
         android:id="@+id/page_produtos"
         android:enabled="true"

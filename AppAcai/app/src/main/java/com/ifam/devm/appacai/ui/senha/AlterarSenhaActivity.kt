@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.widget.Toast
 import com.ifam.devm.appacai.R
 import com.ifam.devm.appacai.model.Usuario
+import com.ifam.devm.appacai.repository.UserViewModel
 import com.ifam.devm.appacai.repository.room.AppDatabase
 import com.ifam.devm.appacai.ui.login.LoginActivity
 import kotlinx.android.synthetic.main.activity_alterar_senha.*
@@ -16,7 +17,7 @@ class AlterarSenhaActivity : AppCompatActivity() {
     //Variaveis a serem utilizadas
     private lateinit var senha: String
     private lateinit var confSenha: String
-    private lateinit var viewModel: RecuperarSenhaViewModel //var para usar os metodos da viewModel
+    private lateinit var viewModel: UserViewModel //var para usar os metodos da viewModel
     private lateinit var usuario: Usuario //var de usuario
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -31,10 +32,10 @@ class AlterarSenhaActivity : AppCompatActivity() {
 
             //coleta dados do banco
             doAsync {
-                viewModel = RecuperarSenhaViewModel(AppDatabase.getDatabase(this@AlterarSenhaActivity))
+                viewModel = UserViewModel(AppDatabase.getDatabase(this@AlterarSenhaActivity))
                 viewModel.carregaDadosALTERAR()
                 uiThread {
-                    usuario = viewModel.pegaDadosUsuario()
+                    usuario = viewModel.getTodosDadosUsuario()
 
                     //faz a validação
                     if (validaSenha() && validaConfSenha()) {

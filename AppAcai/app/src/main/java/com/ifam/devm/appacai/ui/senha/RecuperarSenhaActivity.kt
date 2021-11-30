@@ -11,6 +11,7 @@ import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
 import com.ifam.devm.appacai.R
 import com.ifam.devm.appacai.model.Usuario
+import com.ifam.devm.appacai.repository.UserViewModel
 import com.ifam.devm.appacai.repository.room.AppDatabase
 import kotlinx.android.synthetic.main.activity_recuperar_senha.*
 import org.jetbrains.anko.AnkoAsyncContext
@@ -20,7 +21,7 @@ import org.jetbrains.anko.uiThread
 class RecuperarSenhaActivity : AppCompatActivity() {
     //variaveis a serem utilizadas
     private lateinit var email: String
-    private lateinit var recuperarSenhaViewModel: RecuperarSenhaViewModel //variavel para uso da viewModel
+    private lateinit var recuperarSenhaViewModel: UserViewModel //variavel para uso da viewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -65,7 +66,7 @@ class RecuperarSenhaActivity : AppCompatActivity() {
         //coleta dados do banco
         doAsync {
             recuperarSenhaViewModel =
-                RecuperarSenhaViewModel(AppDatabase.getDatabase(this@RecuperarSenhaActivity))
+                UserViewModel(AppDatabase.getDatabase(this@RecuperarSenhaActivity))
             val usuario = recuperarSenhaViewModel.consultarLoginExistente(email)
             try {
                 Log.d("email", usuario.email)
