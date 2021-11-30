@@ -9,6 +9,7 @@ import com.ifam.devm.appacai.model.Usuario
 import com.ifam.devm.appacai.repository.room.AppDatabase
 import com.ifam.devm.appacai.ui.login.LoginActivity
 import kotlinx.android.synthetic.main.activity_cadastrar_usuario.*
+import kotlinx.android.synthetic.main.activity_editar_dados_user.*
 import org.jetbrains.anko.doAsync
 import java.util.regex.Matcher
 
@@ -25,6 +26,12 @@ class CadastrarUsuarioActivity : AppCompatActivity() {
         setContentView(R.layout.activity_cadastrar_usuario)
 
         setNullFields()
+
+        //seta da action bar
+        toolbarDadosLojaCadastrar.setNavigationOnClickListener {
+            onBackPressed()
+            finish()
+        }
 
 //      quando o botão cadastrar for clicado é iniciado o processo abaixo
         btCadastrar.setOnClickListener {

@@ -78,7 +78,6 @@ class AdminFragment : Fragment() {
                 UserViewModel(AppDatabase.getDatabase(this@AdminFragment.requireContext()))
             viewModel.CarregaDadosUsuario()
             uiThread {
-
                 usuario = viewModel.getTodosDadosUsuario()
                 println(usuario.nomeUsuario)
                 println(usuario.email)

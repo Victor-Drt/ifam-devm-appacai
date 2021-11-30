@@ -26,7 +26,11 @@ class RecuperarSenhaActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_recuperar_senha)
-        title = "Recuperar Senha"
+
+        toolbarDadosLojaAlterarSenha.setNavigationOnClickListener {
+            onBackPressed()
+            finish()
+        }
 
         btContinuar.setOnClickListener {
             recUserLayoutInpTextEmail.error = null

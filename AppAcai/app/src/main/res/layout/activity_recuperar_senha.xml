@@ -6,11 +6,34 @@
     android:layout_height="match_parent"
     tools:context=".ui.senha.RecuperarSenhaActivity">
 
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBarAlterarSenha"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginBottom="?attr/actionBarSize">
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/toolbarDadosLojaAlterarSenha"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            app:navigationIcon="@drawable/ic_arrow_back"
+            app:title="@string/text_dados_loja_recuperarSenha"
+            app:titleTextColor="@color/white" />
+
+    </com.google.android.material.appbar.AppBarLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/linearLayout2"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_width="410dp"
+        android:layout_height="674dp"
+        android:foregroundGravity="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/appBarAlterarSenha">
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/materialTextView"
@@ -51,9 +74,9 @@
             android:id="@+id/btContinuar"
             android:layout_width="202dp"
             android:layout_height="60dp"
-            android:layout_marginBottom="65dp"
             android:layout_marginStart="79dp"
             android:layout_marginEnd="79dp"
+            android:layout_marginBottom="65dp"
             android:height="60dp"
             android:text="@string/text_continuar_rec"
             android:textSize="16sp"
@@ -63,4 +86,5 @@
             app:layout_constraintStart_toStartOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

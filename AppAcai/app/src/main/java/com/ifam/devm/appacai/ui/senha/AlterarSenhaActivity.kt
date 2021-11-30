@@ -10,6 +10,7 @@ import com.ifam.devm.appacai.repository.UserViewModel
 import com.ifam.devm.appacai.repository.room.AppDatabase
 import com.ifam.devm.appacai.ui.login.LoginActivity
 import kotlinx.android.synthetic.main.activity_alterar_senha.*
+import kotlinx.android.synthetic.main.activity_cadastrar_usuario.*
 import org.jetbrains.anko.doAsync
 import org.jetbrains.anko.uiThread
 
@@ -23,7 +24,12 @@ class AlterarSenhaActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_alterar_senha)
-        title = "Atualizar Senha"
+
+        //seta da action bar
+        toolbarDadosLojaRecSenha.setNavigationOnClickListener {
+            onBackPressed()
+            finish()
+        }
 
         btAlterarSenha.setOnClickListener {
             //seta os input layouts como null

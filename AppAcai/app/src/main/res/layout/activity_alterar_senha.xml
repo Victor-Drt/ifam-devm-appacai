@@ -6,81 +6,112 @@
     android:layout_height="match_parent"
     tools:context=".ui.senha.AlterarSenhaActivity">
 
-    <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/materialTextView3"
-        android:layout_width="286dp"
-        android:layout_height="45dp"
-        android:layout_marginStart="37dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginEnd="37dp"
-        android:text="@string/text_recuperarSenha2"
-        android:textAlignment="center"
-        android:textColor="@color/purple_200"
-        android:textSize="16sp"
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBarRecSenha"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginBottom="?attr/actionBarSize">
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/updateSenhaUsuarioLayoutInpTextSenha"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_width="286dp"
-        android:layout_height="82dp"
-        android:layout_marginStart="37dp"
-        android:layout_marginTop="17dp"
-        android:layout_marginEnd="37dp"
-        app:endIconMode="password_toggle"
-        app:errorEnabled="true"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/materialTextView3">
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/toolbarDadosLojaRecSenha"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            app:navigationIcon="@drawable/ic_arrow_back"
+            app:title="@string/text_dados_loja_alterarSenha"
+            app:titleTextColor="@color/white" />
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/txtSenhaAtualizar"
-            android:layout_width="286dp"
-            android:layout_height="56dp"
-            android:hint="@string/text_senha_field"
-            android:textSize="16sp" />
-    </com.google.android.material.textfield.TextInputLayout>
+    </com.google.android.material.appbar.AppBarLayout>
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/updateSenhaUsuarioLayoutInpTextSenhaConfirmar"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_width="286dp"
-        android:layout_height="82dp"
-        android:layout_marginStart="37dp"
-        android:layout_marginEnd="37dp"
-        app:endIconMode="password_toggle"
-        app:errorEnabled="true"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/updateSenhaUsuarioLayoutInpTextSenha">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/txtConfirmarSenhaAtualizar"
-            android:layout_width="286dp"
-            android:layout_height="56dp"
-            android:hint="@string/text_confirmarSenha_field"
-            android:textSize="16sp" />
-
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/btAlterarSenha"
-        android:layout_width="202dp"
-        android:layout_height="60dp"
-        android:layout_marginStart="79dp"
-        android:layout_marginEnd="79dp"
-        android:layout_marginBottom="65dp"
-        android:height="60dp"
-        android:text="@string/text_alterar_senha"
-        android:textSize="16sp"
-        app:cornerRadius="45dp"
+    <LinearLayout
+        android:layout_width="413dp"
+        android:layout_height="676dp"
+        android:gravity="center"
+        android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/appBarRecSenha">
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/materialTextView3"
+            android:layout_width="286dp"
+            android:layout_height="45dp"
+            android:layout_marginStart="37dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginEnd="37dp"
+            android:text="@string/text_recuperarSenha2"
+            android:textAlignment="center"
+            android:textColor="@color/purple_200"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/updateSenhaUsuarioLayoutInpTextSenha"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="286dp"
+            android:layout_height="82dp"
+            android:layout_marginStart="37dp"
+            android:layout_marginTop="17dp"
+            android:layout_marginEnd="37dp"
+            app:endIconMode="password_toggle"
+            app:errorEnabled="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/materialTextView3">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/txtSenhaAtualizar"
+                android:layout_width="286dp"
+                android:layout_height="56dp"
+                android:hint="@string/text_senha_field"
+                android:textSize="16sp" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/updateSenhaUsuarioLayoutInpTextSenhaConfirmar"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="286dp"
+            android:layout_height="82dp"
+            android:layout_marginStart="37dp"
+            android:layout_marginEnd="37dp"
+            app:endIconMode="password_toggle"
+            app:errorEnabled="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/updateSenhaUsuarioLayoutInpTextSenha">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/txtConfirmarSenhaAtualizar"
+                android:layout_width="286dp"
+                android:layout_height="56dp"
+                android:hint="@string/text_confirmarSenha_field"
+                android:textSize="16sp" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btAlterarSenha"
+            android:layout_width="202dp"
+            android:layout_height="60dp"
+            android:layout_marginStart="79dp"
+            android:layout_marginEnd="79dp"
+            android:layout_marginBottom="65dp"
+            android:height="60dp"
+            android:text="@string/text_alterar_senha"
+            android:textSize="16sp"
+            app:cornerRadius="45dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
