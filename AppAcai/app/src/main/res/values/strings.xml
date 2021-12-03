@@ -34,4 +34,8 @@
     <string name="text_dados_loja_cadastrar">Cadastrar Administrador/Loja</string>
     <string name="text_dados_loja_recuperarSenha">Recuperar Senha</string>
     <string name="text_dados_loja_alterarSenha">Alterar Senha</string>
+    <string name="pesquisar_dados">Pesquisar</string>
+    <string name="editar">Editar</string>
+    <string name="excluir">Excluir</string>
+    <string name="texto_excluir">Tem certeza que deseja excluir esta informação?</string>
 </resources>

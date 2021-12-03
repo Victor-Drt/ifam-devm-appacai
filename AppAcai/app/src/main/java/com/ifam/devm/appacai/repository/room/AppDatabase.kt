@@ -11,17 +11,19 @@ import com.ifam.devm.appacai.repository.sqlite.DATABASE_NAME
 import com.ifam.devm.appacai.repository.sqlite.DATABASE_VERSION
 import org.jetbrains.anko.doAsync
 
-@Database(entities = [
-    Usuario::class
-], version = DATABASE_VERSION, exportSchema = false)
-abstract class AppDatabase: RoomDatabase() {
+@Database(
+    entities = [
+        Usuario::class
+    ], version = DATABASE_VERSION, exportSchema = false
+)
+abstract class AppDatabase : RoomDatabase() {
     abstract fun usuarioDao(): UsuarioDao
 
     companion object {
         private var instance: AppDatabase? = null
 
         fun getDatabase(context: Context): AppDatabase {
-            if(instance == null) {
+            if (instance == null) {
                 synchronized(this) {
                     instance =
                         Room.databaseBuilder(
@@ -29,14 +31,26 @@ abstract class AppDatabase: RoomDatabase() {
                             AppDatabase::class.java,
                             DATABASE_NAME
                         )
-                            .addCallback(object: Callback(){
+                            .addCallback(object : Callback() {
                                 override fun onCreate(db: SupportSQLiteDatabase) {
                                     super.onCreate(db)
+
+                                    doAsync {
+//                                        PREPOPULATE_FUNCIONARIO.forEach {
+//                                            getDatabase(context).funcionarioDao().insert(it)
+//                                        }
+                                    }
                                 }
                             }).build()
                 }
             }
             return instance as AppDatabase
         }
+
+//        val PREPOPULATE_FUNCIONARIO = listOf(
+//            Funcionario(
+//                1, "João", "001.002.003-04", "+55 (92) 987654321"
+//            )
+//        )
     }
 }
