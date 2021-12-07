@@ -22,7 +22,7 @@ import java.util.*
 
 class VendedoresFragment : Fragment() {
 
-    private lateinit var funcionariosCadastrados: MutableList<Funcionario>
+//    private lateinit var funcionariosCadastrados: MutableList<Funcionario>
     private lateinit var funcionariosAdapter: FuncionariosAdapter
 
     override fun onCreateView(

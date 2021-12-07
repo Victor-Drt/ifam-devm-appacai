@@ -38,4 +38,5 @@
     <string name="editar">Editar</string>
     <string name="excluir">Excluir</string>
     <string name="texto_excluir">Tem certeza que deseja excluir esta informação?</string>
+    <string name="text_gerar_relatorio">Gerar relatorio</string>
 </resources>

@@ -6,7 +6,7 @@
         <entry key="..\:/Users/user/Desktop/ProjetoDevMobile/ifam-devm-appacai/AppAcai/app/src/main/res/layout/activity_alterar_senha.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/user/Desktop/ProjetoDevMobile/ifam-devm-appacai/AppAcai/app/src/main/res/layout/activity_cadastrar_usuario.xml" value="0.33" />
         <entry key="..\:/Users/user/Desktop/ProjetoDevMobile/ifam-devm-appacai/AppAcai/app/src/main/res/layout/activity_editar_dados_user.xml" value="0.36666666666666664" />
-        <entry key="..\:/Users/user/Desktop/ProjetoDevMobile/ifam-devm-appacai/AppAcai/app/src/main/res/layout/activity_home.xml" value="0.27291666666666664" />
+        <entry key="..\:/Users/user/Desktop/ProjetoDevMobile/ifam-devm-appacai/AppAcai/app/src/main/res/layout/activity_home.xml" value="0.33" />
         <entry key="..\:/Users/user/Desktop/ProjetoDevMobile/ifam-devm-appacai/AppAcai/app/src/main/res/layout/activity_login.xml" value="0.27291666666666664" />
         <entry key="..\:/Users/user/Desktop/ProjetoDevMobile/ifam-devm-appacai/AppAcai/app/src/main/res/layout/activity_main.xml" value="0.27291666666666664" />
         <entry key="..\:/Users/user/Desktop/ProjetoDevMobile/ifam-devm-appacai/AppAcai/app/src/main/res/layout/activity_recuperar_senha.xml" value="0.36666666666666664" />
@@ -17,10 +17,11 @@
         <entry key="..\:/Users/user/Desktop/ProjetoDevMobile/ifam-devm-appacai/AppAcai/app/src/main/res/layout/fragment_home.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/user/Desktop/ProjetoDevMobile/ifam-devm-appacai/AppAcai/app/src/main/res/layout/fragment_produtos.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/user/Desktop/ProjetoDevMobile/ifam-devm-appacai/AppAcai/app/src/main/res/layout/fragment_vendas.xml" value="0.36666666666666664" />
-        <entry key="..\:/Users/user/Desktop/ProjetoDevMobile/ifam-devm-appacai/AppAcai/app/src/main/res/layout/fragment_vendedores.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/user/Desktop/ProjetoDevMobile/ifam-devm-appacai/AppAcai/app/src/main/res/layout/fragment_vendedores.xml" value="0.25" />
         <entry key="..\:/Users/user/Desktop/ProjetoDevMobile/ifam-devm-appacai/AppAcai/app/src/main/res/layout/linha_listar_vendedor.xml" value="0.25" />
         <entry key="..\:/Users/user/Desktop/ProjetoDevMobile/ifam-devm-appacai/AppAcai/app/src/main/res/menu/menu_bottom_navigation.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/user/Desktop/ProjetoDevMobile/ifam-devm-appacai/AppAcai/app/src/main/res/menu/menu_editar_dados.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/user/Desktop/ProjetoDevMobile/ifam-devm-appacai/AppAcai/app/src/main/res/menu/menu_imprimir_relatorio.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/user/Desktop/ProjetoDevMobile/ifam-devm-appacai/AppAcai/app/src/main/res/menu/menu_opcoes_linha.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/user/Desktop/ProjetoDevMobile/ifam-devm-appacai/AppAcai/app/src/main/res/menu/menu_pesquisar_dados.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/user/Documents/TESTESANDROID/AppAcai/app/src/main/res/layout/activity_main.xml" value="0.36666666666666664" />

@@ -15,15 +15,79 @@
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             app:titleTextColor="@color/white"
+            app:menu="@menu/menu_imprimir_relatorio"
             app:title="@string/text_page_vendas"/>
 
     </com.google.android.material.appbar.AppBarLayout>
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_marginTop="?attr/actionBarSize"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="VENDAS" />
+        android:layout_marginTop="?attr/actionBarSize"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Total vendas:"
+            android:textSize="12pt"
+            android:textColor=""/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="R$"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2500.00"/>
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Mais vendidos"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <view class="androidx.appcompat.app.AlertController$RecycleListView"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                tools:listitem="@layout/linha_listar_vendedor">
+
+            </view>
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Maiores vendedores"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <view class="androidx.appcompat.app.AlertController$RecycleListView"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                tools:listitem="@layout/linha_listar_vendedor">
+
+            </view>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
 
 </FrameLayout>
