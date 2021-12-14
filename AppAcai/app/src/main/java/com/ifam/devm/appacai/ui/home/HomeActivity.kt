@@ -2,14 +2,16 @@ package com.ifam.devm.appacai.ui.home
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuInflater
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.ifam.devm.appacai.R
 import com.ifam.devm.appacai.ui.cadastro_user.EditarDadosUserActivity
 import kotlinx.android.synthetic.main.activity_home.*
 import android.view.ViewGroup
-
-
+import android.widget.Toolbar
+import kotlinx.android.synthetic.main.fragment_produtos.*
 
 
 class HomeActivity : AppCompatActivity() {
@@ -47,6 +49,8 @@ class HomeActivity : AppCompatActivity() {
                 R.id.page_produtos -> {
                     replaceFragment(produtosFragment)
                     title = "Produtos"
+                    setSupportActionBar(toolbarProdutos)
+
                     true
                 }
                 R.id.page_vendas -> {
@@ -57,7 +61,6 @@ class HomeActivity : AppCompatActivity() {
                 else -> false
             }
         }
-
     }
 
 //    override fun onStop() {

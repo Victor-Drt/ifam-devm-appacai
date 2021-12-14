@@ -46,4 +46,5 @@
     <string name="text_tipo_produto">Tipo</string>
     <string name="text_editar_produto">Editar Produto</string>
     <string name="text_visualizar_produto">Visualizar Produto</string>
+    <string name="text_pesquisar_hint">Pesquisar</string>
 </resources>
