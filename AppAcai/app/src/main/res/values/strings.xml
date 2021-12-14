@@ -39,4 +39,11 @@
     <string name="excluir">Excluir</string>
     <string name="texto_excluir">Tem certeza que deseja excluir esta informação?</string>
     <string name="text_gerar_relatorio">Gerar relatorio</string>
+    <string name="text_cadastrar_produto">Cadastrar Produto</string>
+    <string name="text_descricao_field">Descrição*</string>
+    <string name="text_valor_field">Valor*</string>
+    <string name="text_insert_image">clique aqui para inserir uma imagem</string>
+    <string name="text_tipo_produto">Tipo</string>
+    <string name="text_editar_produto">Editar Produto</string>
+    <string name="text_visualizar_produto">Visualizar Produto</string>
 </resources>

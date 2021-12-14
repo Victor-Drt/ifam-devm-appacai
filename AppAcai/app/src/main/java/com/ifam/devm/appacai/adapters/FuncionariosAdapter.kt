@@ -15,7 +15,7 @@ import com.ifam.devm.appacai.R
 import kotlinx.android.synthetic.main.dialog_confirmar_exclusao.view.*
 import kotlinx.android.synthetic.main.linha_listar_vendedor.view.*
 
-class FuncionariosAdapter(
+/*class FuncionariosAdapter(
     private val context: Context,
     private val listaFuncionarios: MutableList<Funcionario>,
     val editarClick: ((Funcionario) -> Unit),
@@ -105,3 +105,6 @@ class FuncionariosAdapter(
         }
     }
 }
+
+*
+*/

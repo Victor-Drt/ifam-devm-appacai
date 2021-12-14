@@ -11,7 +11,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.gson.Gson
 import com.ifam.devm.appacai.R
-import com.ifam.devm.appacai.adapters.FuncionariosAdapter
+//import com.ifam.devm.appacai.adapters.FuncionariosAdapter
 import com.ifam.devm.appacai.repository.room.AppDatabase
 import com.ifam.devm.appacai.repository.sqlite.PREF_DATA_NAME
 import kotlinx.android.synthetic.main.fragment_vendedores.*
@@ -23,7 +23,7 @@ import java.util.*
 class VendedoresFragment : Fragment() {
 
 //    private lateinit var funcionariosCadastrados: MutableList<Funcionario>
-    private lateinit var funcionariosAdapter: FuncionariosAdapter
+//    private lateinit var funcionariosAdapter: FuncionariosAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

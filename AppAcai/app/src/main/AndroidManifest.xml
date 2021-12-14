@@ -10,6 +10,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppAcai">
         <activity
+            android:name=".ui.cadastro_produto.VisualizarProdutoActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.cadastro_produto.EditarProdutoActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.cadastro_produto.CadastrarProdutoActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.cadastro_user.EditarDadosUserActivity"
             android:exported="false" />
         <activity
@@ -38,7 +47,7 @@
             android:exported="false" />
         <activity
             android:name=".ui.startup.StartupActivity"
-            android:exported="true"></activity>
+            android:exported="true" />
     </application>
 
 </manifest>

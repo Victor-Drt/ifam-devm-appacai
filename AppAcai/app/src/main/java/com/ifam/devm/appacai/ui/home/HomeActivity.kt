@@ -7,6 +7,10 @@ import androidx.fragment.app.Fragment
 import com.ifam.devm.appacai.R
 import com.ifam.devm.appacai.ui.cadastro_user.EditarDadosUserActivity
 import kotlinx.android.synthetic.main.activity_home.*
+import android.view.ViewGroup
+
+
+
 
 class HomeActivity : AppCompatActivity() {
 
@@ -60,6 +64,7 @@ class HomeActivity : AppCompatActivity() {
 //        super.onStop()
 //        finish()
 //    }
+
 
     private fun replaceFragment(fragment: Fragment) {
         val transaction = supportFragmentManager.beginTransaction()
