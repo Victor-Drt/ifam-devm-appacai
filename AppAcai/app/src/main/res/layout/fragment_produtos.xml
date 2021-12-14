@@ -23,28 +23,31 @@
     </com.google.android.material.appbar.AppBarLayout>
 
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvListaProdutos"
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="?attr/actionBarSize"
-        tools:listitem="@layout/linha_listar_produto"/>
+        android:layout_marginTop="?attr/actionBarSize">
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fbAddProduto"
-        android:layout_width="56dp"
-        android:layout_height="56dp"
-        android:layout_marginStart="320dp"
-        android:layout_marginTop="600dp"
-        android:layout_marginEnd="20dp"
-        android:backgroundTint="@color/acai_color_variante"
-        android:foreground="@drawable/ic_add"
-        android:foregroundGravity="center"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/appBarProdutos" />
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvListaProdutos"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="?attr/actionBarSize"
+            tools:listitem="@layout/linha_listar_produto" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fbAddProduto"
+            android:layout_width="122dp"
+            android:layout_height="161dp"
+            android:layout_alignBottom="@+id/rvListaProdutos"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="38dp"
+            android:layout_marginBottom="51dp"
+            android:backgroundTint="@color/acai_color_variante"
+            android:foreground="@drawable/ic_add"
+            android:foregroundGravity="center" />
+
+    </RelativeLayout>
 
 
 </FrameLayout>

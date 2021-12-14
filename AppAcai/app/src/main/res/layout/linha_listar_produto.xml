@@ -9,7 +9,7 @@
         android:id="@+id/linhaProduto"
         android:layout_width="match_parent"
         android:layout_height="80dp"
-        android:layout_marginHorizontal="15dp"
+        android:paddingHorizontal="15dp"
         android:layout_gravity="center_horizontal"
         android:layout_marginBottom="33dp">
 
