@@ -10,6 +10,7 @@ import android.widget.Toast
 import androidx.annotation.UiThread
 import com.ifam.devm.appacai.R
 import com.ifam.devm.appacai.model.Produto
+import com.ifam.devm.appacai.model.TipoProduto
 import com.ifam.devm.appacai.repository.room.AppDatabase
 import kotlinx.android.synthetic.main.activity_cadastrar_produto.*
 import org.jetbrains.anko.doAsync
@@ -32,10 +33,11 @@ class CadastrarProdutoActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_cadastrar_produto)
 
-        val itens: Array<String> = arrayOf("tipo 1", "tipo 2", "tipo 3")
-        val adapter: ArrayAdapter<String> =
-            ArrayAdapter(this, R.layout.support_simple_spinner_dropdown_item, itens)
 
+//        spinner
+        val itens: Array<TipoProduto> = TipoProduto.values()
+        val adapter: ArrayAdapter<TipoProduto> =
+            ArrayAdapter(this, R.layout.support_simple_spinner_dropdown_item, itens)
         typesFilterSpinner.setAdapter(adapter)
 
         typesFilterSpinner.onItemClickListener =

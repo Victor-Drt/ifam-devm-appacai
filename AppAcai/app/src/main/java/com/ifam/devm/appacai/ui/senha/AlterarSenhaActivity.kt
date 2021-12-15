@@ -1,14 +1,14 @@
 package com.ifam.devm.appacai.ui.senha
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import com.ifam.devm.appacai.R
 import com.ifam.devm.appacai.model.Usuario
 import com.ifam.devm.appacai.repository.UserViewModel
 import com.ifam.devm.appacai.repository.room.AppDatabase
-import com.ifam.devm.appacai.ui.login.LoginActivity
+import com.ifam.devm.appacai.ui.startup.SplashActivity
 import kotlinx.android.synthetic.main.activity_alterar_senha.*
 import kotlinx.android.synthetic.main.activity_cadastrar_usuario.*
 import org.jetbrains.anko.doAsync
@@ -27,8 +27,7 @@ class AlterarSenhaActivity : AppCompatActivity() {
 
         //seta da action bar
         toolbarDadosLojaRecSenha.setNavigationOnClickListener {
-            onBackPressed()
-            finish()
+            startActivity(Intent(this@AlterarSenhaActivity, SplashActivity::class.java))
         }
 
         btAlterarSenha.setOnClickListener {
@@ -55,7 +54,7 @@ class AlterarSenhaActivity : AppCompatActivity() {
                             //atualiza a senha
                             viewModel.atualizaSenha(usuario)
                         }
-                        startActivity(Intent(this@AlterarSenhaActivity, LoginActivity::class.java))
+                        startActivity(Intent(this@AlterarSenhaActivity, SplashActivity::class.java))
                         finish()
                     }
                 }

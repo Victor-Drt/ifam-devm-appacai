@@ -13,6 +13,7 @@ import android.widget.Toast
 import com.google.gson.Gson
 import com.ifam.devm.appacai.R
 import com.ifam.devm.appacai.model.Produto
+import com.ifam.devm.appacai.model.TipoProduto
 import com.ifam.devm.appacai.repository.room.AppDatabase
 import kotlinx.android.synthetic.main.activity_cadastrar_produto.*
 import kotlinx.android.synthetic.main.activity_editar_produto.*
@@ -38,8 +39,8 @@ class EditarProdutoActivity : AppCompatActivity() {
             finish()
         }
 
-        val itens: Array<String> = arrayOf("tipo 1", "tipo 2", "tipo 3")
-        val adapter: ArrayAdapter<String> =
+        val itens: Array<TipoProduto> = TipoProduto.values()
+        val adapter: ArrayAdapter<TipoProduto> =
             ArrayAdapter(this, R.layout.support_simple_spinner_dropdown_item, itens)
 
         typesFilterSpinnerEdit.setAdapter(adapter)

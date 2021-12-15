@@ -34,7 +34,7 @@
             android:text="Total vendas:"
             android:textSize="12pt"
             android:textStyle="bold"
-            android:textColor="@color/acai_color"/>
+            android:textColor="@color/black"/>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -54,47 +54,52 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="5dp"
                 android:text="2500.00"
+                android:textStyle="bold"
                 android:textSize="18pt"
                 android:textColor="@color/acai_color"/>
 
         </LinearLayout>
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Mais vendidos"
+            android:text="Mais vendidos:"
             android:textStyle="bold"
             android:textSize="12pt"
-            android:textColor="@color/acai_color"
+            android:background="@color/cream"
+            android:textColor="@color/black"
             android:layout_marginTop="20dp"
-            android:layout_marginStart="20dp"/>
+            android:paddingStart="20dp"/>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
             <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvProdutosVendasFragment"
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
-                tools:listitem="@layout/linha_listar_vendedor"/>
+                tools:listitem="@layout/linha_listar_produto"/>
 
         </LinearLayout>
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Maiores vendedores"
             android:textStyle="bold"
             android:textSize="12pt"
-            android:textColor="@color/acai_color"
+            android:textColor="@color/black"
             android:layout_marginTop="20dp"
-            android:layout_marginStart="20dp"/>
+            android:background="@color/cream"
+            android:paddingStart="20dp"/>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
             <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvVendedoresVendasFragment"
                 android:layout_width="match_parent"
                 android:layout_height="180dp"
                 tools:listitem="@layout/linha_listar_vendedor"/>

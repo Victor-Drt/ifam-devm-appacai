@@ -47,4 +47,9 @@
     <string name="text_editar_produto">Editar Produto</string>
     <string name="text_visualizar_produto">Visualizar Produto</string>
     <string name="text_pesquisar_hint">Pesquisar</string>
+
+    <string-array name="titles_tab">
+        <item>Login</item>
+        <item>Cadastrar</item>
+    </string-array>
 </resources>
