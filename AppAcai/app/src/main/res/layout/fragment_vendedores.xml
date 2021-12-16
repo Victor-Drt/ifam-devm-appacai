@@ -7,6 +7,7 @@
     tools:context=".ui.home.VendedoresFragment">
 
     <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBarVendedores"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
@@ -15,15 +16,34 @@
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             app:titleTextColor="@color/white"
+            app:menu="@menu/menu_pesquisar_dados"
             app:title="@string/text_page_vendedores"/>
 
     </com.google.android.material.appbar.AppBarLayout>
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_marginTop="?attr/actionBarSize"
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvListaFuncionarios"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="VENDEDORES" />
+        android:layout_marginTop="?attr/actionBarSize"
+        tools:listitem="@layout/linha_listar_vendedor"/>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fbAddItem"
+        android:layout_width="56dp"
+        android:layout_height="56dp"
+        android:layout_marginStart="320dp"
+        android:layout_marginTop="600dp"
+        android:layout_marginEnd="20dp"
+        android:backgroundTint="@color/acai_color_variante"
+        android:foreground="@drawable/ic_add"
+        android:foregroundGravity="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/appBarVendedores" />
+
 
 </FrameLayout>

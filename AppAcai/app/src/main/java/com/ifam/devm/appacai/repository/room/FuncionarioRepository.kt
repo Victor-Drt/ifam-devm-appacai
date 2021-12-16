@@ -6,10 +6,10 @@ import com.ifam.devm.appacai.repository.FuncionarioDataSource
 class FuncionarioRepository(database: AppDatabase): FuncionarioDataSource {
     private val funcionarioDao = database.funcionarioDao()
 
-    override fun funcionarioId(): Long = funcionarioDao.funcionariosIds()
+    override fun funcionarioId(): Long = funcionarioDao.funcionarioIds()
 
     override fun funcionarioByCpf(cpf: String): Funcionario? {
-        return funcionarioDao.getFuncionarioEmail(cpf)
+        return funcionarioDao.getFuncionarioByEmail(cpf)
     }
 
     override fun getFuncionario(): Funcionario {
@@ -17,7 +17,7 @@ class FuncionarioRepository(database: AppDatabase): FuncionarioDataSource {
     }
 
     fun getAllFuncionario(): List<Funcionario>{
-        return funcionarioDao.getAllfuncionarios()
+        return funcionarioDao.getAllFuncionario()
     }
 
     override fun save(obj: Funcionario) {

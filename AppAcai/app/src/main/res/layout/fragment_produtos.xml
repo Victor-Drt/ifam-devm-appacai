@@ -1,29 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.home.ProdutosFragment">
+    tools:context=".ui.home.VendedoresFragment"
+    android:layout_gravity="center">
 
     <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBarProdutos"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
         <com.google.android.material.appbar.MaterialToolbar
-            android:id="@+id/toolbarHome"
+            android:id="@+id/toolbarProdutos"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             app:titleTextColor="@color/white"
+            app:menu="@menu/menu_pesquisar_dados"
             app:title="@string/text_page_produtos"/>
 
     </com.google.android.material.appbar.AppBarLayout>
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_marginTop="?attr/actionBarSize"
+
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="PRODUTOS" />
+        android:layout_marginTop="?attr/actionBarSize">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvListaProdutos"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="?attr/actionBarSize"
+            tools:listitem="@layout/linha_listar_produto" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fbAddProduto"
+            android:layout_width="122dp"
+            android:layout_height="161dp"
+            android:layout_alignBottom="@+id/rvListaProdutos"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="38dp"
+            android:layout_marginBottom="51dp"
+            android:backgroundTint="@color/acai_color_variante"
+            android:foreground="@drawable/ic_add"
+            android:foregroundGravity="center" />
+
+    </RelativeLayout>
+
 
 </FrameLayout>

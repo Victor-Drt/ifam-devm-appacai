@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.cadastro_produto.CadastrarProdutoActivity">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBarCadastrarProduto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="?attr/actionBarSize"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/toolbarCadastrarProduto"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            app:navigationIcon="@drawable/ic_arrow_back"
+            app:title="@string/text_cadastrar_produto"
+            app:titleTextColor="@color/white" />
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="?attr/actionBarSize"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/appBarCadastrarProduto">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <ImageView
+                android:id="@+id/imageProdutoCad"
+                android:layout_width="96dp"
+                android:layout_height="96dp"
+                android:layout_marginTop="20dp"
+                android:visibility="visible"
+                tools:srcCompat="@drawable/acai" />
+
+            <TextView
+                android:id="@+id/textCliqueInserirImagem"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/text_insert_image"/>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/cadProdutoLayoutInputTextName"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="286dp"
+                android:layout_height="82dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="15dp"
+                app:errorEnabled="true">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/txtNomeCadProduto"
+                    android:layout_width="match_parent"
+                    android:layout_height="56dp"
+                    android:hint="@string/text_nome_field"
+                    android:singleLine="true" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/cadProdutoLayoutInputTextDescricao"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="286dp"
+                android:layout_height="82dp"
+                android:layout_marginBottom="15dp"
+                app:errorEnabled="true">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/txtDescricaoCadProduto"
+                    android:layout_width="match_parent"
+                    android:layout_height="56dp"
+                    android:hint="@string/text_descricao_field"
+                    android:singleLine="true" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/typesFilterContainer"
+                style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu"
+                android:layout_width="286dp"
+                android:layout_height="40dp"
+                app:boxBackgroundColor="@color/white"
+                android:background="@drawable/bg_drop_down"
+                app:boxCornerRadiusBottomEnd="5dp"
+                app:boxCornerRadiusBottomStart="5dp"
+                app:boxCornerRadiusTopEnd="5dp"
+                app:boxCornerRadiusTopStart="5dp"
+                app:boxStrokeWidth="2dp"
+                app:boxStrokeWidthFocused="2dp"
+                app:endIconDrawable="@drawable/ic_chevron_right"
+                app:endIconTint="@color/acai_color">
+
+                <AutoCompleteTextView
+                    android:id="@+id/typesFilterSpinner"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@null"
+                    android:dropDownSelector="@drawable/bg_drop_down"
+                    android:ellipsize="end"
+                    android:inputType="none"
+                    android:maxLines="1"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp"
+                    android:singleLine="true"
+                    android:text="@string/text_tipo_produto"
+                    android:textAlignment="center"
+                    tools:ignore="LabelFor" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/cadProdutoLayoutInputTextValor"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="284dp"
+                android:layout_marginTop="15dp"
+                android:layout_height="82dp"
+                app:prefixText="R$ "
+                android:gravity="center_vertical"
+                app:errorEnabled="true">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/txtValorCadProduto"
+                    android:layout_width="match_parent"
+                    android:layout_height="56dp"
+                    android:paddingTop="12dp"
+                    android:hint="@string/text_valor_field"
+                    android:inputType="numberDecimal"
+                    android:singleLine="true" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btCadastrarProduto"
+                android:layout_width="202dp"
+                android:layout_height="60dp"
+                android:layout_marginBottom="40dp"
+                android:height="60dp"
+                android:text="@string/cadastrar"
+                app:cornerRadius="100dp" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

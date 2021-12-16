@@ -21,7 +21,7 @@
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
         app:menu="@menu/menu_bottom_navigation"
-        android:background="@color/purple_500"
+        android:background="@color/acai_color"
         app:itemIconTint="@color/white"
         app:itemTextColor="@color/white"/>
 
