@@ -17,6 +17,7 @@
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             app:titleTextColor="@color/white"
+            app:menu="@menu/menu_pesquisar_dados"
             app:title="@string/text_page_produtos"/>
 
     </com.google.android.material.appbar.AppBarLayout>
