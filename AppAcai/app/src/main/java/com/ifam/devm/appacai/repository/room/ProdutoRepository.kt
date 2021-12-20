@@ -10,6 +10,11 @@ class ProdutoRepository(database: AppDatabase) : ProdutoDataSource {
      * funcoes do data source
      *
      * **/
+    fun deleteAllProdutos() {
+        return produtoDao.deleteAllProd()
+    }
+
+
     override fun getAllProduto(): List<Produto> {
         return produtoDao.getAllProduto()
     }

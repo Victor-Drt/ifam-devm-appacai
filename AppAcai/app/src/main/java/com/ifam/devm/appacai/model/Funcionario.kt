@@ -10,9 +10,9 @@ import kotlinx.android.parcel.Parcelize
 
 @Parcelize
 @Entity(tableName = TABLE_FUNCIONARIO)
-data class Funcionario (
+data class Funcionario(
     @PrimaryKey(autoGenerate = true)
-    @ColumnInfo(name =  COLLUMN_ID_FUNCIONARIO)
+    @ColumnInfo(name = COLLUMN_ID_FUNCIONARIO)
     var id_funcionario: Long = 0,
 
     @ColumnInfo(name = COLUMN_NOME_FUNCIONARIO)
@@ -24,15 +24,19 @@ data class Funcionario (
     @ColumnInfo(name = COLUMN_TELEFONE_FUNCIONARIO)
     var telefone_funcionario: String = "",
 
-    @ColumnInfo(name= COLUMN_CPF_FUNCIONARIO)
+    @ColumnInfo(name = COLUMN_CPF_FUNCIONARIO)
     var cpf_funcionario: String = "",
 
-    @ColumnInfo(name= COLUMN_META_VENDA)
+    @ColumnInfo(name = COLUMN_FOTO)
+    var foto: ByteArray? = null,
+
+    @ColumnInfo(name = COLUMN_META_VENDA)
     var meta_vendas: Double,
 
-    @ColumnInfo(name= COLUMN_TOTAL_VENDA)
+    @ColumnInfo(name = COLUMN_TOTAL_VENDA)
     var total_vendas: Double,
+
     @ColumnInfo(name = COLUMN_SENHA_FUNCIONARIO)
     var senha: String
-): Parcelable
+) : Parcelable
 

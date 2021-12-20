@@ -8,10 +8,14 @@ import android.os.Bundle
 import android.util.Patterns
 import android.widget.Toast
 import com.ifam.devm.appacai.R
+import com.ifam.devm.appacai.model.Funcionario
+import com.ifam.devm.appacai.model.Produto
 import com.ifam.devm.appacai.model.Usuario
 import com.ifam.devm.appacai.repository.UserViewModel
 import com.ifam.devm.appacai.repository.room.AppDatabase
 import com.ifam.devm.appacai.repository.sqlite.PREF_DATA_NAME
+import com.ifam.devm.appacai.ui.cadastro_produto.CadastrarProdutoViewModel
+import com.ifam.devm.appacai.ui.funcionarios.CadastrarFuncionarioViewModel
 import com.ifam.devm.appacai.ui.home.AdminFragment
 import com.ifam.devm.appacai.ui.startup.SplashActivity
 import kotlinx.android.synthetic.main.activity_editar_dados_user.*
@@ -29,6 +33,12 @@ class EditarDadosUserActivity : AppCompatActivity() {
 
     private lateinit var viewModel: UserViewModel
     private lateinit var usuario: Usuario
+
+    private lateinit var prodViewModel: CadastrarProdutoViewModel
+    private lateinit var prod: Produto
+
+    private lateinit var funcViewModel: CadastrarFuncionarioViewModel
+    private lateinit var func: Funcionario
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -135,6 +145,10 @@ class EditarDadosUserActivity : AppCompatActivity() {
                     DialogInterface.OnClickListener { dialog, id ->
                         // User clicked OK button
                         doAsync {
+                            prodViewModel = CadastrarProdutoViewModel(AppDatabase.getDatabase(this@EditarDadosUserActivity))
+                            funcViewModel = CadastrarFuncionarioViewModel(AppDatabase.getDatabase(this@EditarDadosUserActivity))
+                            prodViewModel.deleteAllProdutos()
+                            funcViewModel.deleteAllFuncionarios()
                             viewModel.removerDados(usuario) // exclui o usuario
                         }
                         val sharedPreferences = getSharedPreferences(PREF_DATA_NAME, MODE_PRIVATE)

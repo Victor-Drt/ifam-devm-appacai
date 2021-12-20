@@ -1,6 +1,7 @@
 package com.ifam.devm.appacai.ui.cadastro_produto
 
 import android.content.Intent
+import android.graphics.BitmapFactory
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.google.gson.Gson
@@ -52,6 +53,10 @@ class VisualizarProdutoActivity : AppCompatActivity() {
         val produtoJson = intent.getStringExtra("produto")
         val produto2 = Gson().fromJson(produtoJson, Produto::class.java)
         produto = produto2
+        if (produto?.foto != null) {
+            var fotoproduto = BitmapFactory.decodeByteArray(produto.foto, 0, (produto.foto)?.size!!)
+            imageProdutoVisu?.setImageBitmap(fotoproduto)
+        }
         txtNomeVerProduto.setText(produto.nome)
         txtDescricaoVerProduto.setText(produto.descricao)
         txtValorVerProduto.setText((produto.valor).toString())

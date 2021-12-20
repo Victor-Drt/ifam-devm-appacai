@@ -45,18 +45,12 @@
             app:layout_constraintStart_toStartOf="parent">
 
             <ImageView
-                android:id="@+id/imageProdutoEdit"
+                android:id="@+id/imageProdutoVisu"
                 android:layout_width="96dp"
                 android:layout_height="96dp"
                 android:layout_marginTop="20dp"
                 android:visibility="visible"
                 tools:srcCompat="@drawable/acai" />
-
-            <TextView
-                android:id="@+id/textCliqueInserirImagemEdit"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/text_insert_image"/>
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/verProdutoLayoutInputTextName"

@@ -132,10 +132,10 @@ class ProdutosFragment : Fragment() {
 
     private fun onClickItem(produto: Produto) {
         val produtoJson = Gson().toJson(produto)
-        val intentEditarProduto =
+        val intentVisualizarProduto =
             Intent(this@ProdutosFragment.requireContext(), VisualizarProdutoActivity::class.java)
-        intentEditarProduto.putExtra("produto", produtoJson)
-        startActivity(intentEditarProduto)
+        intentVisualizarProduto.putExtra("produto", produtoJson)
+        startActivity(intentVisualizarProduto)
     }
 
     private fun deleteItemClick(produto: Produto) {
@@ -149,10 +149,10 @@ class ProdutosFragment : Fragment() {
     private fun editarItemClick(produto: Produto) {
         //cria uma intent enviando as informaçoes do produto para a prox tela
         val produtoJson = Gson().toJson(produto)
-        val intentEditarFuncionario =
+        val intentEditarProduto =
             Intent(this@ProdutosFragment.requireContext(), EditarProdutoActivity::class.java)
-        intentEditarFuncionario.putExtra("produto", produtoJson)
-        startActivity(intentEditarFuncionario)
+        intentEditarProduto.putExtra("produto", produtoJson)
+        startActivity(intentEditarProduto)
     }
 
 }

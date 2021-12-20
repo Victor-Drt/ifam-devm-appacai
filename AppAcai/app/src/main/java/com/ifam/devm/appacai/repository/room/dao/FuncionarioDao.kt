@@ -25,4 +25,7 @@ interface FuncionarioDao: BaseDao<Funcionario> {
 
     @Query(""" SELECT * FROM $TABLE_FUNCIONARIO """)
     fun getFuncio(): Funcionario
+
+    @Query(""" DELETE FROM $TABLE_FUNCIONARIO """)
+    fun deleteAllFunc()
 }

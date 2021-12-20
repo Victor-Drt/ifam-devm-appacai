@@ -27,7 +27,7 @@ class HomeActivity : AppCompatActivity() {
         setContentView(R.layout.activity_home)
 
 
-        replaceFragment(homeFragment)
+        replaceFragment(vendasFragment)
 
         bottom_navigation.setOnNavigationItemSelectedListener {
             when (it.itemId) {
@@ -39,11 +39,6 @@ class HomeActivity : AppCompatActivity() {
                 R.id.page_vendedores -> {
                     replaceFragment(vendedoresFragment)
                     title = "Vendedores"
-                    true
-                }
-                R.id.page_home -> {
-                    replaceFragment(homeFragment)
-                    title = "Home"
                     true
                 }
                 R.id.page_produtos -> {

@@ -47,6 +47,15 @@
     <string name="text_editar_produto">Editar Produto</string>
     <string name="text_visualizar_produto">Visualizar Produto</string>
     <string name="text_pesquisar_hint">Pesquisar</string>
+    <string name="Telefone">Telefone</string>
+    <string name="Meta_Vendas">Meta de vendas</string>
+    <string name="TotaL_Vendas">Total de Vendas</string>
+    <string name="Nome_Funcionario">Nome</string>
+    <string name="text_editar_funcionario">Editar Funcionario</string>
+    <string name="cpf">CPF</string>
+    <string name="text_visualizar_funcionario">Visualizar Funcionario</string>
+    <string name="text_page_cad_vendedores">Cadastrar Funcionarios</string>
+    <string name="total_hoje_text">total de hoje: R$</string>
 
     <string-array name="titles_tab">
         <item>Login</item>

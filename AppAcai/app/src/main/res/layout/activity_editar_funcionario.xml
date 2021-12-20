@@ -27,7 +27,6 @@
         android:id="@+id/scrollView2"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginTop="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
@@ -39,14 +38,30 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:gravity="center">
 
+            <ImageView
+                android:id="@+id/imageFuncionarioEdit"
+                android:layout_width="96dp"
+                android:layout_height="96dp"
+                android:layout_marginTop="20dp"
+                android:visibility="visible"
+                tools:srcCompat="@drawable/acai" />
+
+            <TextView
+                android:id="@+id/textClickImgFuncEdit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/text_insert_image"/>
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/cadInputNome"
-                android:layout_width="280dp"
-                android:layout_height="80dp"
-                android:layout_gravity="center">
+                android:layout_width="286dp"
+                android:layout_height="82dp"
+                android:layout_gravity="center"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                app:errorEnabled="true">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/textInputNome"
@@ -57,8 +72,10 @@
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/cadInputEmail"
-                android:layout_width="280dp"
-                android:layout_height="80dp"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                app:errorEnabled="true"
+                android:layout_width="286dp"
+                android:layout_height="82dp"
                 android:layout_gravity="center">
 
                 <com.google.android.material.textfield.TextInputEditText
@@ -70,8 +87,10 @@
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/cadInputTelefone"
-                android:layout_width="280dp"
-                android:layout_height="80dp"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                app:errorEnabled="true"
+                android:layout_width="286dp"
+                android:layout_height="82dp"
                 android:layout_gravity="center">
 
                 <com.google.android.material.textfield.TextInputEditText
@@ -83,42 +102,33 @@
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/cadInputCPF"
-                android:layout_width="280dp"
-                android:layout_height="80dp"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                app:errorEnabled="true"
+                android:layout_width="286dp"
+                android:layout_height="82dp"
                 android:layout_gravity="center">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/textInputCPF"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/CPF" />
+                    android:hint="@string/cpf" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/cadInputMeta"
-                android:layout_width="280dp"
-                android:layout_height="80dp"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                app:errorEnabled="true"
+                android:layout_width="286dp"
+                android:layout_height="82dp"
                 android:layout_gravity="center">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/textInputMeta"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="56dp"
                     android:hint="@string/Meta_Vendas" />
 
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/cadInputTotal"
-                android:layout_width="280dp"
-                android:layout_height="80dp"
-                android:layout_gravity="center">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/textInputTotal"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="@string/TotaL_Vendas" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <LinearLayout
@@ -128,19 +138,22 @@
                 android:orientation="horizontal">
 
                 <com.google.android.material.button.MaterialButton
-                    android:id="@+id/btExcluirFuncionario"
+                    android:id="@+id/btSalvarFuncionario"
                     android:layout_width="110dp"
                     android:layout_height="60dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginBottom="40dp"
                     android:height="60dp"
-                    android:text="@string/text_excluir"
+                    android:text="@string/text_salvar"
                     app:cornerRadius="100dp" />
 
                 <com.google.android.material.button.MaterialButton
-                    android:id="@+id/btSalvarFuncionario"
+                    android:id="@+id/btExcluirFuncionario"
                     android:layout_width="110dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="60dp"
+                    android:layout_marginBottom="40dp"
                     android:height="60dp"
-                    android:text="@string/text_salvar"
+                    android:text="@string/text_excluir"
                     app:cornerRadius="100dp" />
             </LinearLayout>
 

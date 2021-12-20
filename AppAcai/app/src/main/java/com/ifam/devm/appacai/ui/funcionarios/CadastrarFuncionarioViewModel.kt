@@ -13,12 +13,16 @@ class CadastrarFuncionarioViewModel(appDataBase: AppDatabase) {
     }
 
     //consulta funcionario existente
-    fun consutaFuncionarioPorCPF(cpf: String): Funcionario? {
+    fun consutaFuncionarioPorCPF(cpf: String): Funcionario {
         return funcionarioRepository.funcionarioByCpf(cpf)
 
     }
 
     fun getAllFuncionarios(): List<Funcionario>{
         return funcionarioRepository.getAllFuncionario()
+    }
+
+    fun deleteAllFuncionarios() {
+        return funcionarioRepository.deleteAllFuncionarios()
     }
 }

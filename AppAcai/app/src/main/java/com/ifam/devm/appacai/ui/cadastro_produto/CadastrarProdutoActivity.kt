@@ -1,13 +1,15 @@
 package com.ifam.devm.appacai.ui.cadastro_produto
 
+import android.app.Activity
 import android.content.Intent
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
+import android.util.Base64.encode
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Toast
-import androidx.annotation.UiThread
 import com.ifam.devm.appacai.R
 import com.ifam.devm.appacai.model.Produto
 import com.ifam.devm.appacai.model.TipoProduto
@@ -15,8 +17,11 @@ import com.ifam.devm.appacai.repository.room.AppDatabase
 import kotlinx.android.synthetic.main.activity_cadastrar_produto.*
 import org.jetbrains.anko.doAsync
 import org.jetbrains.anko.uiThread
+import java.io.ByteArrayOutputStream
 import java.lang.Exception
-
+import java.net.URLEncoder.encode
+import java.sql.Blob
+import java.util.*
 
 class CadastrarProdutoActivity : AppCompatActivity() {
     //    produto
@@ -28,6 +33,10 @@ class CadastrarProdutoActivity : AppCompatActivity() {
     private var descricao: String = ""
     private var tipo: String = ""
     private var valor: String = ""
+    val COD_IMAGE = 101
+    var imageBitMap: Bitmap? = null
+    var fotoFinal: ByteArray? = null
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -51,6 +60,10 @@ class CadastrarProdutoActivity : AppCompatActivity() {
             onBackPressed()
         }
 
+        textCliqueInserirImagem.setOnClickListener {
+            abrirGaleria()
+        }
+
 //        setando os erros para null
         setCamposNull()
 
@@ -65,7 +78,6 @@ class CadastrarProdutoActivity : AppCompatActivity() {
 
             if (verificarCampos()) {
                 doAsync {
-
                     val produtoViewModel =
                         CadastrarProdutoViewModel(AppDatabase.getDatabase(this@CadastrarProdutoActivity))
 
@@ -82,6 +94,7 @@ class CadastrarProdutoActivity : AppCompatActivity() {
                         }
                     } catch (e: Exception) {
                         try {
+
                             uiThread {
                                 cadastrarProduto(
                                     id,
@@ -90,7 +103,7 @@ class CadastrarProdutoActivity : AppCompatActivity() {
                                     tipo,
                                     valor.toFloat(),
                                     0.0f,
-                                    "sem foto",
+                                    fotoFinal as ByteArray,
                                     0
                                 )
                                 Toast.makeText(
@@ -120,6 +133,37 @@ class CadastrarProdutoActivity : AppCompatActivity() {
 
     }
 
+    private fun abrirGaleria() {
+        //definindo uma intent para acao de conteudo
+        val intent = Intent(Intent.ACTION_GET_CONTENT)
+
+        //definindo filtro para imagens
+        intent.type = "image/*"
+
+        //inicializando a activity com o resultado
+        startActivityForResult(Intent.createChooser(intent, "Selecione uma imagem"), COD_IMAGE)
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+
+        if (requestCode == COD_IMAGE && resultCode == Activity.RESULT_OK) {
+            if (data != null) {
+                //lendo URI com a imagem
+                val inputStream = contentResolver.openInputStream((data.data!!))
+                //transformando o resultado em bitmap
+                imageBitMap = BitmapFactory.decodeStream(inputStream)
+                //exibir a imagem no aplicativo
+                imageProdutoCad.setImageBitmap(imageBitMap)
+
+
+                var saida: ByteArrayOutputStream = ByteArrayOutputStream()
+                imageBitMap?.compress(Bitmap.CompressFormat.PNG, 100, saida)
+                fotoFinal = saida.toByteArray()
+            }
+        }
+    }
+
     private fun cadastrarProduto(
         id: Long,
         nome: String,
@@ -127,10 +171,15 @@ class CadastrarProdutoActivity : AppCompatActivity() {
         tipo: String,
         valor: Float,
         aval: Float,
-        foto: String,
+        foto: ByteArray,
         freq: Int
     ) {
         produto = Produto(id, nome, descricao, tipo, valor, aval, foto, freq)
+
+        if (foto != null) {
+            println("Foto nao ta nula ><")
+        }
+
         val db = AppDatabase.getDatabase(this)
 
         doAsync {
@@ -150,8 +199,11 @@ class CadastrarProdutoActivity : AppCompatActivity() {
         } else if (valor.isEmpty()) {
             cadProdutoLayoutInputTextValor.error = "Insira um valor para o produto!"
             return false
-        } else if (tipo.isEmpty()) {
-            typesFilterContainer.error = "Insira um tipo para o produto!"
+        } else if (tipo == null) {
+            typesFilterSpinner.error = "Insira um tipo para o produto!"
+            return false
+        } else if (imageBitMap == null) {
+            textCliqueInserirImagem.error = "Insira uma imagem!"
             return false
         } else {
             return true

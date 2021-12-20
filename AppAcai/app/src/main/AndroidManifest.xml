@@ -10,6 +10,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppAcai">
         <activity
+            android:name=".ui.funcionarios.VisualizarFuncionarioActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.funcionarios.EditarFuncionarioActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.funcionarios.FuncionariosCadastrar"
+            android:exported="false" />
+        <activity
             android:name=".ui.cadastro_produto.VisualizarProdutoActivity"
             android:exported="false" />
         <activity

@@ -8,7 +8,11 @@ class FuncionarioRepository(database: AppDatabase): FuncionarioDataSource {
 
     override fun funcionarioId(): Long = funcionarioDao.funcionarioIds()
 
-    override fun funcionarioByCpf(cpf: String): Funcionario? {
+    fun deleteAllFuncionarios() {
+        return funcionarioDao.deleteAllFunc()
+    }
+
+    override fun funcionarioByCpf(cpf: String): Funcionario {
         return funcionarioDao.getFuncionarioByEmail(cpf)
     }
 

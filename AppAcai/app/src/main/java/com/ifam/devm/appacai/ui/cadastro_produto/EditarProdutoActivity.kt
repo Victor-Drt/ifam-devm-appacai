@@ -1,7 +1,10 @@
 package com.ifam.devm.appacai.ui.cadastro_produto
 
+import android.app.Activity
 import android.app.AlertDialog
 import android.content.Intent
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuInflater
@@ -17,8 +20,11 @@ import com.ifam.devm.appacai.model.TipoProduto
 import com.ifam.devm.appacai.repository.room.AppDatabase
 import kotlinx.android.synthetic.main.activity_cadastrar_produto.*
 import kotlinx.android.synthetic.main.activity_editar_produto.*
+import kotlinx.android.synthetic.main.activity_editar_produto.textCliqueInserirImagemEdit
+import kotlinx.android.synthetic.main.activity_visualizar_produto.*
 import kotlinx.android.synthetic.main.dialog_confirmar_exclusao.view.*
 import org.jetbrains.anko.doAsync
+import java.io.ByteArrayOutputStream
 
 class EditarProdutoActivity : AppCompatActivity() {
     //    produto
@@ -29,6 +35,9 @@ class EditarProdutoActivity : AppCompatActivity() {
     private var descricao: String = ""
     private var tipo: String = ""
     private var valor: String = ""
+    val COD_IMAGE = 101
+    var imageBitMap: Bitmap? = null
+    var fotoFinal: ByteArray? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -50,6 +59,10 @@ class EditarProdutoActivity : AppCompatActivity() {
                 tipo = typesFilterSpinnerEdit.text.toString()
             }
 
+        textCliqueInserirImagemEdit.setOnClickListener {
+            abrirGaleria()
+        }
+
 
         btSalvarProduto.setOnClickListener {
             if (verificarCampos()) {
@@ -58,6 +71,12 @@ class EditarProdutoActivity : AppCompatActivity() {
                 produto.descricao = txtDescricaoEditProduto.text.toString()
                 produto.tipo = tipo
                 produto.valor = txtValorEditProduto.text.toString().toFloat()
+                produto.foto = fotoFinal
+                if (fotoFinal == null) {
+                    println("foto Vazia")
+                } else {
+                    produto.foto = fotoFinal
+                }
 
                 Toast.makeText(
                     applicationContext,
@@ -106,6 +125,37 @@ class EditarProdutoActivity : AppCompatActivity() {
         }
     }
 
+    private fun abrirGaleria() {
+        //definindo uma intent para acao de conteudo
+        val intent = Intent(Intent.ACTION_GET_CONTENT)
+
+        //definindo filtro para imagens
+        intent.type = "image/*"
+
+        //inicializando a activity com o resultado
+        startActivityForResult(Intent.createChooser(intent, "Selecione uma imagem"), COD_IMAGE)
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+
+        if (requestCode == COD_IMAGE && resultCode == Activity.RESULT_OK) {
+            if (data != null) {
+                //lendo URI com a imagem
+                val inputStream = contentResolver.openInputStream((data.data!!))
+                //transformando o resultado em bitmap
+                imageBitMap = BitmapFactory.decodeStream(inputStream)
+                //exibir a imagem no aplicativo
+                imageProdutoEdit.setImageBitmap(imageBitMap)
+
+
+                var saida: ByteArrayOutputStream = ByteArrayOutputStream()
+                imageBitMap?.compress(Bitmap.CompressFormat.PNG, 100, saida)
+                fotoFinal = saida.toByteArray()
+            }
+        }
+    }
+
     //coleta os dados no banco
     override fun onStart() {
         carregaDadosDoBanco()
@@ -116,6 +166,10 @@ class EditarProdutoActivity : AppCompatActivity() {
         val produtoJson = intent.getStringExtra("produto")
         val produto2 = Gson().fromJson(produtoJson, Produto::class.java)
         produto = produto2
+        if (produto?.foto != null) {
+            var fotoproduto = BitmapFactory.decodeByteArray(produto.foto, 0, (produto.foto)?.size!!)
+            imageProdutoEdit?.setImageBitmap(fotoproduto)
+        }
         txtNomeEditProduto.setText(produto.nome)
         txtDescricaoEditProduto.setText(produto.descricao)
         txtValorEditProduto.setText((produto.valor).toString())
