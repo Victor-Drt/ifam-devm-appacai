@@ -10,7 +10,6 @@ import com.ifam.devm.appacai.repository.UserViewModel
 import com.ifam.devm.appacai.repository.room.AppDatabase
 import com.ifam.devm.appacai.ui.startup.SplashActivity
 import kotlinx.android.synthetic.main.activity_alterar_senha.*
-import kotlinx.android.synthetic.main.activity_cadastrar_usuario.*
 import org.jetbrains.anko.doAsync
 import org.jetbrains.anko.uiThread
 

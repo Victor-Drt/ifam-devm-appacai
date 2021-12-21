@@ -27,6 +27,8 @@ import org.jetbrains.anko.uiThread
 
 import android.view.MenuInflater
 import androidx.appcompat.widget.SearchView
+import com.ifam.devm.appacai.ui.funcionarios.EditarFuncionarioActivity
+import com.ifam.devm.appacai.ui.funcionarios.VisualizarFuncionarioActivity
 
 
 class ProdutosFragment : Fragment() {
@@ -131,11 +133,9 @@ class ProdutosFragment : Fragment() {
     }
 
     private fun onClickItem(produto: Produto) {
-        val produtoJson = Gson().toJson(produto)
-        val intentVisualizarProduto =
-            Intent(this@ProdutosFragment.requireContext(), VisualizarProdutoActivity::class.java)
-        intentVisualizarProduto.putExtra("produto", produtoJson)
-        startActivity(intentVisualizarProduto)
+        val intent = Intent(this@ProdutosFragment.requireContext(), VisualizarProdutoActivity::class.java)
+        intent.putExtra("produto_nome", produto.nome)
+        startActivity(intent)
     }
 
     private fun deleteItemClick(produto: Produto) {
@@ -148,11 +148,9 @@ class ProdutosFragment : Fragment() {
 
     private fun editarItemClick(produto: Produto) {
         //cria uma intent enviando as informaçoes do produto para a prox tela
-        val produtoJson = Gson().toJson(produto)
-        val intentEditarProduto =
-            Intent(this@ProdutosFragment.requireContext(), EditarProdutoActivity::class.java)
-        intentEditarProduto.putExtra("produto", produtoJson)
-        startActivity(intentEditarProduto)
+        val intent = Intent(this@ProdutosFragment.requireContext(), EditarProdutoActivity::class.java)
+        intent.putExtra("produto_nome", produto.nome)
+        startActivity(intent)
     }
 
 }

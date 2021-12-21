@@ -13,6 +13,8 @@ data class Usuario (
         @PrimaryKey(autoGenerate = true)
         @ColumnInfo(name = COLUMN_ID)
         var id_usuario: Long = 0,
+        @ColumnInfo(name = COLUMN_FOTO)
+        var foto: ByteArray? = null,
         @ColumnInfo(name = COLUMN_NOME)
         var nomeUsuario: String = "",
         @ColumnInfo(name = COLUMN_NOME_EMPRESA)

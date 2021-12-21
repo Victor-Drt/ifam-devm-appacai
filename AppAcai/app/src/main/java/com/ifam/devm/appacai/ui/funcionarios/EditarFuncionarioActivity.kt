@@ -5,6 +5,7 @@ import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
@@ -17,6 +18,11 @@ import com.ifam.devm.appacai.model.Funcionario
 import com.ifam.devm.appacai.repository.room.AppDatabase
 import com.ifam.devm.appacai.ui.home.HomeActivity
 import com.ifam.devm.appacai.ui.home.VendedoresFragment
+import com.ifam.devm.appacai.utils.CPFUtil
+import com.ifam.devm.appacai.utils.Mask
+import com.ifam.devm.appacai.utils.MaskCopy.MaskChangedListener
+import com.ifam.devm.appacai.utils.MaskCopy.MaskSL
+import com.ifam.devm.appacai.utils.MaskCopy.MaskStyle
 import kotlinx.android.synthetic.main.acitivity_cadastra_funcionario.*
 import kotlinx.android.synthetic.main.activity_editar_funcionario.*
 import kotlinx.android.synthetic.main.activity_editar_funcionario.cadInputEmail
@@ -26,11 +32,13 @@ import kotlinx.android.synthetic.main.activity_editar_produto.*
 import kotlinx.android.synthetic.main.dialog_confirmar_exclusao.*
 import kotlinx.android.synthetic.main.dialog_confirmar_exclusao.view.*
 import org.jetbrains.anko.doAsync
+import org.jetbrains.anko.uiThread
 import java.io.ByteArrayOutputStream
 
 class EditarFuncionarioActivity : AppCompatActivity() {
     //funcionario
     private lateinit var funcionario: Funcionario
+    private lateinit var funcViewModel: CadastrarFuncionarioViewModel
 
     //Atributos
     private var nome: String = ""
@@ -42,6 +50,9 @@ class EditarFuncionarioActivity : AppCompatActivity() {
     val COD_IMAGE = 101
     var imageBitMap: Bitmap? = null
     var fotoFinal: ByteArray? = null
+
+    //definindo padrão da mask para o telefone
+    private val PADRAO_TELEFONE = "+55 (__) 9____-____"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -55,6 +66,22 @@ class EditarFuncionarioActivity : AppCompatActivity() {
         textClickImgFuncEdit.setOnClickListener {
             abrirGaleria()
         }
+
+//        Masks
+        textInputCPF.addTextChangedListener(
+            Mask.mask(
+                "###.###.###-##",
+                textInputCPF))
+
+        //mask para configurar a exibição do campo de Telefone quando digitado
+        val maskPhone = MaskSL(
+            value = PADRAO_TELEFONE,
+            character = '_',
+            style = MaskStyle.NORMAL
+        )
+        var listener = MaskChangedListener(maskPhone)
+        //textField.addTextChangedListener(listener)
+        textInputTelefone.addTextChangedListener(listener)
 
         btSalvarFuncionario.setOnClickListener {
             if (verificarCampos()) {
@@ -130,34 +157,53 @@ class EditarFuncionarioActivity : AppCompatActivity() {
 
         if (requestCode == COD_IMAGE && resultCode == Activity.RESULT_OK) {
             if (data != null) {
-                //lendo URI com a imagem
-                val inputStream = contentResolver.openInputStream((data.data!!))
-                //transformando o resultado em bitmap
-                imageBitMap = BitmapFactory.decodeStream(inputStream)
-                //exibir a imagem no aplicativo
-                imageFuncionarioEdit.setImageBitmap(imageBitMap)
+                try {
+                    //lendo URI com a imagem
+                    val inputStream = contentResolver.openInputStream((data.data!!))
+                    //transformando o resultado em bitmap
+                    imageBitMap = BitmapFactory.decodeStream(inputStream)
+                    //exibir a imagem no aplicativo
+                    imageFuncionarioEdit.setImageBitmap(imageBitMap)
 
-                //alterando pra salvar no banco
-                var saida: ByteArrayOutputStream = ByteArrayOutputStream()
-                imageBitMap?.compress(Bitmap.CompressFormat.PNG, 100, saida)
-                fotoFinal = saida.toByteArray()
+                    //alterando pra salvar no banco
+                    var saida: ByteArrayOutputStream = ByteArrayOutputStream()
+                    imageBitMap?.compress(Bitmap.CompressFormat.PNG, 100, saida)
+                    fotoFinal = saida.toByteArray()
+                } catch (e : Exception) {
+                    if (funcionario?.foto != null) {
+                        var fotofuncionario = BitmapFactory.decodeByteArray(funcionario.foto, 0, (funcionario.foto)?.size!!)
+                        imageFuncionarioEdit?.setImageBitmap(fotofuncionario)
+                    }
+                }
             }
         }
     }
 
     private fun carregaDadosDoBanco() {
-        val funcionarioJson = intent.getStringExtra("funcionario")
-        val funcionario2 = Gson().fromJson(funcionarioJson, Funcionario::class.java)
-        funcionario = funcionario2
-        if (funcionario?.foto != null) {
-            var fotofuncionario = BitmapFactory.decodeByteArray(funcionario.foto, 0, (funcionario.foto)?.size!!)
-            imageFuncionarioEdit?.setImageBitmap(fotofuncionario)
+        val intent = intent
+        val funcionarioNome = intent.getStringExtra("funcionario_nome")
+
+        doAsync {
+            funcViewModel =
+                CadastrarFuncionarioViewModel(AppDatabase.getDatabase(this@EditarFuncionarioActivity))
+            funcionario = funcViewModel.consutaFuncionarioPorNome(funcionarioNome.toString())
+
+            println("Funcionario ${funcionario.nome_funcionario}")
+
+            uiThread {
+                if (funcionario?.foto != null) {
+                    var fotofuncionario = BitmapFactory.decodeByteArray(funcionario.foto, 0, (funcionario.foto)?.size!!)
+                    imageFuncionarioEdit?.setImageBitmap(fotofuncionario)
+                }
+                textInputNome.setText(funcionario.nome_funcionario)
+                textInputEmail.setText(funcionario.email_funcionario)
+                textInputTelefone.setText(funcionario.telefone_funcionario)
+                textInputCPF.setText(funcionario.cpf_funcionario)
+                textInputMeta.setText(funcionario.meta_vendas.toString())
+            }
         }
-        textInputNome.setText(funcionario.nome_funcionario)
-        textInputEmail.setText(funcionario.email_funcionario)
-        textInputTelefone.setText(funcionario.telefone_funcionario)
-        textInputCPF.setText(funcionario.cpf_funcionario)
-        textInputMeta.setText(funcionario.meta_vendas.toString())
+
+
     }
 
     fun verificarCampos(): Boolean {
@@ -180,6 +226,10 @@ class EditarFuncionarioActivity : AppCompatActivity() {
             return false
         } else if (cpf.isEmpty()) {
             cadInputCPF.error = "Por-favor informe o seu CPF"
+            return false
+        }  else if (!CPFUtil.validarCadastroCPF(cpf)){
+            cadInputCPF.error = "CPF inválido!"
+            Log.d("ERROR", "CPF inválido")
             return false
         } else if (metaVenda == 0.0) {
             cadInputMetaVendas.error = "Por-favor insira sua meta de vendas"

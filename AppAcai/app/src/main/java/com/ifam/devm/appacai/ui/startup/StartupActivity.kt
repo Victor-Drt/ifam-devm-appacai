@@ -25,6 +25,5 @@ class StartupActivity : AppCompatActivity() {
 
     override fun onStop() {
         super.onStop()
-        finish()
     }
 }

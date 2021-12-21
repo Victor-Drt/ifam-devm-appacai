@@ -24,11 +24,13 @@ import kotlinx.android.synthetic.main.activity_editar_produto.textCliqueInserirI
 import kotlinx.android.synthetic.main.activity_visualizar_produto.*
 import kotlinx.android.synthetic.main.dialog_confirmar_exclusao.view.*
 import org.jetbrains.anko.doAsync
+import org.jetbrains.anko.uiThread
 import java.io.ByteArrayOutputStream
 
 class EditarProdutoActivity : AppCompatActivity() {
     //    produto
     private lateinit var produto: Produto
+    private lateinit var prodViewModel : CadastrarProdutoViewModel
 
     //    atributos
     private var nome: String = ""
@@ -138,20 +140,27 @@ class EditarProdutoActivity : AppCompatActivity() {
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-
         if (requestCode == COD_IMAGE && resultCode == Activity.RESULT_OK) {
             if (data != null) {
-                //lendo URI com a imagem
-                val inputStream = contentResolver.openInputStream((data.data!!))
-                //transformando o resultado em bitmap
-                imageBitMap = BitmapFactory.decodeStream(inputStream)
-                //exibir a imagem no aplicativo
-                imageProdutoEdit.setImageBitmap(imageBitMap)
+                try {
+                    //lendo URI com a imagem
+                    val inputStream = contentResolver.openInputStream((data.data!!))
+                    //transformando o resultado em bitmap
+                    imageBitMap = BitmapFactory.decodeStream(inputStream)
+                    //exibir a imagem no aplicativo
+                    imageProdutoEdit.setImageBitmap(imageBitMap)
 
 
-                var saida: ByteArrayOutputStream = ByteArrayOutputStream()
-                imageBitMap?.compress(Bitmap.CompressFormat.PNG, 100, saida)
-                fotoFinal = saida.toByteArray()
+                    var saida: ByteArrayOutputStream = ByteArrayOutputStream()
+                    imageBitMap?.compress(Bitmap.CompressFormat.PNG, 100, saida)
+                    fotoFinal = saida.toByteArray()
+                } catch (e : Exception) {
+                    if (produto?.foto != null) {
+                        var fotoproduto = BitmapFactory.decodeByteArray(produto.foto, 0, (produto.foto)?.size!!)
+                        imageProdutoEdit?.setImageBitmap(fotoproduto)
+                    }
+                }
+
             }
         }
     }
@@ -163,17 +172,27 @@ class EditarProdutoActivity : AppCompatActivity() {
     }
 
     private fun carregaDadosDoBanco() {
-        val produtoJson = intent.getStringExtra("produto")
-        val produto2 = Gson().fromJson(produtoJson, Produto::class.java)
-        produto = produto2
-        if (produto?.foto != null) {
-            var fotoproduto = BitmapFactory.decodeByteArray(produto.foto, 0, (produto.foto)?.size!!)
-            imageProdutoEdit?.setImageBitmap(fotoproduto)
+        val intent = intent
+        val produtoNome = intent.getStringExtra("produto_nome")
+
+        doAsync {
+            prodViewModel =
+                CadastrarProdutoViewModel(AppDatabase.getDatabase(this@EditarProdutoActivity))
+            produto = prodViewModel.consultarProdutoExistente(produtoNome.toString())
+
+            println("Produto ${produto.nome}")
+
+            uiThread {
+                if (produto?.foto != null) {
+                    var fotoproduto = BitmapFactory.decodeByteArray(produto.foto, 0, (produto.foto)?.size!!)
+                    imageProdutoEdit?.setImageBitmap(fotoproduto)
+                }
+                txtNomeEditProduto.setText(produto.nome)
+                txtDescricaoEditProduto.setText(produto.descricao)
+                txtValorEditProduto.setText((produto.valor).toString())
+                tipo = (produto.tipo)
+            }
         }
-        txtNomeEditProduto.setText(produto.nome)
-        txtDescricaoEditProduto.setText(produto.descricao)
-        txtValorEditProduto.setText((produto.valor).toString())
-        tipo = (produto.tipo)
     }
 
     //    Verifica se o formulario foi preenchido corretamente

@@ -16,6 +16,10 @@ class FuncionarioRepository(database: AppDatabase): FuncionarioDataSource {
         return funcionarioDao.getFuncionarioByEmail(cpf)
     }
 
+    override fun funcionarioByNome(nome: String): Funcionario {
+        return funcionarioDao.getFuncionarioByNome(nome)
+    }
+
     override fun getFuncionario(): Funcionario {
        return funcionarioDao.getFuncionario()
     }

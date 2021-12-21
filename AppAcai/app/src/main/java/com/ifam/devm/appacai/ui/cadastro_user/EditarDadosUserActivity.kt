@@ -1,8 +1,11 @@
 package com.ifam.devm.appacai.ui.cadastro_user
 
+import android.app.Activity
 import android.app.AlertDialog
 import android.content.DialogInterface
 import android.content.Intent
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Patterns
@@ -18,9 +21,16 @@ import com.ifam.devm.appacai.ui.cadastro_produto.CadastrarProdutoViewModel
 import com.ifam.devm.appacai.ui.funcionarios.CadastrarFuncionarioViewModel
 import com.ifam.devm.appacai.ui.home.AdminFragment
 import com.ifam.devm.appacai.ui.startup.SplashActivity
+import com.ifam.devm.appacai.utils.Mask
+import com.ifam.devm.appacai.utils.MaskCopy.MaskChangedListener
+import com.ifam.devm.appacai.utils.MaskCopy.MaskSL
+import com.ifam.devm.appacai.utils.MaskCopy.MaskStyle
 import kotlinx.android.synthetic.main.activity_editar_dados_user.*
+import kotlinx.android.synthetic.main.activity_editar_funcionario.*
+import kotlinx.android.synthetic.main.fragment_admin.*
 import org.jetbrains.anko.doAsync
 import org.jetbrains.anko.uiThread
+import java.io.ByteArrayOutputStream
 import java.util.regex.Matcher
 
 class EditarDadosUserActivity : AppCompatActivity() {
@@ -40,6 +50,10 @@ class EditarDadosUserActivity : AppCompatActivity() {
     private lateinit var funcViewModel: CadastrarFuncionarioViewModel
     private lateinit var func: Funcionario
 
+    val COD_IMAGE = 101
+    var imageBitMap: Bitmap? = null
+    var fotoFinal: ByteArray? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_editar_dados_user)
@@ -50,12 +64,24 @@ class EditarDadosUserActivity : AppCompatActivity() {
             finish()
         }
 
+        textCliqueInserirCodigoQrEdit.setOnClickListener {
+            abrirGaleria()
+        }
+
+
         //carrega dados do banco no edit text
         doAsync {
+            val intent = intent
+            val userNome = intent.getStringExtra("user_name")
+
             viewModel = UserViewModel(AppDatabase.getDatabase(this@EditarDadosUserActivity))
             viewModel.CarregaDadosEDITAR()
             uiThread {
                 usuario = viewModel.pegaDadosUsuario()
+                if (usuario?.foto != null) {
+                    var fotofuncionario = BitmapFactory.decodeByteArray(usuario.foto, 0, (usuario.foto)?.size!!)
+                    imageQREdit?.setImageBitmap(fotofuncionario)
+                }
                 txtNomeEditar.setText(usuario.nomeUsuario)
                 txtNomeFantasiaEditar.setText(usuario.nomeEmpresa)
                 txtEmailEditar.setText(usuario.email)
@@ -71,6 +97,13 @@ class EditarDadosUserActivity : AppCompatActivity() {
                 usuario.nomeEmpresa = txtNomeFantasiaEditar.text.toString()
                 usuario.email = txtEmailEditar.text.toString()
                 usuario.chavePix = txtPixEditar.text.toString()
+
+                if (fotoFinal == null) {
+                    println("foto Vazia")
+                } else {
+                    usuario.foto = fotoFinal
+                }
+
                 doAsync {
 //                    atualiza os dados
                     viewModel.atualizarDados(usuario)
@@ -84,6 +117,44 @@ class EditarDadosUserActivity : AppCompatActivity() {
         btExcluirEdit.setOnClickListener {
             if (verificarSenha(txtSenhaEditar.text.toString())) {
                 showDialog()
+            }
+        }
+    }
+
+    private fun abrirGaleria() {
+        //definindo uma intent para acao de conteudo
+        val intent = Intent(Intent.ACTION_GET_CONTENT)
+
+        //definindo filtro para imagens
+        intent.type = "image/*"
+
+        //inicializando a activity com o resultado
+        startActivityForResult(Intent.createChooser(intent, "Selecione uma imagem"), COD_IMAGE)
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+
+        if (requestCode == COD_IMAGE && resultCode == Activity.RESULT_OK) {
+            if (data != null) {
+                try {
+                    //lendo URI com a imagem
+                    val inputStream = contentResolver.openInputStream((data.data!!))
+                    //transformando o resultado em bitmap
+                    imageBitMap = BitmapFactory.decodeStream(inputStream)
+                    //exibir a imagem no aplicativo
+                    imageQREdit.setImageBitmap(imageBitMap)
+
+                    //alterando pra salvar no banco
+                    var saida: ByteArrayOutputStream = ByteArrayOutputStream()
+                    imageBitMap?.compress(Bitmap.CompressFormat.PNG, 100, saida)
+                    fotoFinal = saida.toByteArray()
+                } catch (e : Exception) {
+                    if (usuario?.foto != null) {
+                        var fotoUser = BitmapFactory.decodeByteArray(usuario.foto, 0, (usuario.foto)?.size!!)
+                        imageQREdit?.setImageBitmap(fotoUser)
+                    }
+                }
             }
         }
     }

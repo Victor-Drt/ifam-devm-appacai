@@ -56,6 +56,7 @@
     <string name="text_visualizar_funcionario">Visualizar Funcionario</string>
     <string name="text_page_cad_vendedores">Cadastrar Funcionarios</string>
     <string name="total_hoje_text">total de hoje: R$</string>
+    <string name="text_insert_qr_image">clique aqui para inserir a chave pix via QR</string>
 
     <string-array name="titles_tab">
         <item>Login</item>

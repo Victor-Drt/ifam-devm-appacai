@@ -6,4 +6,5 @@ interface FuncionarioDataSource:BaseDataSource<Funcionario> {
     fun getFuncionario(): Funcionario
     fun funcionarioId(): Long
     fun funcionarioByCpf(cpf: String): Funcionario?
+    fun funcionarioByNome(nome: String): Funcionario?
 }

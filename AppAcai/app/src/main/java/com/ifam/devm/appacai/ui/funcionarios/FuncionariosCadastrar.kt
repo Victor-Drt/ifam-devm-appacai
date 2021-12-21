@@ -5,6 +5,7 @@ import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.os.Bundle
+import android.util.Log
 import android.util.Patterns
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -13,6 +14,11 @@ import com.ifam.devm.appacai.model.Funcionario
 import com.ifam.devm.appacai.model.Produto
 import com.ifam.devm.appacai.repository.room.AppDatabase
 import com.ifam.devm.appacai.ui.home.HomeActivity
+import com.ifam.devm.appacai.utils.CPFUtil
+import com.ifam.devm.appacai.utils.Mask
+import com.ifam.devm.appacai.utils.MaskCopy.MaskChangedListener
+import com.ifam.devm.appacai.utils.MaskCopy.MaskSL
+import com.ifam.devm.appacai.utils.MaskCopy.MaskStyle
 import kotlinx.android.synthetic.main.acitivity_cadastra_funcionario.*
 import kotlinx.android.synthetic.main.activity_cadastrar_produto.*
 import kotlinx.android.synthetic.main.fragment_vendedores.*
@@ -36,6 +42,9 @@ class FuncionariosCadastrar : AppCompatActivity() {
     var imageBitMap: Bitmap? = null
     var fotoFinal: ByteArray? = null
 
+    //definindo padrão da mask para o telefone
+    private val PADRAO_TELEFONE = "+55 (__) 9____-____"
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.acitivity_cadastra_funcionario)
@@ -50,6 +59,22 @@ class FuncionariosCadastrar : AppCompatActivity() {
         textClickImgFunc.setOnClickListener {
             abrirGaleria()
         }
+
+        //masks
+        textCpfInput.addTextChangedListener(
+            Mask.mask(
+                "###.###.###-##",
+                textCpfInput))
+
+        //mask para configurar a exibição do campo de Telefone quando digitado
+        val maskPhone = MaskSL(
+            value = PADRAO_TELEFONE,
+            character = '_',
+            style = MaskStyle.NORMAL
+        )
+        var listener = MaskChangedListener(maskPhone)
+        //textField.addTextChangedListener(listener)
+        textTelefoneInput.addTextChangedListener(listener)
 
         btn_cadastrar.setOnClickListener {
             id = gerarIdCadastro()
@@ -202,6 +227,10 @@ class FuncionariosCadastrar : AppCompatActivity() {
 
         if (cpf.isEmpty()) {
             cadInputCpf.error = "Insira um CPF!"
+            return false
+        } else if (!CPFUtil.validarCadastroCPF(cpf)){
+            cadInputCpf.error = "CPF inválido!"
+            Log.d("ERROR", "CPF inválido")
             return false
         }
         cadInputCpf.error = null

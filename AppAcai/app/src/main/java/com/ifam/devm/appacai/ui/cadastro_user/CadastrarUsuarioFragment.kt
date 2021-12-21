@@ -1,6 +1,9 @@
 package com.ifam.devm.appacai.ui.cadastro_user
 
+import android.app.Activity
 import android.content.Intent
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
 import android.os.Bundle
 import android.util.Patterns
 import android.view.LayoutInflater
@@ -11,17 +14,23 @@ import com.ifam.devm.appacai.R
 import com.ifam.devm.appacai.model.Usuario
 import com.ifam.devm.appacai.repository.room.AppDatabase
 import com.ifam.devm.appacai.ui.startup.StartupActivity
-import kotlinx.android.synthetic.main.activity_cadastrar_usuario.*
+import kotlinx.android.synthetic.main.activity_cadastrar_produto.*
+import kotlinx.android.synthetic.main.fragment_cadastrar_usuario.*
 import org.jetbrains.anko.doAsync
+import java.io.ByteArrayOutputStream
 import java.util.regex.Matcher
 
 class CadastrarUsuarioFragment : Fragment() {
+    private lateinit var fotoQR: ByteArray
     private lateinit var nome: String
     private lateinit var nomeFantasia: String
     private lateinit var email: String
     private lateinit var chavePix: String
     private lateinit var senha: String
     private lateinit var senhaConfirmar: String
+
+    val COD_IMAGE = 101
+    var imageBitMap: Bitmap? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -35,12 +44,18 @@ class CadastrarUsuarioFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         setNullFields()
 
+        textCliqueInserirCodigoQr.setOnClickListener {
+            abrirGaleria()
+        }
+
         //      quando o botão cadastrar for clicado é iniciado o processo abaixo
         btCadastrar.setOnClickListener {
             //instanciando usuario com os dados da textView
             if (validarDados()) {
                 val novoCadastro = Usuario(
                     1,
+//                    textCliqueInserirCodigoQr
+                    fotoQR,
                     txtNomeCadastrar.text.toString(),
                     txtNomeFantasiaCadastrar.text.toString(),
                     txtEmailCadastrar.text.toString(),
@@ -61,6 +76,37 @@ class CadastrarUsuarioFragment : Fragment() {
                     )
                 )
                 onDestroy()
+            }
+        }
+    }
+
+    private fun abrirGaleria() {
+        //definindo uma intent para acao de conteudo
+        val intent = Intent(Intent.ACTION_GET_CONTENT)
+
+        //definindo filtro para imagens
+        intent.type = "image/*"
+
+        //inicializando a activity com o resultado
+        startActivityForResult(Intent.createChooser(intent, "Selecione uma imagem"), COD_IMAGE)
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+
+        if (requestCode == COD_IMAGE && resultCode == Activity.RESULT_OK) {
+            if (data != null) {
+                //lendo URI com a imagem
+                val inputStream = this@CadastrarUsuarioFragment.requireContext().contentResolver.openInputStream((data.data!!))
+                //transformando o resultado em bitmap
+                imageBitMap = BitmapFactory.decodeStream(inputStream)
+                //exibir a imagem no aplicativo
+                imageQRCad.setImageBitmap(imageBitMap)
+
+
+                var saida: ByteArrayOutputStream = ByteArrayOutputStream()
+                imageBitMap?.compress(Bitmap.CompressFormat.PNG, 100, saida)
+                fotoQR = saida.toByteArray()
             }
         }
     }
