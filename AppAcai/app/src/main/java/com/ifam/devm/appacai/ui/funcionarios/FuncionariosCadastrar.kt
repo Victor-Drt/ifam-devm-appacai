@@ -73,7 +73,6 @@ class FuncionariosCadastrar : AppCompatActivity() {
             style = MaskStyle.NORMAL
         )
         var listener = MaskChangedListener(maskPhone)
-        //textField.addTextChangedListener(listener)
         textTelefoneInput.addTextChangedListener(listener)
 
         btn_cadastrar.setOnClickListener {

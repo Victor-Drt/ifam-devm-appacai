@@ -10,6 +10,27 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppAcai">
         <activity
+            android:name=".ui.cadastro_produto.AvaliarProdutosActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.venda.VendaRealizadaActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.venda.RealizarPagamentoActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.venda.ConfirmacaoPedidoActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.venda.SelecaoProdutosActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.home.VendedorMainActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.home.SobreOAppActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.funcionarios.VisualizarFuncionarioActivity"
             android:exported="false" />
         <activity
@@ -35,6 +56,7 @@
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

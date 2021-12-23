@@ -6,10 +6,11 @@
     android:layout_height="match_parent"
     tools:context=".ui.login.LoginFragment">
 
-    <RelativeLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:gravity="center_vertical">
+        android:orientation="vertical"
+        android:gravity="center">
 
 
         <com.google.android.material.textfield.TextInputLayout
@@ -17,17 +18,13 @@
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="286dp"
             android:layout_height="84dp"
-            android:layout_above="@+id/loginUserLayoutInpTextSenha"
-            android:layout_alignParentEnd="true"
-            android:layout_marginEnd="71dp"
-            android:layout_marginBottom="6dp"
             app:errorEnabled="true"
             app:errorTextColor="@color/red"
             app:suffixTextAppearance="@style/TextAppearance.AppCompat.Medium">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/txtEmailLogin"
-                android:layout_width="286dp"
+                android:layout_width="match_parent"
                 android:layout_height="56dp"
                 android:hint="@string/text_email_field"
                 android:inputType="textEmailAddress"
@@ -39,11 +36,6 @@
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="286dp"
             android:layout_height="84dp"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentBottom="true"
-            android:layout_marginStart="37dp"
-            android:layout_marginEnd="71dp"
-            android:layout_marginBottom="301dp"
             app:endIconMode="password_toggle"
             app:errorEnabled="true">
 
@@ -60,30 +52,17 @@
             android:id="@+id/txtViewEsqueciSenha"
             android:layout_width="113dp"
             android:layout_height="16dp"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentBottom="true"
-            android:layout_marginStart="211dp"
-            android:layout_marginTop="362dp"
-            android:layout_marginEnd="85dp"
-            android:layout_marginBottom="287dp"
+            android:layout_marginStart="85dp"
             android:gravity="end"
             android:text="@string/text_recuperarSenha"
             android:textColor="@color/purple_200"
-            android:textSize="12sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:textSize="12sp"/>
 
         <com.google.android.material.checkbox.MaterialCheckBox
             android:id="@+id/materialCheckBox"
-            android:layout_width="274dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_above="@+id/btLogin"
-            android:layout_alignParentStart="true"
-            android:layout_marginStart="51dp"
-            android:layout_marginBottom="0dp"
+            android:layout_marginHorizontal="60dp"
             android:checked="false"
             android:text="@string/text_manterConectado"
             android:textSize="12sp"
@@ -93,17 +72,11 @@
             android:id="@+id/btLogin"
             android:layout_width="202dp"
             android:layout_height="60dp"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentBottom="true"
-            android:layout_marginStart="95dp"
-            android:layout_marginEnd="113dp"
-            android:layout_marginBottom="172dp"
             android:height="60dp"
             android:text="@string/text_fazerLogin"
             android:textSize="16sp"
             app:cornerRadius="100dp" />
-    </RelativeLayout>
+    </LinearLayout>
 
 
 

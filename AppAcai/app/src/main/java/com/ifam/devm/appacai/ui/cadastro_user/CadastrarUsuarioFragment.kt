@@ -21,7 +21,7 @@ import java.io.ByteArrayOutputStream
 import java.util.regex.Matcher
 
 class CadastrarUsuarioFragment : Fragment() {
-    private lateinit var fotoQR: ByteArray
+    private var fotoQR: ByteArray? = null
     private lateinit var nome: String
     private lateinit var nomeFantasia: String
     private lateinit var email: String
@@ -55,7 +55,7 @@ class CadastrarUsuarioFragment : Fragment() {
                 val novoCadastro = Usuario(
                     1,
 //                    textCliqueInserirCodigoQr
-                    fotoQR,
+                    fotoQR as ByteArray?,
                     txtNomeCadastrar.text.toString(),
                     txtNomeFantasiaCadastrar.text.toString(),
                     txtEmailCadastrar.text.toString(),
@@ -75,7 +75,7 @@ class CadastrarUsuarioFragment : Fragment() {
                         StartupActivity::class.java
                     )
                 )
-                onDestroy()
+                onDestroyView()
             }
         }
     }

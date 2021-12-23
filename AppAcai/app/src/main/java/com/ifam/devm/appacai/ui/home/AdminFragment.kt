@@ -51,11 +51,20 @@ class AdminFragment : Fragment() {
         toolbarDadosLoja.setOnMenuItemClickListener { item ->
             when (item.itemId) {
                 R.id.editar_dados -> {
-                    val intent = Intent(this@AdminFragment.requireContext(), EditarDadosUserActivity::class.java)
+                    val intent = Intent(
+                        this@AdminFragment.requireContext(),
+                        EditarDadosUserActivity::class.java
+                    )
                     intent.putExtra("user_name", txtNomeVisualizar.text.toString())
                     startActivity(intent)
                 }
 
+                R.id.sobre_app -> {
+                    val intent =
+                        Intent(this@AdminFragment.requireContext(), SobreOAppActivity::class.java)
+                    intent.putExtra("user_name", txtNomeVisualizar.text.toString())
+                    startActivity(intent)
+                }
             }
             true
         }
@@ -74,7 +83,6 @@ class AdminFragment : Fragment() {
         }
 
     }
-
 
     override fun onStart() {
         carregaDadosDoBanco()
@@ -102,68 +110,4 @@ class AdminFragment : Fragment() {
             }
         }
     }
-//
-//
-//
-//    private fun carregaNomeUsuarioDoBanco() {
-//        doAsync {
-//            viewModel =
-//                RecuperarSenhaViewModel(AppDatabase.getDatabase(this@AdminFragment.requireContext()))
-//            viewModel.carregaDadosALTERAR()
-//            uiThread {
-//                usuario = viewModel.pegaDadosUsuario()
-//                try {
-//                    val sharedPreferences =
-//                        context?.getSharedPreferences(PREF_DATA_NAME, MODE_PRIVATE)
-//                    textonome.text =
-//                        sharedPreferences?.getString("nome", "")
-//                } catch (e: Exception) {
-//                    Toast.makeText(
-//                        this@AdminFragment.requireContext(),
-//                        "Nao foi possivel carregar o nome",
-//                        Toast.LENGTH_SHORT
-//                    ).show()
-//                }
-//            }
-//        }
-//    }
 }
-
-
-/*
-    override fun onStart() {
-        carregaNomeUsuarioDoBanco()
-        super.onStart()
-    }
-
-    private fun carregaNomeUsuarioDoBanco() {
-        doAsync {
-            viewModel =
-                RecuperarSenhaViewModel(AppDatabase.getDatabase(this@HomeActivity))
-            viewModel.carregaDadosALTERAR()
-            uiThread {
-                usuario = viewModel.pegaDadosUsuario()
-                try {
-                    val sharedPreferences = getSharedPreferences(PREF_DATA_NAME, MODE_PRIVATE)
-                    txtUsername.text =
-                        sharedPreferences.getString("nome", "")
-                } catch (e: Exception) {
-                    Toast.makeText(
-                        this@HomeActivity,
-                        "Nao foi possivel carregar o nome",
-                        Toast.LENGTH_SHORT
-                    ).show()
-                }
-            }
-        }
-    }
-*/
-/*
-        btLogOff.setOnClickListener {
-            val sharedPreferences = getSharedPreferences(PREF_DATA_NAME, MODE_PRIVATE)
-            val sharedEditor = sharedPreferences.edit()
-            sharedEditor.putString("login", "")
-            sharedEditor.apply()
-            startActivity(Intent(this@HomeActivity, StartupActivity::class.java))
-            finishAffinity()
-        }*/
