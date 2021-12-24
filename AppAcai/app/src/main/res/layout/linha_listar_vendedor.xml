@@ -3,32 +3,33 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="65dp"
-    android:layout_marginStart="16dp"
-    android:layout_marginEnd="16dp">
+    android:layout_height="wrap_content">
 
     <androidx.cardview.widget.CardView
         android:id="@+id/linhaFuncionario"
         android:layout_width="match_parent"
-        android:layout_height="64dp"
-        android:layout_marginBottom="33dp">
+        android:layout_height="100dp"
+        android:paddingHorizontal="15dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="20dp">
 
         <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="90dp"
             android:orientation="horizontal">
 
             <ImageView
                 android:id="@+id/imageFuncionario"
                 android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginEnd="16dp"
+                android:layout_height="70dp"
+                android:layout_marginStart="10dp"
+                android:layout_gravity="center"
                 app:srcCompat="@drawable/ic_face" />
 
             <LinearLayout
                 android:layout_width="wrap_content"
-                android:layout_height="64dp"
+                android:layout_height="80dp"
+                android:layout_marginStart="20dp"
                 android:orientation="vertical">
 
                 <TextView
@@ -67,16 +68,14 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="64dp"
-                android:layout_marginStart="115dp"
+                android:layout_height="80dp"
+                android:gravity="right|center"
                 android:orientation="vertical">
 
                 <ImageView
                     android:id="@+id/imageView2"
                     android:layout_width="24dp"
                     android:layout_height="24dp"
-                    android:layout_marginTop="20dp"
-                    android:layout_marginEnd="16dp"
                     app:srcCompat="@drawable/ic_more_vert" />
             </LinearLayout>
 

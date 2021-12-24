@@ -35,4 +35,8 @@ interface ProdutoDao : BaseDao<Produto> {
     @Query("""SELECT * FROM $TABLE_PRODUTO WHERE $COLUMN_AVALIACAO = :valor""")
     fun produtoByValor(valor: Float): Produto
 
+    //    retorna produto por valor
+    @Query("""DELETE FROM $TABLE_PRODUTO""")
+    fun deleteAllProd()
+
 }

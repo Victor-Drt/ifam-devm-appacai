@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
+import android.view.Menu
 import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
@@ -20,10 +21,15 @@ import com.ifam.devm.appacai.ui.cadastro_produto.CadastrarProdutoActivity
 import com.ifam.devm.appacai.ui.cadastro_produto.CadastrarProdutoViewModel
 import com.ifam.devm.appacai.ui.cadastro_produto.EditarProdutoActivity
 import com.ifam.devm.appacai.ui.cadastro_produto.VisualizarProdutoActivity
-import com.ifam.devm.appacai.ui.startup.StartupActivity
 import kotlinx.android.synthetic.main.fragment_produtos.*
 import org.jetbrains.anko.doAsync
 import org.jetbrains.anko.uiThread
+
+import android.view.MenuInflater
+import androidx.appcompat.widget.SearchView
+import com.ifam.devm.appacai.ui.funcionarios.EditarFuncionarioActivity
+import com.ifam.devm.appacai.ui.funcionarios.VisualizarFuncionarioActivity
+
 
 class ProdutosFragment : Fragment() {
 
@@ -40,6 +46,7 @@ class ProdutosFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        setMenuVisibility(true)
 
         fbAddProduto.setOnClickListener {
             val act = activity
@@ -48,6 +55,49 @@ class ProdutosFragment : Fragment() {
             }
         }
 
+        searchView.setOnQueryTextListener(
+            object : SearchView.OnQueryTextListener {
+                // quando algo for submetido no campo de buscar essa função é executada
+                override fun onQueryTextSubmit(query: String?): Boolean {
+                    Log.d("debuga", "funcionou")
+                    if (query != null) {
+                        searchDatabase(query)
+                    }
+                    return true
+                }
+
+                // quando algo é digitado no campo de buscar essa função é executada
+                override fun onQueryTextChange(query: String?): Boolean {
+                    if (query != null) {
+                        Log.d("debuga", query)
+                    }
+                    if (query != null) {
+                        searchDatabase(query)
+                    }
+                    return true
+                }
+            })
+    }
+
+    /************************** Metodos para a pesquisa de itens ***************************/
+
+    //função utilizada pelo searchView para filtrar a lista de itens cadastrados pelo o que
+    // foi procurado
+
+    private fun searchDatabase(query: String) {
+        if (query.isEmpty()) {
+            produtosAdapter.swapData(produtosCadastrados)
+        } else {
+            var listaFiltrada = produtosCadastrados.filter {
+                it.nome.toUpperCase().contains(query.toUpperCase())
+            }
+            if (listaFiltrada.isEmpty()) {
+                listaFiltrada = produtosCadastrados.filter {
+                    it.descricao.toUpperCase().contains(query.toUpperCase())
+                }
+            }
+            produtosAdapter.swapData(listaFiltrada)
+        }
     }
 
     override fun onResume() {
@@ -74,7 +124,7 @@ class ProdutosFragment : Fragment() {
                 CadastrarProdutoViewModel(AppDatabase.getDatabase(this@ProdutosFragment.requireContext()))
 
             produtosCadastrados = produtosViewModel.getAllProduto() as MutableList<Produto>
-            Log.d("M",produtosCadastrados.toString())
+            Log.d("M", produtosCadastrados.toString())
 
             uiThread {
                 produtosAdapter.swapData(produtosCadastrados)
@@ -83,11 +133,9 @@ class ProdutosFragment : Fragment() {
     }
 
     private fun onClickItem(produto: Produto) {
-        val produtoJson = Gson().toJson(produto)
-        val intentEditarProduto =
-            Intent(this@ProdutosFragment.requireContext(), VisualizarProdutoActivity::class.java)
-        intentEditarProduto.putExtra("produto", produtoJson)
-        startActivity(intentEditarProduto)
+        val intent = Intent(this@ProdutosFragment.requireContext(), VisualizarProdutoActivity::class.java)
+        intent.putExtra("produto_nome", produto.nome)
+        startActivity(intent)
     }
 
     private fun deleteItemClick(produto: Produto) {
@@ -100,11 +148,9 @@ class ProdutosFragment : Fragment() {
 
     private fun editarItemClick(produto: Produto) {
         //cria uma intent enviando as informaçoes do produto para a prox tela
-        val produtoJson = Gson().toJson(produto)
-        val intentEditarFuncionario =
-            Intent(this@ProdutosFragment.requireContext(), EditarProdutoActivity::class.java)
-        intentEditarFuncionario.putExtra("produto", produtoJson)
-        startActivity(intentEditarFuncionario)
+        val intent = Intent(this@ProdutosFragment.requireContext(), EditarProdutoActivity::class.java)
+        intent.putExtra("produto_nome", produto.nome)
+        startActivity(intent)
     }
 
 }

@@ -1,22 +1,23 @@
 package com.ifam.devm.appacai.ui.cadastro_produto
 
 import android.content.Intent
+import android.graphics.BitmapFactory
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.google.gson.Gson
 import com.ifam.devm.appacai.R
 import com.ifam.devm.appacai.model.Produto
+import com.ifam.devm.appacai.repository.room.AppDatabase
+import com.ifam.devm.appacai.ui.funcionarios.CadastrarFuncionarioViewModel
 import kotlinx.android.synthetic.main.activity_visualizar_produto.*
+import org.jetbrains.anko.doAsync
+import org.jetbrains.anko.uiThread
 
 class VisualizarProdutoActivity : AppCompatActivity() {
     //    produto
     private lateinit var produto: Produto
+    private lateinit var prodViewModel : CadastrarProdutoViewModel
 
-    //    atributos
-    private var nome: String = ""
-    private var descricao: String = ""
-    private var tipo: String = ""
-    private var valor: String = ""
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_visualizar_produto)
@@ -30,11 +31,9 @@ class VisualizarProdutoActivity : AppCompatActivity() {
             when (item.itemId) {
                 R.id.editar_dados -> {
                     //cria uma intent enviando as informaçoes do produto para a prox tela
-                    val produtoJson = Gson().toJson(produto)
-                    val intentEditarFuncionario =
-                        Intent(this, EditarProdutoActivity::class.java)
-                    intentEditarFuncionario.putExtra("produto", produtoJson)
-                    startActivity(intentEditarFuncionario)
+                    val intent = Intent(this, EditarProdutoActivity::class.java)
+                    intent.putExtra("produto_nome", produto.nome)
+                    startActivity(intent)
                 }
             }
             true
@@ -49,13 +48,27 @@ class VisualizarProdutoActivity : AppCompatActivity() {
     }
 
     private fun carregaDadosDoBanco() {
-        val produtoJson = intent.getStringExtra("produto")
-        val produto2 = Gson().fromJson(produtoJson, Produto::class.java)
-        produto = produto2
-        txtNomeVerProduto.setText(produto.nome)
-        txtDescricaoVerProduto.setText(produto.descricao)
-        txtValorVerProduto.setText((produto.valor).toString())
-        txtTipoVerProduto.setText(produto.tipo)
-        ratingBarProdutos.rating = produto.avaliacao
+        val intent = intent
+        val produtoNome = intent.getStringExtra("produto_nome")
+
+        doAsync {
+            prodViewModel =
+                CadastrarProdutoViewModel(AppDatabase.getDatabase(this@VisualizarProdutoActivity))
+            produto = prodViewModel.consultarProdutoExistente(produtoNome.toString())
+
+            println("Produto ${produto.nome}")
+
+            uiThread {
+                if (produto?.foto != null) {
+                    var fotoproduto = BitmapFactory.decodeByteArray(produto.foto, 0, (produto.foto)?.size!!)
+                    imageProdutoVisu?.setImageBitmap(fotoproduto)
+                }
+                txtNomeVerProduto.setText(produto.nome)
+                txtDescricaoVerProduto.setText(produto.descricao)
+                txtValorVerProduto.setText((produto.valor).toString())
+                txtTipoVerProduto.setText(produto.tipo)
+                ratingBarProdutos.rating = produto.avaliacao
+            }
+        }
     }
 }

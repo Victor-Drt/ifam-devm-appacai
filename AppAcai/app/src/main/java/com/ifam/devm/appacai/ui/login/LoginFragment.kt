@@ -2,14 +2,16 @@ package com.ifam.devm.appacai.ui.login
 
 import android.content.Context
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.util.Patterns
+import androidx.fragment.app.Fragment
+import android.view.LayoutInflater
 import android.view.View
+import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
-import android.widget.Button
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import com.google.gson.Gson
 import com.ifam.devm.appacai.R
 import com.ifam.devm.appacai.model.Usuario
@@ -23,21 +25,27 @@ import org.jetbrains.anko.AnkoAsyncContext
 import org.jetbrains.anko.doAsync
 import org.jetbrains.anko.uiThread
 
-class LoginActivity : AppCompatActivity() {
+class LoginFragment : Fragment() {
     //variaveis quue serão utilizadas
     private lateinit var email: String
     private lateinit var senha: String
     private lateinit var loginViewModel: UserViewModel //variavel para usar os metodos da viewModel
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_login)
-        title = "Login"
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        // Inflate the layout for this fragment
+        return inflater.inflate(R.layout.fragment_login, container, false)
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
 
         //tela de recuperacao de senha
         txtViewEsqueciSenha.setOnClickListener {
             //Quando o "esqueci a senha" for clicado abre a activity RecuperarSenhaActivity
-            startActivity(Intent(this, RecuperarSenhaActivity::class.java))
+            startActivity(Intent(this@LoginFragment.requireContext(), RecuperarSenhaActivity::class.java))
         }
 
         //setando botao entrar
@@ -58,7 +66,7 @@ class LoginActivity : AppCompatActivity() {
     private fun fazerLogin() {
         //Coletando dados do usuario
         doAsync {
-            loginViewModel = UserViewModel(AppDatabase.getDatabase(this@LoginActivity))
+            loginViewModel = UserViewModel(AppDatabase.getDatabase(this@LoginFragment.requireContext()))
             val usuario = loginViewModel.consultarLoginExistente(email)
             try {
                 Log.d("email", usuario.email)
@@ -76,7 +84,7 @@ class LoginActivity : AppCompatActivity() {
         }
     }
 
-    private fun AnkoAsyncContext<LoginActivity>.fazerLogin(usuario: Usuario) {
+    private fun AnkoAsyncContext<LoginFragment>.fazerLogin(usuario: Usuario) {
         //Se a senha digitada não for válida, aparece uma mensagem de erro
         if (usuario.senha != senha) {
             uiThread {
@@ -86,9 +94,9 @@ class LoginActivity : AppCompatActivity() {
             //Se a senha for válida vai para a próxima activity, a HomeActivity
             uiThread {
                 escreverNoSharedPreferences(usuario)
-                Toast.makeText(this@LoginActivity, "Login com sucesso!", Toast.LENGTH_SHORT).show()
-                startActivity(Intent(this@LoginActivity, HomeActivity::class.java))
-                finishAffinity()
+                Toast.makeText(this@LoginFragment.requireContext(), "Login com sucesso!", Toast.LENGTH_SHORT).show()
+                startActivity(Intent(this@LoginFragment.requireContext(), HomeActivity::class.java))
+                onDestroy()
             }
         }
     }
@@ -131,12 +139,15 @@ class LoginActivity : AppCompatActivity() {
         if (materialCheckBox.isChecked){
             val usuarioJson = Gson().toJson(usuario)
             val usuarioNomeJson = Gson().toJson(usuario.nomeUsuario)
-            val sharedPreferences = getSharedPreferences(PREF_DATA_NAME, MODE_PRIVATE)
-            val sharedEditor = sharedPreferences.edit()
-            sharedEditor.putString("login", usuarioJson)
-            sharedEditor.putString("nome", usuarioNomeJson)
-            sharedEditor.putString("email_usuario", txtEmailLogin.text.toString())
-            sharedEditor.apply()
+            val sharedPreferences = activity?.getSharedPreferences(
+                PREF_DATA_NAME,
+                AppCompatActivity.MODE_PRIVATE
+            )
+            val sharedEditor = sharedPreferences?.edit()
+            sharedEditor?.putString("login", usuarioJson)
+            sharedEditor?.putString("nome", usuarioNomeJson)
+            sharedEditor?.putString("email_usuario", txtEmailLogin.text.toString())
+            sharedEditor?.apply()
         }
     }
 }

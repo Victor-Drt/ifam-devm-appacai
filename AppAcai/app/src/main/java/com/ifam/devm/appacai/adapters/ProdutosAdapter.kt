@@ -3,6 +3,8 @@ package com.ifam.devm.appacai.adapters
 import android.app.AlertDialog
 import android.content.Context
 import android.content.Intent
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
 import android.view.LayoutInflater
 import android.view.MenuInflater
 import android.view.View
@@ -16,6 +18,7 @@ import com.ifam.devm.appacai.R
 import com.ifam.devm.appacai.model.Produto
 import kotlinx.android.synthetic.main.dialog_confirmar_exclusao.view.*
 import kotlinx.android.synthetic.main.linha_listar_produto.view.*
+import java.io.ByteArrayInputStream
 import kotlin.reflect.KFunction1
 
 class ProdutosAdapter(
@@ -32,8 +35,10 @@ class ProdutosAdapter(
         holder?.campoDescProduto?.text = produto.descricao
         holder?.campoValorProduto?.text = produto.valor.toString()
 
-//        if (produto?.foto != null)
-//            holder?.imageFuncionario?.setImageBitmap()
+        if (produto?.foto != null) {
+            var fotoproduto = BitmapFactory.decodeByteArray(produto.foto, 0, (produto.foto)?.size!!)
+            holder?.imageProduto?.setImageBitmap(fotoproduto)
+        }
 
         holder?.btnConfig?.setOnClickListener {
             val popup = PopupMenu(context, it)
@@ -110,8 +115,8 @@ class ProdutosAdapter(
         val campoNomeProduto: TextView = itemView.textNomeProduto
         val campoDescProduto: TextView = itemView.textDescricaoProduto
         val campoValorProduto: TextView = itemView.textValorProduto
-        val imageFuncionario: ImageView = itemView.imageProduto
         val btnConfig: ImageView = itemView.imageOptionsProd
+        val imageProduto: ImageView = itemView.imageProduto
 
         val rowItem : CardView = itemView.linhaProduto
 

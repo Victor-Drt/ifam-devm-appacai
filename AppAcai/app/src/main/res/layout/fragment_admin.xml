@@ -27,6 +27,18 @@
         android:layout_marginTop="?attr/actionBarSize"
         android:paddingTop="20dp">
 
+
+        <ImageView
+            android:id="@+id/imageQRVisu"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:visibility="visible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:srcCompat="@drawable/acai" />
+
+
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/dadosUserLayoutInputTextUserName"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
@@ -38,13 +50,12 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintTop_toBottomOf="@id/imageQRVisu">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/txtNomeVisualizar"
                 android:layout_width="match_parent"
                 android:layout_height="56dp"
-                android:text="Nome do Admin"
                 android:editable="false"
                 android:hint="@string/text_nome_field"
                 android:singleLine="true" />
@@ -66,7 +77,6 @@
                 android:id="@+id/txtNomeFantasiaVisualizar"
                 android:layout_width="match_parent"
                 android:layout_height="56dp"
-                android:text="Nome Fantasia da loja"
                 android:editable="false"
                 android:hint="@string/text_nomeEmpresa_field"
                 android:singleLine="true" />
@@ -81,6 +91,7 @@
             app:errorEnabled="true"
             app:layout_constraintBottom_toTopOf="@+id/dadosUserLayoutInputTextPix"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.496"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/dadosUserLayoutInputTextEmpresa">
 
@@ -88,10 +99,9 @@
                 android:id="@+id/txtEmailVisualizar"
                 android:layout_width="match_parent"
                 android:layout_height="56dp"
-                android:text="Email"
                 android:editable="false"
                 android:hint="@string/text_email_field"
-                android:singleLine="true" />
+                android:singleLine="true"/>
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -99,9 +109,11 @@
             android:id="@+id/dadosUserLayoutInputTextPix"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="286dp"
-            android:layout_height="82dp"
+            android:layout_height="86dp"
+            android:layout_marginTop="10dp"
             app:errorEnabled="true"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.512"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/dadosUserLayoutInputTextEmail">
 
@@ -109,7 +121,6 @@
                 android:id="@+id/txtPixVisualizar"
                 android:layout_width="match_parent"
                 android:layout_height="56dp"
-                android:text="929922222"
                 android:editable="false"
                 android:hint="@string/text_pix_field"
                 android:singleLine="true" />
@@ -123,9 +134,10 @@
             android:text="@string/text_sair"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/dadosUserLayoutInputTextPix"
-            app:layout_constraintVertical_bias="0.185" />
+            app:layout_constraintVertical_bias="0.608" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

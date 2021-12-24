@@ -1,22 +1,16 @@
 package com.ifam.devm.appacai.ui.home
 
-import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.ifam.devm.appacai.R
-import com.ifam.devm.appacai.ui.cadastro_user.EditarDadosUserActivity
 import kotlinx.android.synthetic.main.activity_home.*
-import android.view.ViewGroup
-
-
-
+import kotlinx.android.synthetic.main.fragment_produtos.*
 
 class HomeActivity : AppCompatActivity() {
 
     private val adminFragment = AdminFragment()
     private val vendedoresFragment = VendedoresFragment()
-    private val homeFragment = HomeFragment()
     private val produtosFragment = ProdutosFragment()
     private val vendasFragment = VendasFragment()
 
@@ -25,7 +19,7 @@ class HomeActivity : AppCompatActivity() {
         setContentView(R.layout.activity_home)
 
 
-        replaceFragment(homeFragment)
+        replaceFragment(vendasFragment)
 
         bottom_navigation.setOnNavigationItemSelectedListener {
             when (it.itemId) {
@@ -39,14 +33,11 @@ class HomeActivity : AppCompatActivity() {
                     title = "Vendedores"
                     true
                 }
-                R.id.page_home -> {
-                    replaceFragment(homeFragment)
-                    title = "Home"
-                    true
-                }
                 R.id.page_produtos -> {
                     replaceFragment(produtosFragment)
                     title = "Produtos"
+                    setSupportActionBar(toolbarProdutos)
+
                     true
                 }
                 R.id.page_vendas -> {
@@ -57,7 +48,6 @@ class HomeActivity : AppCompatActivity() {
                 else -> false
             }
         }
-
     }
 
 //    override fun onStop() {

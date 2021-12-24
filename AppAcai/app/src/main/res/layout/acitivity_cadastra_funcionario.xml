@@ -3,153 +3,170 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    tools:context=".ui.funcionarios.FuncionariosCadastrar">
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/cadInputNome"
-        android:layout_width="0dp"
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBarCadastrarFuncionario"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="32dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/textNomeInput"
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/toolbarCadastrarFuncionario"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/Nome_Funcionario"
-            android:selectAllOnFocus="true"
-            android:singleLine="false"
-            android:textColor="#000000" />
-    </com.google.android.material.textfield.TextInputLayout>
+            android:layout_height="?attr/actionBarSize"
+            app:menu="@menu/menu_pesquisar_dados"
+            app:navigationIcon="@drawable/ic_arrow_back"
+            app:title="@string/text_page_cad_vendedores"
+            app:titleTextColor="@color/white" />
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/cadInputEmail"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="32dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cadInputNome">
+    </com.google.android.material.appbar.AppBarLayout>
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/textEmailInput"
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="?attr/actionBarSize">
+
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/text_email_field"
-            android:inputType="textEmailAddress" />
-    </com.google.android.material.textfield.TextInputLayout>
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center">
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/cadInputTelefone"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="32dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cadInputEmail">
+            <ImageView
+                android:id="@+id/imageFuncionarioCad"
+                android:layout_width="96dp"
+                android:layout_height="96dp"
+                android:layout_marginTop="20dp"
+                android:visibility="visible"
+                tools:srcCompat="@drawable/acai" />
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/textTelefoneInput"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/Telefone"
-            android:inputType="number" />
-    </com.google.android.material.textfield.TextInputLayout>
+            <TextView
+                android:id="@+id/textClickImgFunc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/text_insert_image"/>
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/cadInputCpf"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="32dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cadInputTelefone">
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/cadInputNome"
+                android:layout_width="286dp"
+                android:layout_height="82dp"
+                android:layout_marginTop="16dp"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                app:errorEnabled="true">
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/textCpfInput"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="cpf"
-            android:inputType="number" />
-    </com.google.android.material.textfield.TextInputLayout>
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/textNomeInput"
+                    android:layout_width="match_parent"
+                    android:layout_height="56dp"
+                    android:hint="@string/Nome_Funcionario"
+                    android:selectAllOnFocus="true"
+                    android:singleLine="true"
+                    android:textColor="#000000" />
+            </com.google.android.material.textfield.TextInputLayout>
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/cadInputMetaVendas"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="32dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cadInputCpf">
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/cadInputEmail"
+                android:layout_width="286dp"
+                android:layout_height="82dp"
+                android:layout_marginTop="16dp"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                app:errorEnabled="true">
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/textMetaVendasInput"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/Meta_Vendas" />
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/textEmailInput"
+                    android:layout_width="match_parent"
+                    android:layout_height="56dp"
+                    android:hint="@string/text_email_field"
+                    android:singleLine="true"
+                    android:inputType="textEmailAddress" />
+            </com.google.android.material.textfield.TextInputLayout>
 
-    </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/cadInputTelefone"
+                android:layout_width="286dp"
+                android:layout_height="82dp"
+                android:layout_marginTop="16dp"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                app:errorEnabled="true">
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/cadInputTotalVendas"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="32dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cadInputMetaVendas">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/textTelefoneInput"
+                    android:layout_width="match_parent"
+                    android:layout_height="56dp"
+                    android:hint="@string/Telefone"
+                    android:singleLine="true"
+                    android:inputType="number" />
+            </com.google.android.material.textfield.TextInputLayout>
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/textInputTotalVendas"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/TotaL_Vendas"
-            android:inputType="number" />
-    </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/cadInputCpf"
+                android:layout_width="286dp"
+                android:layout_height="82dp"
+                android:layout_marginTop="16dp"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                app:errorEnabled="true">
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/cadInputSenha"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="32dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cadInputTotalVendas">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/textCpfInput"
+                    android:layout_width="match_parent"
+                    android:layout_height="56dp"
+                    android:hint="cpf"
+                    android:singleLine="true"
+                    android:inputType="number" />
+            </com.google.android.material.textfield.TextInputLayout>
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/textInputSenha"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="senha"
-            android:inputType="textWebPassword" />
-    </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/cadInputMetaVendas"
+                android:layout_width="286dp"
+                android:layout_height="82dp"
+                android:layout_marginTop="16dp"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                app:errorEnabled="true">
 
-    <Button
-        android:id="@+id/btn_cadastrar"
-        android:layout_width="0dp"
-        android:layout_height="79dp"
-        android:layout_marginStart="115dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="116dp"
-        android:fontFamily="monospace"
-        android:text="@string/cadastrar"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cadInputSenha" />
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/textMetaVendasInput"
+                    android:layout_width="match_parent"
+                    android:layout_height="56dp"
+                    android:hint="@string/Meta_Vendas"
+                    android:singleLine="true"
+                    android:inputType="numberDecimal"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/cadInputSenha"
+                android:layout_width="286dp"
+                android:layout_height="82dp"
+                android:layout_marginTop="16dp"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                app:errorEnabled="true">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/textInputSenha"
+                    android:layout_width="match_parent"
+                    android:layout_height="56dp"
+                    android:singleLine="true"
+                    android:hint="senha"
+                    android:inputType="textPassword" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_cadastrar"
+                android:layout_width="202dp"
+                android:layout_height="60dp"
+                android:layout_marginBottom="40dp"
+                android:height="60dp"
+                android:text="@string/cadastrar"
+                app:cornerRadius="100dp" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

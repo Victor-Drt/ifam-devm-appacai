@@ -21,4 +21,8 @@ class CadastrarProdutoViewModel(appDatabase: AppDatabase) {
         return produtoRepository.getAllProduto()
     }
 
+    fun deleteAllProdutos() {
+        return produtoRepository.deleteAllProdutos()
+    }
+
 }

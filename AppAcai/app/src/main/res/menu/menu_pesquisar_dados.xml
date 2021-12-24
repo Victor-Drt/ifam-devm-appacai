@@ -2,9 +2,9 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-<item
+    <item
         android:id="@+id/pesquisar_dados"
-        android:title="@string/pesquisar_dados"
         android:icon="@drawable/ic_baseline_search"
-        app:showAsAction="always"/>
+        android:title="@string/pesquisar_dados"
+        app:showAsAction="collapseActionView|ifRoom" />
 </menu>

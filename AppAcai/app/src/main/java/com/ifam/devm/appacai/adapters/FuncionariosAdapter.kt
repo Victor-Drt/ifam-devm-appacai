@@ -3,6 +3,7 @@ package com.ifam.devm.appacai.adapters
 import android.app.AlertDialog
 import android.content.Context
 import android.content.Intent
+import android.graphics.BitmapFactory
 import android.view.LayoutInflater
 import android.view.MenuInflater
 import android.view.View
@@ -10,6 +11,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.PopupMenu
 import android.widget.TextView
+import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import com.ifam.devm.appacai.R
 import com.ifam.devm.appacai.model.Funcionario
@@ -29,10 +31,12 @@ class FuncionariosAdapter(
     override fun onBindViewHolder(holder: FuncionariosAdapter.FuncionariosViewHolder, position: Int) {
         val vendedor = listaFuncionarios[position]
         holder?.textNomeFuncionario?.text = vendedor.nome_funcionario
-        holder?.textValorMeta?.text = vendedor.meta_vendas as String
+        holder?.textValorMeta?.text = vendedor.meta_vendas.toString()
 
-       /* if (vendedor?.foto != null)
-            holder?.imageFuncionario?.setImageBitmap(vendedor.foto) */
+        if (vendedor?.foto != null) {
+            var fotoDunc = BitmapFactory.decodeByteArray(vendedor.foto, 0, (vendedor.foto)?.size!!)
+            holder?.imageFuncionario?.setImageBitmap(fotoDunc)
+        }
 
         holder?.btnConfig?.setOnClickListener {
             val popup = PopupMenu(context, it)
@@ -71,7 +75,13 @@ class FuncionariosAdapter(
             }
             popup.show()
         }
+
+        holder.rowItem.setOnClickListener {
+            funcionarioClickLinha(vendedor)
+        }
     }
+
+
 
     private fun removerItem(position: Int) {
         excluirClick(listaFuncionarios[position])
@@ -106,6 +116,8 @@ class FuncionariosAdapter(
         val textValorMeta: TextView = itemView.textValorMeta
         val imageFuncionario: ImageView = itemView.imageFuncionario
         val btnConfig: ImageView = itemView.imageView2
+
+        val rowItem : CardView = itemView.linhaFuncionario
 
         init {
             itemView.setOnClickListener {

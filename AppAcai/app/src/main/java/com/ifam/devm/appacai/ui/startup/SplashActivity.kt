@@ -1,15 +1,14 @@
 package com.ifam.devm.appacai.ui.startup
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import androidx.appcompat.app.AppCompatActivity
 import com.ifam.devm.appacai.R
 import com.ifam.devm.appacai.repository.room.AppDatabase
 import com.ifam.devm.appacai.repository.sqlite.PREF_DATA_NAME
 import com.ifam.devm.appacai.ui.home.HomeActivity
-import com.ifam.devm.appacai.ui.login.LoginActivity
 import org.jetbrains.anko.doAsync
 
 class SplashActivity : AppCompatActivity() {

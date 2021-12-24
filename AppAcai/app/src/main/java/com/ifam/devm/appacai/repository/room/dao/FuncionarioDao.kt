@@ -17,6 +17,9 @@ interface FuncionarioDao: BaseDao<Funcionario> {
     @Query("""  SELECT * FROM $TABLE_FUNCIONARIO WHERE $COLUMN_CPF_FUNCIONARIO =  :cpf """ )
     fun getFuncionarioByEmail(cpf: String): Funcionario
 
+    @Query("""  SELECT * FROM $TABLE_FUNCIONARIO WHERE $COLUMN_NOME_FUNCIONARIO =  :nome """ )
+    fun getFuncionarioByNome(nome: String): Funcionario
+
     @Query( """  SELECT * FROM $TABLE_FUNCIONARIO WHERE $COLLUMN_ID_FUNCIONARIO = :id """)
     fun getFuncionarioByID(id: Long): Funcionario
 
@@ -25,4 +28,7 @@ interface FuncionarioDao: BaseDao<Funcionario> {
 
     @Query(""" SELECT * FROM $TABLE_FUNCIONARIO """)
     fun getFuncio(): Funcionario
+
+    @Query(""" DELETE FROM $TABLE_FUNCIONARIO """)
+    fun deleteAllFunc()
 }

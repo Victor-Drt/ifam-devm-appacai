@@ -46,12 +46,27 @@
     <string name="text_tipo_produto">Tipo</string>
     <string name="text_editar_produto">Editar Produto</string>
     <string name="text_visualizar_produto">Visualizar Produto</string>
-    <string name="text_visualizar_funcionario">Visualizar Funcionário</string>
+    <string name="text_pesquisar_hint">Pesquisar</string>
     <string name="Telefone">Telefone</string>
-    <string name="CPF">CPF</string>
-    <string name="Meta_Vendas">Meta de Vendas</string>
+    <string name="Meta_Vendas">Meta de vendas</string>
     <string name="TotaL_Vendas">Total de Vendas</string>
     <string name="Nome_Funcionario">Nome</string>
     <string name="text_editar_funcionario">Editar Funcionario</string>
+    <string name="cpf">CPF</string>
+    <string name="text_visualizar_funcionario">Visualizar Funcionario</string>
+    <string name="text_page_cad_vendedores">Cadastrar Funcionarios</string>
+    <string name="text_vendedor">Vendedor</string>
+    <string name="total_hoje_text">total de hoje: R$</string>
+    <string name="text_insert_qr_image">clique aqui para inserir a chave pix via QR</string>
+    <string name="sobre_app">Sobre o app</string>
+    <string name="sobre_text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</string>
+    <string name="label_valorArrecadado">Valor Arrecadado</string>
+    <string name="label_progresso">Progresso da meta de vendas</string>
+    <string name="btn_textNovoPedido">Novo Pedido</string>
+    <string name="btn_textAvaliarPedido">Avaliar Produto</string>
 
+    <string-array name="titles_tab">
+        <item>Login</item>
+        <item>Cadastrar</item>
+    </string-array>
 </resources>
