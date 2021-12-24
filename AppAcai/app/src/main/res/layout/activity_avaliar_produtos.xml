@@ -1,9 +1,110 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".ui.cadastro_produto.AvaliarProdutosActivity">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appbarAvaliarProdutos"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbarAvaliarProdutos"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            app:layout_scrollFlags="scroll|enterAlways"></androidx.appcompat.widget.Toolbar>
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tabs"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            app:tabMode="scrollable">
+
+            <com.google.android.material.tabs.TabItem
+                android:id="@+id/tabPrincipal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Principal" />
+
+            <com.google.android.material.tabs.TabItem
+                android:id="@+id/tabCaixa"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Caixa" />
+
+            <com.google.android.material.tabs.TabItem
+                android:id="@+id/tabFrutas"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Frutas" />
+
+            <com.google.android.material.tabs.TabItem
+                android:id="@+id/tabComplemento"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Complemento" />
+        </com.google.android.material.tabs.TabLayout>
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+        app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+
+            android:id="@+id/coordinatorLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+
+            <ImageView
+                android:id="@+id/imageView5Produtos"
+                android:layout_width="88dp"
+                android:layout_height="102dp"
+                app:srcCompat="@drawable/acai"
+                tools:layout_editor_absoluteX="16dp"
+                tools:layout_editor_absoluteY="30dp" />
+
+            <RatingBar
+                android:id="@+id/ratingBarAvaliacao"
+                android:layout_width="140dp"
+                android:layout_height="41dp"
+                tools:layout_editor_absoluteX="264dp"
+                tools:layout_editor_absoluteY="58dp" />
+
+            <TextView
+                android:id="@+id/textViewNomeProduto"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Produto"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                tools:layout_editor_absoluteX="131dp"
+                tools:layout_editor_absoluteY="30dp" />
+
+            <TextView
+                android:id="@+id/textView2Descricao"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Descrição"
+                android:textSize="16sp"
+                tools:layout_editor_absoluteX="131dp"
+                tools:layout_editor_absoluteY="75dp" />
+
+            <TextView
+                android:id="@+id/textView3Valor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Valor:"
+                android:textSize="16sp"
+                tools:layout_editor_absoluteX="131dp"
+                tools:layout_editor_absoluteY="97dp" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
