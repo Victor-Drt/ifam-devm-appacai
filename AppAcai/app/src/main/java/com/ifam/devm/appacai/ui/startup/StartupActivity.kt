@@ -19,11 +19,11 @@ class StartupActivity : AppCompatActivity() {
         tabLayoutStartup.setupWithViewPager(viewPager_startup)
     }
 
-    override fun onResume() {
-        super.onResume()
-    }
-
     override fun onStop() {
         super.onStop()
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
     }
 }

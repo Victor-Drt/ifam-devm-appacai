@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.venda.fragment_selecao_prod.SelecProdFragment">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvListaSelecProd"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:listitem="@layout/linha_selec_prods" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fbAddProduto"
+            android:layout_width="122dp"
+            android:layout_height="161dp"
+            android:layout_alignBottom="@+id/rvListaSelecProd"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="38dp"
+            android:layout_marginBottom="51dp"
+            android:backgroundTint="@color/acai_color_variante"
+            android:foreground="@drawable/ic_carrinho"
+            android:visibility="gone"
+            android:foregroundGravity="center" />
+
+    </RelativeLayout>
+
+</FrameLayout>

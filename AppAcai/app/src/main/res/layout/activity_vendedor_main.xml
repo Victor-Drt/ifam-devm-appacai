@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#DCDCDC"
     tools:context=".ui.home.VendedorMainActivity">
 
     <com.google.android.material.appbar.AppBarLayout
@@ -19,112 +18,182 @@
             android:id="@+id/toolbarVendedorMain"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            app:menu="@menu/menu_pesquisar_dados"
-            app:navigationIcon="@drawable/ic_arrow_back"
             app:title="@string/text_vendedor"
             app:titleTextColor="@color/white" />
 
     </com.google.android.material.appbar.AppBarLayout>
 
-    <Button
-        android:id="@+id/btn_NovoPedido"
-        android:layout_width="155dp"
-        android:layout_height="98dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="16dp"
-        android:background="#F8F8F8"
-        android:fontFamily="@font/average_sans"
-        android:padding="20dp"
-        android:text="@string/btn_textNovoPedido"
-        android:textSize="20sp"
-        app:icon="@drawable/ic_add"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/appBarVendedorMain"
-        tools:ignore="TextContrastCheck" />
-
-    <Button
-        android:id="@+id/btn_AvaliarProduto"
-        android:layout_width="155dp"
-        android:layout_height="98dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="32dp"
-        android:background="#F8F8F8"
-        android:fontFamily="@font/average_sans"
-        android:padding="20dp"
-        android:text="@string/btn_textAvaliarPedido"
-        android:textColor="#FFFFFF"
-        android:textSize="20sp"
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="?attr/actionBarSize"
+        android:orientation="vertical"
+        android:paddingVertical="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/btn_NovoPedido"
-        app:layout_constraintTop_toBottomOf="@+id/appBarVendedorMain"
-        app:rippleColor="#FFFFFF"
-        tools:ignore="TextContrastCheck" />
-
-    <TextView
-        android:id="@+id/label_ValorArrecadado"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="64dp"
-        android:layout_marginEnd="24dp"
-        android:fontFamily="@font/average_sans"
-        android:padding="20dp"
-        android:text="@string/label_valorArrecadado"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.139"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_NovoPedido" />
+        app:layout_constraintTop_toBottomOf="@id/appBarVendedorMain">
 
-    <EditText
-        android:id="@+id/ediText_ValorArrecadado"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="24dp"
-        android:ems="10"
-        android:inputType="number|textPersonName"
-        android:padding="40dp"
-        android:text="150.00"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.159"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/label_ValorArrecadado" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="60dp"
+            android:gravity="center">
 
-    <ProgressBar
-        android:id="@+id/progressoMetaVendas"
-        style="?android:attr/progressBarStyleHorizontal"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="24dp"
-        android:max="100"
-        android:padding="20dp"
-        android:progress="50"
-        android:progressBackgroundTint="#000000"
-        android:progressTint="#BA4DF1"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/label_progresso" />
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardViewNovoPedido"
+                style="@style/Base.CardView"
+                android:layout_width="180dp"
+                android:layout_height="150dp"
+                android:layout_margin="8dp"
+                android:clickable="true"
+                android:focusable="true"
+                app:cardCornerRadius="10dp"
+                app:strokeColor="@color/acai_color"
+                app:strokeWidth="2dp">
 
-    <TextView
-        android:id="@+id/label_progresso"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="36dp"
-        android:layout_marginEnd="24dp"
-        android:fontFamily="@font/average_sans"
-        android:padding="20dp"
-        android:text="@string/label_progresso"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ediText_ValorArrecadado" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/cream"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="110dp"
+                        android:background="@drawable/banner_acai"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/average_sans"
+                        android:text="Novo Pedido"
+                        android:textColor="@color/black"
+                        android:textAlignment="center"
+                        android:textSize="10pt" />
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                style="@style/Base.CardView"
+                android:layout_width="180dp"
+                android:layout_height="150dp"
+                android:layout_margin="8dp"
+                android:clickable="true"
+                android:focusable="true"
+                app:cardCornerRadius="10dp"
+                app:strokeColor="@color/acai_color"
+                app:strokeWidth="2dp">
+
+                <LinearLayout
+                    android:id="@+id/cardViewAvaliarProduto"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/cream"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="110dp"
+                        android:background="@drawable/banner_avalia"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/average_sans"
+                        android:text="Avaliar Produto"
+                        android:textColor="@color/black"
+                        android:textAlignment="center"
+                        android:textSize="10pt" />
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/average_sans"
+                android:text="Valor Arrecadado: "
+                android:textColor="@color/black"
+                android:textSize="10pt"
+                android:textStyle="bold" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/textValorArrecadadoMain"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:editable="false"
+                    android:fontFamily="@font/average_sans"
+                    android:text="150.00"
+                    android:textAlignment="center"
+                    android:textSize="10pt"
+                    android:textStyle="italic" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:layout_marginTop="30dp"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Progresso da meta de vendas: "
+                android:fontFamily="@font/average_sans"
+                android:textColor="@color/black"
+                android:textSize="10pt"
+                android:textStyle="bold" />
+
+            <ProgressBar
+                android:id="@+id/progressBarVendedor"
+                style="@android:style/Widget.ProgressBar.Horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:animationResolution="@integer/material_motion_duration_short_1"
+                android:indeterminateBehavior="cycle"
+                android:max="100"
+                android:progress="25"
+                android:progressBackgroundTint="@color/cream"
+                android:progressTint="@color/acai_color" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnLogoffVendedor"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/average_sans"
+                android:layout_marginTop="100dp"
+                android:text="@string/text_sair"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

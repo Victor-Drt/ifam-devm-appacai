@@ -55,6 +55,7 @@
                 android:id="@+id/textCliqueInserirImagemEdit"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/average_sans"
                 android:textColor="@color/acai_color"
                 android:text="@string/text_insert_image"/>
 
@@ -71,6 +72,7 @@
                     android:id="@+id/txtNomeEditProduto"
                     android:layout_width="match_parent"
                     android:layout_height="56dp"
+                    android:fontFamily="@font/average_sans"
                     android:hint="@string/text_nome_field"
                     android:singleLine="true" />
 
@@ -88,6 +90,7 @@
                     android:id="@+id/txtDescricaoEditProduto"
                     android:layout_width="match_parent"
                     android:layout_height="56dp"
+                    android:fontFamily="@font/average_sans"
                     android:hint="@string/text_descricao_field"
                     android:singleLine="true" />
 
@@ -120,6 +123,7 @@
                     android:maxLines="1"
                     android:paddingTop="10dp"
                     android:paddingBottom="10dp"
+                    android:fontFamily="@font/average_sans"
                     android:singleLine="true"
                     android:text="@string/text_tipo_produto"
                     android:textAlignment="center"
@@ -142,6 +146,7 @@
                     android:layout_height="56dp"
                     android:paddingTop="12dp"
                     android:hint="@string/text_valor_field"
+                    android:fontFamily="@font/average_sans"
                     android:inputType="numberDecimal"
                     android:singleLine="true" />
 
@@ -160,6 +165,7 @@
                     android:layout_marginEnd="20dp"
                     android:layout_marginBottom="40dp"
                     android:height="60dp"
+                    android:fontFamily="@font/average_sans"
                     android:text="@string/text_salvar"
                     app:cornerRadius="100dp" />
 
@@ -169,6 +175,7 @@
                     android:layout_height="60dp"
                     android:layout_marginBottom="40dp"
                     android:height="60dp"
+                    android:fontFamily="@font/average_sans"
                     android:text="@string/text_excluir"
                     app:cornerRadius="100dp" />
 

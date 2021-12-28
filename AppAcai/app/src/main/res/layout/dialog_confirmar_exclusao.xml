@@ -26,6 +26,8 @@
             android:layout_marginTop="24dp"
             android:layout_marginEnd="24dp"
             android:text="@string/texto_excluir"
+            android:fontFamily="@font/average_sans"
+            android:textColor="@color/black"
             android:textAlignment="viewStart"
             android:textSize="14dp" />
 
@@ -41,6 +43,7 @@
                 android:layout_height="17dp"
                 android:layout_marginStart="88dp"
                 android:layout_marginEnd="16dp"
+                android:fontFamily="@font/average_sans"
                 android:text="CANCELAR"
                 android:textColor="@color/purple_500"
                 android:textAlignment="center"
@@ -52,6 +55,7 @@
                 android:layout_height="17dp"
                 android:layout_marginStart="8dp"
                 android:layout_marginEnd="16dp"
+                android:fontFamily="@font/average_sans"
                 android:text="REMOVER"
                 android:textColor="@color/purple_500"
                 android:textAlignment="center"

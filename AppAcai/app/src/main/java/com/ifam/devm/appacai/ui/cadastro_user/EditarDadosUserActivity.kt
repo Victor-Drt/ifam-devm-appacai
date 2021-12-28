@@ -215,11 +215,14 @@ class EditarDadosUserActivity : AppCompatActivity() {
                 setPositiveButton(R.string.text_dialog_positive,
                     DialogInterface.OnClickListener { dialog, id ->
                         // User clicked OK button
+                        val db = AppDatabase.getDatabase(this@EditarDadosUserActivity)
                         doAsync {
                             prodViewModel = CadastrarProdutoViewModel(AppDatabase.getDatabase(this@EditarDadosUserActivity))
                             funcViewModel = CadastrarFuncionarioViewModel(AppDatabase.getDatabase(this@EditarDadosUserActivity))
+
                             prodViewModel.deleteAllProdutos()
                             funcViewModel.deleteAllFuncionarios()
+                            db.pagamentoDao().deleteAll()
                             viewModel.removerDados(usuario) // exclui o usuario
                         }
                         val sharedPreferences = getSharedPreferences(PREF_DATA_NAME, MODE_PRIVATE)

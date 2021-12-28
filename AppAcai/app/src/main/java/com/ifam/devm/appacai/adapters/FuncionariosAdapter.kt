@@ -31,7 +31,14 @@ class FuncionariosAdapter(
     override fun onBindViewHolder(holder: FuncionariosAdapter.FuncionariosViewHolder, position: Int) {
         val vendedor = listaFuncionarios[position]
         holder?.textNomeFuncionario?.text = vendedor.nome_funcionario
-        holder?.textValorMeta?.text = vendedor.meta_vendas.toString()
+
+        //        configurando valor
+        var tvValor = vendedor.meta_vendas.toString()
+        tvValor = tvValor.replace('.', ',')
+        if (tvValor.length - tvValor.indexOf(',') < 3)
+            tvValor += '0'
+
+        holder?.textValorMeta?.text = tvValor
 
         if (vendedor?.foto != null) {
             var fotoDunc = BitmapFactory.decodeByteArray(vendedor.foto, 0, (vendedor.foto)?.size!!)

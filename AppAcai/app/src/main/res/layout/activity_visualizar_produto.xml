@@ -66,6 +66,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="56dp"
                     android:hint="@string/text_nome_field"
+                    android:fontFamily="@font/average_sans"
                     android:editable="false"
                     android:singleLine="true" />
 
@@ -84,6 +85,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="56dp"
                     android:hint="@string/text_descricao_field"
+                    android:fontFamily="@font/average_sans"
                     android:editable="false"
                     android:singleLine="true" />
 
@@ -101,6 +103,7 @@
                     android:id="@+id/txtTipoVerProduto"
                     android:layout_width="match_parent"
                     android:layout_height="56dp"
+                    android:fontFamily="@font/average_sans"
                     android:hint="@string/text_tipo_produto"
                     android:editable="false" />
 
@@ -121,6 +124,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="56dp"
                     android:paddingTop="12dp"
+                    android:fontFamily="@font/average_sans"
                     android:hint="@string/text_valor_field"
                     android:editable="false"
                     android:singleLine="true" />

@@ -15,133 +15,142 @@
             android:id="@+id/toolbarDadosLoja"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            app:titleTextColor="@color/white"
+            app:menu="@menu/menu_editar_dados"
             app:title="@string/text_dados_loja"
-            app:menu="@menu/menu_editar_dados"/>
+            app:titleTextColor="@color/white" />
 
     </com.google.android.material.appbar.AppBarLayout>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="?attr/actionBarSize"
-        android:paddingTop="20dp">
+        android:layout_marginBottom="?attr/actionBarSize">
 
-
-        <ImageView
-            android:id="@+id/imageQRVisu"
-            android:layout_width="200dp"
-            android:layout_height="200dp"
-            android:visibility="visible"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:srcCompat="@drawable/acai" />
-
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/dadosUserLayoutInputTextUserName"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="286dp"
-            android:layout_height="82dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="15dp"
-            app:errorEnabled="true"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/imageQRVisu">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/txtNomeVisualizar"
-                android:layout_width="match_parent"
-                android:layout_height="56dp"
-                android:editable="false"
-                android:hint="@string/text_nome_field"
-                android:singleLine="true" />
-
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/dadosUserLayoutInputTextEmpresa"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="286dp"
-            android:layout_height="82dp"
-            app:errorEnabled="true"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/dadosUserLayoutInputTextUserName"
-            app:layout_constraintVertical_bias="0.029">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/txtNomeFantasiaVisualizar"
-                android:layout_width="match_parent"
-                android:layout_height="56dp"
-                android:editable="false"
-                android:hint="@string/text_nomeEmpresa_field"
-                android:singleLine="true" />
-
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/dadosUserLayoutInputTextEmail"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="284dp"
-            android:layout_height="82dp"
-            app:errorEnabled="true"
-            app:layout_constraintBottom_toTopOf="@+id/dadosUserLayoutInputTextPix"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.496"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/dadosUserLayoutInputTextEmpresa">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/txtEmailVisualizar"
-                android:layout_width="match_parent"
-                android:layout_height="56dp"
-                android:editable="false"
-                android:hint="@string/text_email_field"
-                android:singleLine="true"/>
-
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/dadosUserLayoutInputTextPix"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="286dp"
-            android:layout_height="86dp"
-            android:layout_marginTop="10dp"
-            app:errorEnabled="true"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.512"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/dadosUserLayoutInputTextEmail">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/txtPixVisualizar"
-                android:layout_width="match_parent"
-                android:layout_height="56dp"
-                android:editable="false"
-                android:hint="@string/text_pix_field"
-                android:singleLine="true" />
-
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <Button
-            android:id="@+id/btLogOff"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/text_sair"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.498"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/dadosUserLayoutInputTextPix"
-            app:layout_constraintVertical_bias="0.608" />
+            android:gravity="center"
+            android:orientation="vertical"
+            android:paddingTop="20dp">
+
+            <ImageView
+                android:id="@+id/imageQRVisu"
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:visibility="visible"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:srcCompat="@drawable/acai" />
 
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/dadosUserLayoutInputTextUserName"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="286dp"
+                android:layout_height="82dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="15dp"
+                app:errorEnabled="true"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/imageQRVisu">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/txtNomeVisualizar"
+                    android:layout_width="match_parent"
+                    android:layout_height="56dp"
+                    android:fontFamily="@font/average_sans"
+                    android:editable="false"
+                    android:hint="@string/text_nome_field"
+                    android:singleLine="true" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/dadosUserLayoutInputTextEmpresa"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="286dp"
+                android:layout_height="82dp"
+                app:errorEnabled="true"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/dadosUserLayoutInputTextUserName"
+                app:layout_constraintVertical_bias="0.029">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/txtNomeFantasiaVisualizar"
+                    android:layout_width="match_parent"
+                    android:fontFamily="@font/average_sans"
+                    android:layout_height="56dp"
+                    android:editable="false"
+                    android:hint="@string/text_nomeEmpresa_field"
+                    android:singleLine="true" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/dadosUserLayoutInputTextEmail"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="284dp"
+                android:layout_height="82dp"
+                app:errorEnabled="true"
+                app:layout_constraintBottom_toTopOf="@+id/dadosUserLayoutInputTextPix"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.496"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/dadosUserLayoutInputTextEmpresa">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/txtEmailVisualizar"
+                    android:layout_width="match_parent"
+                    android:layout_height="56dp"
+                    android:fontFamily="@font/average_sans"
+                    android:editable="false"
+                    android:hint="@string/text_email_field"
+                    android:singleLine="true" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/dadosUserLayoutInputTextPix"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="286dp"
+                android:layout_height="86dp"
+                android:layout_marginTop="10dp"
+                app:errorEnabled="true"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.512"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/dadosUserLayoutInputTextEmail">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/txtPixVisualizar"
+                    android:layout_width="match_parent"
+                    android:layout_height="56dp"
+                    android:fontFamily="@font/average_sans"
+                    android:editable="false"
+                    android:hint="@string/text_pix_field"
+                    android:singleLine="true" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <Button
+                android:id="@+id/btLogOff"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/text_sair"
+                android:fontFamily="@font/average_sans"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.498"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/dadosUserLayoutInputTextPix"
+                app:layout_constraintVertical_bias="0.276" />
 
 
-
+        </LinearLayout>
+    </ScrollView>
 </FrameLayout>

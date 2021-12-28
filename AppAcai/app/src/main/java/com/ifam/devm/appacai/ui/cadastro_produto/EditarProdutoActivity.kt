@@ -65,7 +65,6 @@ class EditarProdutoActivity : AppCompatActivity() {
             abrirGaleria()
         }
 
-
         btSalvarProduto.setOnClickListener {
             if (verificarCampos()) {
 //                Banco recebe novos valores
@@ -73,7 +72,7 @@ class EditarProdutoActivity : AppCompatActivity() {
                 produto.descricao = txtDescricaoEditProduto.text.toString()
                 produto.tipo = tipo
                 produto.valor = txtValorEditProduto.text.toString().toFloat()
-                produto.foto = fotoFinal
+
                 if (fotoFinal == null) {
                     println("foto Vazia")
                 } else {
@@ -121,6 +120,7 @@ class EditarProdutoActivity : AppCompatActivity() {
                 startActivity(intentVisualizarFuncionario)
                 finish()
             }
+
             view.btAlertCancelarRemover.setOnClickListener {
                 dialog.dismiss()
             }

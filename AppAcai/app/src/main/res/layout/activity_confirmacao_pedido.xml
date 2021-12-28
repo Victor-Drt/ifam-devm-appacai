@@ -18,65 +18,77 @@
             android:id="@+id/toolbarConfirmaPedido"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            app:menu="@menu/menu_pesquisar_dados"
             app:navigationIcon="@drawable/ic_arrow_back"
-            app:title="Confirma Pedido"
+            app:title="Confirmar Pedido"
             app:titleTextColor="@color/white" />
 
     </com.google.android.material.appbar.AppBarLayout>
 
-    <ScrollView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="68dp"
+        android:layout_marginTop="?attr/actionBarSize"
+        android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/appBarConfirmaPedido"
-        tools:ignore="SpeakableTextPresentCheck">
+        app:layout_constraintTop_toBottomOf="@+id/appBarConfirmaPedido">
 
-        <LinearLayout
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvListaConfirmProd"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:layout_height="500dp"
+            tools:listitem="@layout/linha_confirm_prods" />
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_marginTop="10dp"
+            app:cardBackgroundColor="@color/cream"
+            app:cardCornerRadius="30dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="horizontal">
+                android:gravity="center"
+                android:orientation="vertical">
 
-                <TextView
-                    android:id="@+id/text_produto"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
-                    android:layout_weight="1"
-                    android:text="PRODUTO - 10"
-                    android:textSize="24sp" />
 
-                <Button
-                    android:id="@+id/btn_excluir"
-                    android:layout_width="65dp"
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginRight="5dp"
-                    android:layout_weight="0"
-                    app:icon="@android:drawable/ic_delete"
-                    tools:ignore="SpeakableTextPresentCheck" />
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="20dp"
+                        android:text="Total : R$"
+                        android:fontFamily="@font/average_sans"
+                        android:textColor="@color/black"
+                        android:textSize="8pt"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/textValorTotal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="30dp"
+                        android:text="150.00"
+                        android:textColor="@color/black"
+                        android:textSize="16pt" />
+                </LinearLayout>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btConfirmarPedido"
+                    android:layout_width="200dp"
+                    android:layout_height="50dp"
+                    android:fontFamily="@font/average_sans"
+                    android:text="Confirmar"
+                    app:cornerRadius="100dp" />
             </LinearLayout>
+        </androidx.cardview.widget.CardView>
 
-            <TextView
-                android:id="@+id/text_total"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Total: 150"
-                android:textSize="24sp" />
+    </LinearLayout>
 
-            <Button
-                android:id="@+id/btn_finalizar"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="20dp"
-                android:text="Finalizar" />
-        </LinearLayout>
-    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

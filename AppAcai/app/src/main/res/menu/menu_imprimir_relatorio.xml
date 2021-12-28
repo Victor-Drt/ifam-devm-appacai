@@ -3,6 +3,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
+        android:id="@+id/zerar_contagem_caixa"
+        android:icon="@drawable/ic_baseline_money_off"
+        android:title="@string/text_reset_caixa"
+        app:showAsAction="always" />
+
+    <item
         android:id="@+id/imprimir_relatorio"
         android:icon="@drawable/ic_print_white"
         android:title="@string/text_gerar_relatorio"

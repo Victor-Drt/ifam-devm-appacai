@@ -27,6 +27,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="56dp"
                 android:hint="@string/text_email_field"
+                android:fontFamily="@font/average_sans"
                 android:inputType="textEmailAddress"
                 android:textSize="16sp" />
         </com.google.android.material.textfield.TextInputLayout>
@@ -43,6 +44,7 @@
                 android:id="@+id/txtSenhaLogin"
                 android:layout_width="286dp"
                 android:layout_height="56dp"
+                android:fontFamily="@font/average_sans"
                 android:hint="@string/text_senha_field"
                 android:inputType="textPassword"
                 android:textSize="16sp" />

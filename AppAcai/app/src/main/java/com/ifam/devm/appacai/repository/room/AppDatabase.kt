@@ -5,12 +5,8 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.sqlite.db.SupportSQLiteDatabase
-import com.ifam.devm.appacai.model.Funcionario
-import com.ifam.devm.appacai.model.Usuario
-import com.ifam.devm.appacai.model.Produto
-import com.ifam.devm.appacai.repository.room.dao.FuncionarioDao
-import com.ifam.devm.appacai.repository.room.dao.ProdutoDao
-import com.ifam.devm.appacai.repository.room.dao.UsuarioDao
+import com.ifam.devm.appacai.model.*
+import com.ifam.devm.appacai.repository.room.dao.*
 import com.ifam.devm.appacai.repository.sqlite.DATABASE_NAME
 import com.ifam.devm.appacai.repository.sqlite.DATABASE_VERSION
 import org.jetbrains.anko.doAsync
@@ -19,13 +15,19 @@ import org.jetbrains.anko.doAsync
     entities = [
         Usuario::class,
         Produto::class,
+        ProdutoVenda::class,
+        RelatorioVenda::class,
+        Pagamento::class,
         Funcionario::class
     ], version = DATABASE_VERSION, exportSchema = false
 )
 abstract class AppDatabase : RoomDatabase() {
     abstract fun usuarioDao(): UsuarioDao
     abstract fun produtoDao(): ProdutoDao
+    abstract fun produtoVendaDao(): ProdutoVendaDao
+    abstract fun relatorioVendaDao(): RelatorioVendaDao
     abstract fun funcionarioDao(): FuncionarioDao
+    abstract fun pagamentoDao(): PagamentoDao
 
     companion object {
         private var instance: AppDatabase? = null

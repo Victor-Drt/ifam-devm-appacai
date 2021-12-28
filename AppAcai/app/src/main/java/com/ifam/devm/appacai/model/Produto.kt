@@ -19,6 +19,7 @@ data class Produto(
     @ColumnInfo(name = COLUMN_TIPO) var tipo: String = "",
     @ColumnInfo(name = COLUMN_VALOR) var valor: Float = 0.00f,
     @ColumnInfo(name = COLUMN_AVALIACAO) var avaliacao: Float = 0.0f,
+    @ColumnInfo(name = COLUMN_QTD_VOTOS) var qtdVotos: Int = 0,
     @ColumnInfo(name = COLUMN_FOTO) var foto: ByteArray? = null,
     @ColumnInfo(name = COLUMN_FREQ_VENDAS) var freqVenda: Int = 0
 ) : Parcelable

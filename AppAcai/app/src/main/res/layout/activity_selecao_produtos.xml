@@ -23,137 +23,96 @@
             app:title="Seleção Produto"
             app:titleTextColor="@color/white" />
 
-        <com.google.android.material.tabs.TabLayout
-            android:id="@+id/tabs"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-
-            app:tabMode="scrollable">
-
-            <com.google.android.material.tabs.TabItem
-                android:id="@+id/tabPrincipal"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Principal" />
-
-            <com.google.android.material.tabs.TabItem
-                android:id="@+id/tabCaixa"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Caixa" />
-
-            <com.google.android.material.tabs.TabItem
-                android:id="@+id/tabFrutas"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Frutas" />
-
-            <com.google.android.material.tabs.TabItem
-                android:id="@+id/tabComplemento"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Complemento" />
-        </com.google.android.material.tabs.TabLayout>
-
     </com.google.android.material.appbar.AppBarLayout>
 
-    <ImageView
-        android:id="@+id/imgProduto"
-        android:layout_width="118dp"
-        android:layout_height="111dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/appBarSelecaoProduto"
-        app:srcCompat="@drawable/acai" />
-
-    <TextView
-        android:id="@+id/text_NomeProduto"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
-        android:text="Nome: "
-        android:textSize="27sp"
-        app:layout_constraintStart_toEndOf="@+id/imgProduto"
-        app:layout_constraintTop_toBottomOf="@+id/appBarSelecaoProduto" />
-
-    <TextView
-        android:id="@+id/text_descricaoProduto"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:text="desc:"
-        android:textSize="27sp"
-        app:layout_constraintStart_toEndOf="@+id/imgProduto"
-        app:layout_constraintTop_toBottomOf="@+id/text_NomeProduto" />
-
-    <TextView
-        android:id="@+id/text_valorProduto"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:text="valor"
-        android:textSize="27sp"
-        app:layout_constraintStart_toEndOf="@+id/imgProduto"
-        app:layout_constraintTop_toBottomOf="@+id/text_descricaoProduto" />
-
-    <EditText
-        android:id="@+id/ediTextLinha"
-        android:layout_width="378dp"
-        android:layout_height="44dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        android:ems="10"
-        android:gravity="start|top"
-        android:inputType="textMultiLine"
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="?attr/actionBarSize"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imgProduto"
-        tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
+        app:layout_constraintStart_toStartOf="parent">
 
-    <Button
-        android:id="@+id/btn_addNovo"
-        android:layout_width="55dp"
-        android:layout_height="50dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="92dp"
-        app:icon="@drawable/ic_add"
-        app:iconGravity="top"
-        app:layout_constraintBottom_toBottomOf="@+id/ediTextLinha"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/appBarVendedorMain"
-        app:layout_constraintVertical_bias="0.394"
-        tools:ignore="SpeakableTextPresentCheck" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:background="@color/cream"
+            android:gravity="center"
+            android:orientation="horizontal">
 
-    <TextView
-        android:id="@+id/text_nomeValue"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
-        android:text="Copo Açai"
-        app:layout_constraintStart_toEndOf="@+id/text_NomeProduto"
-        app:layout_constraintTop_toBottomOf="@+id/appBarSelecaoProduto" />
+            <TextView
+                android:id="@+id/principalText"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginHorizontal="20dp"
+                android:clickable="true"
+                android:fontFamily="@font/average_sans"
+                android:text="Principal"
+                android:textColor="@color/black"
+                android:textSize="8pt" />
 
-    <TextView
-        android:id="@+id/text_descricacaoValue"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="16dp"
-        android:text="Muito bom"
-        app:layout_constraintStart_toEndOf="@+id/text_descricaoProduto"
-        app:layout_constraintTop_toBottomOf="@+id/text_nomeValue" />
+            <TextView
+                android:id="@+id/caldasText"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginEnd="20dp"
+                android:clickable="true"
+                android:fontFamily="@font/average_sans"
+                android:text="Caldas"
+                android:textColor="@color/black"
+                android:textSize="8pt" />
 
-    <TextView
-        android:id="@+id/text_valorValue"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="20dp"
-        android:text="11.58"
-        app:layout_constraintStart_toEndOf="@+id/text_valorProduto"
-        app:layout_constraintTop_toBottomOf="@+id/text_descricacaoValue" />
+            <TextView
+                android:id="@+id/frutasText"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginEnd="20dp"
+                android:clickable="true"
+                android:fontFamily="@font/average_sans"
+                android:text="Frutas"
+                android:textColor="@color/black"
+                android:textSize="8pt" />
+
+            <TextView
+                android:id="@+id/complementosText"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginEnd="20dp"
+                android:clickable="true"
+                android:fontFamily="@font/average_sans"
+                android:text="Complementos"
+                android:textColor="@color/black"
+                android:textSize="8pt" />
+
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvListaProdutosSelec"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                tools:listitem="@layout/linha_selec_prods" />
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/fbAbrirCarrinho"
+                android:layout_width="122dp"
+                android:layout_height="161dp"
+                android:layout_alignBottom="@+id/rvListaProdutosSelec"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="38dp"
+                android:layout_marginBottom="51dp"
+                android:backgroundTint="@color/acai_color_variante"
+                android:foreground="@drawable/ic_carrinho"
+                android:visibility="visible"
+                android:foregroundGravity="center" />
+        </RelativeLayout>
+
+
+    </LinearLayout>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

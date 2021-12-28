@@ -6,48 +6,38 @@
     android:layout_height="match_parent"
     tools:context=".ui.venda.VendaRealizadaActivity">
 
-    <Button
-        android:id="@+id/btnVendaRealizada"
-        android:layout_width="202dp"
-        android:layout_height="65dp"
-        android:layout_marginStart="79dp"
-        android:layout_marginTop="526dp"
-        android:layout_marginEnd="79dp"
-        android:layout_marginBottom="65dp"
-        android:text="OK"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:orientation="vertical"
+        android:gravity="center">
 
-    <TextView
-        android:id="@+id/textViewVendaRealizada"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="79dp"
-        android:layout_marginEnd="79dp"
-        android:layout_marginBottom="50dp"
-        android:text="Venda Realizada!!!"
-        android:textColorLink="#100C0C"
-        android:textSize="30sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/btnVendaRealizada"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        <ImageView
+            android:id="@+id/imageView4"
+            android:layout_width="300dp"
+            android:layout_height="300dp"
+            app:srcCompat="@drawable/kindpng_7212637" />
 
-    <ImageView
-        android:id="@+id/imageView4"
-        android:layout_width="240dp"
-        android:layout_height="240dp"
-        android:layout_marginStart="79dp"
-        android:layout_marginTop="79dp"
-        android:layout_marginEnd="79dp"
-        android:layout_marginBottom="40dp"
-        app:layout_constraintBottom_toTopOf="@+id/textViewVendaRealizada"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.153"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.895"
-        tools:srcCompat="@tools:sample/avatars" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Venda Realizada!"
+            android:textColor="@color/acai_color"
+            android:fontFamily="@font/average_sans"
+            android:textSize="16pt"
+            android:textAlignment="center"
+            android:textStyle="italic"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnVendaRealizada"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:fontFamily="@font/average_sans"
+            android:textSize="12pt"
+            android:text="OK"/>
+    </LinearLayout>
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -54,6 +54,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@color/acai_color"
+                android:fontFamily="@font/average_sans"
                 android:text="@string/text_insert_image"/>
 
             <com.google.android.material.textfield.TextInputLayout
@@ -68,6 +69,7 @@
                     android:id="@+id/textInputNome"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/average_sans"
                     android:singleLine="true"
                     android:hint="@string/Nome_Funcionario" />
             </com.google.android.material.textfield.TextInputLayout>
@@ -84,6 +86,7 @@
                     android:id="@+id/textInputEmail"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/average_sans"
                     android:singleLine="true"
                     android:hint="@string/text_email_field" />
             </com.google.android.material.textfield.TextInputLayout>
@@ -100,6 +103,7 @@
                     android:id="@+id/textInputTelefone"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/average_sans"
                     android:singleLine="true"
                     android:hint="@string/Telefone" />
             </com.google.android.material.textfield.TextInputLayout>
@@ -116,6 +120,7 @@
                     android:id="@+id/textInputCPF"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/average_sans"
                     android:singleLine="true"
                     android:hint="@string/cpf" />
             </com.google.android.material.textfield.TextInputLayout>
@@ -132,6 +137,7 @@
                     android:id="@+id/textInputMeta"
                     android:layout_width="match_parent"
                     android:layout_height="56dp"
+                    android:fontFamily="@font/average_sans"
                     android:singleLine="true"
                     android:hint="@string/Meta_Vendas" />
 
@@ -150,6 +156,7 @@
                     android:layout_marginEnd="20dp"
                     android:layout_marginBottom="40dp"
                     android:height="60dp"
+                    android:fontFamily="@font/average_sans"
                     android:text="@string/text_salvar"
                     app:cornerRadius="100dp" />
 
@@ -159,6 +166,7 @@
                     android:layout_height="60dp"
                     android:layout_marginBottom="40dp"
                     android:height="60dp"
+                    android:fontFamily="@font/average_sans"
                     android:text="@string/text_excluir"
                     app:cornerRadius="100dp" />
             </LinearLayout>

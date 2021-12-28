@@ -33,7 +33,14 @@ class ProdutosAdapter(
         val produto = listaProdutos[position]
         holder?.campoNomeProduto?.text = produto.nome
         holder?.campoDescProduto?.text = produto.descricao
-        holder?.campoValorProduto?.text = produto.valor.toString()
+
+        //        configurando valor
+        var tvValor = produto.valor.toString()
+        tvValor = tvValor.replace('.', ',')
+        if (tvValor.length - tvValor.indexOf(',') < 3)
+            tvValor += '0'
+
+        holder?.campoValorProduto?.text = tvValor
 
         if (produto?.foto != null) {
             var fotoproduto = BitmapFactory.decodeByteArray(produto.foto, 0, (produto.foto)?.size!!)

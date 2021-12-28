@@ -186,7 +186,7 @@ class EditarFuncionarioActivity : AppCompatActivity() {
         doAsync {
             funcViewModel =
                 CadastrarFuncionarioViewModel(AppDatabase.getDatabase(this@EditarFuncionarioActivity))
-            funcionario = funcViewModel.consutaFuncionarioPorNome(funcionarioNome.toString())
+            funcionario = funcViewModel.consultaFuncionarioPorNome(funcionarioNome.toString())
 
             println("Funcionario ${funcionario.nome_funcionario}")
 

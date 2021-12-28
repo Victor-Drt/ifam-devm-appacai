@@ -55,6 +55,8 @@
                 android:id="@+id/textCliqueInserirImagem"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/average_sans"
+                android:textColor="@color/acai_color"
                 android:text="@string/text_insert_image"/>
 
             <com.google.android.material.textfield.TextInputLayout
@@ -70,6 +72,7 @@
                     android:id="@+id/txtNomeCadProduto"
                     android:layout_width="match_parent"
                     android:layout_height="56dp"
+                    android:fontFamily="@font/average_sans"
                     android:hint="@string/text_nome_field"
                     android:singleLine="true" />
 
@@ -87,6 +90,7 @@
                     android:id="@+id/txtDescricaoCadProduto"
                     android:layout_width="match_parent"
                     android:layout_height="56dp"
+                    android:fontFamily="@font/average_sans"
                     android:hint="@string/text_descricao_field"
                     android:singleLine="true" />
 
@@ -121,6 +125,7 @@
                     android:paddingBottom="10dp"
                     android:singleLine="true"
                     android:text="@string/text_tipo_produto"
+                    android:fontFamily="@font/average_sans"
                     android:textAlignment="center"
                     tools:ignore="LabelFor" />
             </com.google.android.material.textfield.TextInputLayout>
@@ -140,6 +145,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="56dp"
                     android:paddingTop="12dp"
+                    android:fontFamily="@font/average_sans"
                     android:hint="@string/text_valor_field"
                     android:inputType="numberDecimal"
                     android:singleLine="true" />
@@ -152,6 +158,7 @@
                 android:layout_height="60dp"
                 android:layout_marginBottom="40dp"
                 android:height="60dp"
+                android:fontFamily="@font/average_sans"
                 android:text="@string/cadastrar"
                 app:cornerRadius="100dp" />
 

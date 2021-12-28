@@ -53,7 +53,7 @@ class VisualizarFuncionarioActivity : AppCompatActivity() {
         doAsync {
             funcViewModel =
                 CadastrarFuncionarioViewModel(AppDatabase.getDatabase(this@VisualizarFuncionarioActivity))
-            funcionario = funcViewModel.consutaFuncionarioPorNome(funcionarioNome.toString())
+            funcionario = funcViewModel.consultaFuncionarioPorNome(funcionarioNome.toString())
 
             println("Funcionario ${funcionario.nome_funcionario}")
 

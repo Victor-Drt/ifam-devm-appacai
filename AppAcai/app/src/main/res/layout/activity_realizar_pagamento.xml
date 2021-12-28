@@ -6,64 +6,108 @@
     android:layout_height="match_parent"
     tools:context=".ui.venda.RealizarPagamentoActivity">
 
-    <Button
-        android:id="@+id/btnFinalizarVenda"
-        android:layout_width="202dp"
-        android:layout_height="65dp"
-        android:layout_marginStart="79dp"
-        android:layout_marginTop="526dp"
-        android:layout_marginEnd="79dp"
-        android:layout_marginBottom="65dp"
-        android:text="Finalizar Venda"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center">
 
-    <ImageView
-        android:id="@+id/imageQRCode"
-        android:layout_width="240dp"
-        android:layout_height="240dp"
-        android:layout_marginStart="79dp"
-        android:layout_marginTop="78dp"
-        android:layout_marginEnd="79dp"
-        android:layout_marginBottom="59dp"
-        app:layout_constraintBottom_toTopOf="@+id/textView3Pix"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/textViewQRCode"
-        tools:srcCompat="@tools:sample/avatars" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center">
 
-    <TextView
-        android:id="@+id/textViewQRCode"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="79dp"
-        android:layout_marginEnd="79dp"
-        android:text="Passe o escaneamento do QR Code do Pix"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="155dp" />
+            <TextView
+                android:id="@+id/textViewQRCode"
+                android:layout_margin="20dp"
+                android:textColor="@color/acai_color"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/average_sans"
+                android:text="Escaneie o QR Code para pagamento via Pix"
+                android:textSize="8pt"
+                android:textAlignment="center"/>
 
-    <TextView
-        android:id="@+id/textView2ChavePix"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="90dp"
-        android:layout_marginTop="61dp"
-        android:layout_marginBottom="56dp"
-        android:text="Chave Pix: "
-        app:layout_constraintBottom_toTopOf="@+id/btnFinalizarVenda"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageQRCode"
-        app:layout_constraintVertical_bias="1.0" />
+            <ImageView
+                android:id="@+id/imageQRCodeConfirm"
+                android:layout_width="240dp"
+                android:layout_height="240dp"
+                tools:srcCompat="@tools:sample/avatars" />
 
-    <TextView
-        android:id="@+id/textView3Pix"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="56dp"
-        android:text="Chave Pix"
-        app:layout_constraintBottom_toTopOf="@+id/btnFinalizarVenda"
-        tools:layout_editor_absoluteX="181dp" />
+        </LinearLayout>
+
+        <TextView
+            android:layout_marginTop="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ou"
+            android:fontFamily="@font/average_sans"
+            android:textColor="@color/black"
+            android:textSize="10pt"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="30dp"
+            android:orientation="horizontal"
+            android:gravity="center">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/acai_color"
+                android:fontFamily="@font/average_sans"
+                android:textStyle="bold"
+                android:textSize="10pt"
+                android:text="Chave Pix: " />
+
+            <TextView
+                android:id="@+id/text_pixLoja"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/average_sans"
+                android:text="40028922"
+                android:textColor="@color/black"
+                android:textSize="10pt"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="30dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/acai_color"
+                android:textSize="10pt"
+                android:fontFamily="@font/average_sans"
+                android:textStyle="bold"
+                android:text="Total da compra: R$ " />
+
+            <TextView
+                android:id="@+id/textValorCompra"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="150.00"
+                android:fontFamily="@font/average_sans"
+                android:textColor="@color/black"
+                android:textSize="10pt"/>
+
+        </LinearLayout>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnFinalizarVenda"
+            android:layout_width="202dp"
+            android:layout_height="65dp"
+            app:cornerRadius="20dp"
+            android:fontFamily="@font/average_sans"
+            android:text="Finalizar Venda" />
+
+    </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -9,10 +9,15 @@ import android.util.Patterns
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.ifam.devm.appacai.R
 import com.ifam.devm.appacai.model.Usuario
 import com.ifam.devm.appacai.repository.room.AppDatabase
+import com.ifam.devm.appacai.repository.sqlite.PREF_DATA_NAME
+import com.ifam.devm.appacai.ui.cadastro_produto.CadastrarProdutoViewModel
+import com.ifam.devm.appacai.ui.funcionarios.CadastrarFuncionarioViewModel
+import com.ifam.devm.appacai.ui.startup.SplashActivity
 import com.ifam.devm.appacai.ui.startup.StartupActivity
 import kotlinx.android.synthetic.main.activity_cadastrar_produto.*
 import kotlinx.android.synthetic.main.fragment_cadastrar_usuario.*
@@ -66,6 +71,11 @@ class CadastrarUsuarioFragment : Fragment() {
                 //comunicando com o database
                 val db = AppDatabase.getDatabase(this@CadastrarUsuarioFragment.requireContext())
                 doAsync {
+//                    deleta qualquer dado antes de cadastrar um novo
+                    db.pagamentoDao().deleteAll()
+                    db.funcionarioDao().deleteAll()
+                    db.usuarioDao().deleteAll()
+
                     db.usuarioDao().insert(novoCadastro)
                 }
                 //inicia outra activity

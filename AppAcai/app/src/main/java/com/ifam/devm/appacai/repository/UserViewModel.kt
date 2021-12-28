@@ -1,12 +1,19 @@
 package com.ifam.devm.appacai.repository
 
+import com.ifam.devm.appacai.model.Funcionario
 import com.ifam.devm.appacai.model.Usuario
 import com.ifam.devm.appacai.repository.room.AppDatabase
+import com.ifam.devm.appacai.repository.room.FuncionarioRepository
 import com.ifam.devm.appacai.repository.room.UsuarioRepository
 
 class UserViewModel (appDatabase: AppDatabase) {
     private var usuarioRepository = UsuarioRepository(appDatabase)
+    private var funcionarioRepository = FuncionarioRepository(appDatabase)
     private lateinit var mostrarDados: Usuario //coletor dos dados
+
+    fun consultarLoginExistenteFunc(email:String): Funcionario {
+        return funcionarioRepository.funcionarioEstaRegistrado(email)
+    }
 
     //    consulta login atraves do email
     fun consultarLoginExistente(email:String): Usuario {

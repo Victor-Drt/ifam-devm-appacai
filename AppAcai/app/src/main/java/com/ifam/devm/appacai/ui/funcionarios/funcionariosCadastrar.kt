@@ -159,7 +159,6 @@ class FuncionariosCadastrar : AppCompatActivity() {
         val db = AppDatabase.getDatabase(this)
         doAsync {
             db.funcionarioDao().insert(funcionario)
-
         }
     }
 

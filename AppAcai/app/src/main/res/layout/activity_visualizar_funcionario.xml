@@ -58,6 +58,7 @@
                     android:id="@+id/TextInputNome"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/average_sans"
                     android:editable="false"
                     android:hint="@string/Nome_Funcionario" />
             </com.google.android.material.textfield.TextInputLayout>
@@ -72,6 +73,7 @@
                     android:id="@+id/textInputEmail"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/average_sans"
                     android:editable="false"
                     android:hint="@string/text_email_field" />
 
@@ -87,6 +89,7 @@
                     android:id="@+id/textInputTelefone"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/average_sans"
                     android:editable="false"
                     android:hint="@string/Telefone" />
             </com.google.android.material.textfield.TextInputLayout>
@@ -100,6 +103,7 @@
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/TextInputCPF"
                     android:layout_width="match_parent"
+                    android:fontFamily="@font/average_sans"
                     android:layout_height="wrap_content"
                     android:editable="false"
                     android:hint="@string/cpf" />
@@ -114,6 +118,7 @@
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/TextInputMetaVendas"
                     android:layout_width="match_parent"
+                    android:fontFamily="@font/average_sans"
                     android:layout_height="wrap_content"
                     android:editable="false"
                     android:hint="@string/Meta_Vendas" />
@@ -128,6 +133,7 @@
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/TextInputTotalVendas"
                     android:layout_width="match_parent"
+                    android:fontFamily="@font/average_sans"
                     android:layout_height="wrap_content"
                     android:editable="false"
                     android:hint="@string/TotaL_Vendas" />

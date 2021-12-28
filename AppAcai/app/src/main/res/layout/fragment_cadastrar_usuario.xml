@@ -29,6 +29,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@color/acai_color"
+                android:fontFamily="@font/average_sans"
                 android:text="@string/text_insert_qr_image"/>
 
             <com.google.android.material.textfield.TextInputLayout
@@ -48,6 +49,7 @@
                     android:id="@+id/txtNomeCadastrar"
                     android:layout_width="match_parent"
                     android:layout_height="56dp"
+                    android:fontFamily="@font/average_sans"
                     android:hint="@string/text_nome_field"
                     android:singleLine="true" />
 
@@ -68,6 +70,7 @@
                     android:id="@+id/txtNomeFantasiaCadastrar"
                     android:layout_width="match_parent"
                     android:layout_height="56dp"
+                    android:fontFamily="@font/average_sans"
                     android:hint="@string/text_nomeEmpresa_field"
                     android:singleLine="true" />
 
@@ -89,6 +92,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="56dp"
                     android:hint="@string/text_email_field"
+                    android:fontFamily="@font/average_sans"
                     android:inputType="textEmailAddress"
                     android:singleLine="true" />
 
@@ -109,6 +113,7 @@
                     android:id="@+id/txtPixCadastrar"
                     android:layout_width="match_parent"
                     android:layout_height="56dp"
+                    android:fontFamily="@font/average_sans"
                     android:hint="@string/text_pix_field"
                     android:singleLine="true" />
 
@@ -130,6 +135,7 @@
                     android:id="@+id/txtSenhaCadastrar"
                     android:layout_width="match_parent"
                     android:layout_height="56dp"
+                    android:fontFamily="@font/average_sans"
                     android:hint="@string/text_senha_field"
                     android:inputType="textPassword"
                     android:singleLine="true" />
@@ -151,6 +157,7 @@
                     android:id="@+id/txtConfirmarSenhaCadastrar"
                     android:layout_width="match_parent"
                     android:layout_height="56dp"
+                    android:fontFamily="@font/average_sans"
                     android:hint="@string/text_confirmarSenha_field"
                     android:inputType="textPassword"
                     android:singleLine="true" />
@@ -161,6 +168,7 @@
                 android:layout_width="202dp"
                 android:layout_height="60dp"
                 android:layout_marginBottom="40dp"
+                android:fontFamily="@font/average_sans"
                 android:height="60dp"
                 android:text="@string/cadastrar"
                 app:cornerRadius="100dp" />

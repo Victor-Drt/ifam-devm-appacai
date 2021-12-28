@@ -37,6 +37,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="12dp"
+                    android:fontFamily="@font/average_sans"
                     android:text="Vendedor Fulano de tal"
                     android:textStyle="bold"
                     android:textColor="@color/black"
@@ -50,6 +51,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="valor meta/dia: R$"
+                        android:fontFamily="@font/average_sans"
                         android:textColor="@color/black"
                         android:textStyle="bold"
                         android:textSize="14sp" />
@@ -58,6 +60,7 @@
                         android:id="@+id/textValorMeta"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:fontFamily="@font/average_sans"
                         android:text="50.00"
                         android:textColor="@color/black"
                         android:textSize="14sp" />

@@ -12,6 +12,9 @@ interface UsuarioDao: BaseDao<Usuario> {
     @Query("SELECT * FROM $TABLE_USUARIO")
     fun getAllUsuario(): List<Usuario>
 
+    @Query("DELETE FROM $TABLE_USUARIO")
+    fun deleteAll()
+
 //    retorna o usuario
     @Query("SELECT * FROM $TABLE_USUARIO")
     fun getDadosUsuario(): Usuario

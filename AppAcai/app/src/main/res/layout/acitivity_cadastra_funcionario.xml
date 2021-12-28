@@ -49,6 +49,8 @@
                 android:id="@+id/textClickImgFunc"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/average_sans"
+                android:textColor="@color/acai_color"
                 android:text="@string/text_insert_image"/>
 
             <com.google.android.material.textfield.TextInputLayout
@@ -66,6 +68,7 @@
                     android:hint="@string/Nome_Funcionario"
                     android:selectAllOnFocus="true"
                     android:singleLine="true"
+                    android:fontFamily="@font/average_sans"
                     android:textColor="#000000" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -82,6 +85,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="56dp"
                     android:hint="@string/text_email_field"
+                    android:fontFamily="@font/average_sans"
                     android:singleLine="true"
                     android:inputType="textEmailAddress" />
             </com.google.android.material.textfield.TextInputLayout>
@@ -99,6 +103,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="56dp"
                     android:hint="@string/Telefone"
+                    android:fontFamily="@font/average_sans"
                     android:singleLine="true"
                     android:inputType="number" />
             </com.google.android.material.textfield.TextInputLayout>
@@ -116,6 +121,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="56dp"
                     android:hint="cpf"
+                    android:fontFamily="@font/average_sans"
                     android:singleLine="true"
                     android:inputType="number" />
             </com.google.android.material.textfield.TextInputLayout>
@@ -133,6 +139,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="56dp"
                     android:hint="@string/Meta_Vendas"
+                    android:fontFamily="@font/average_sans"
                     android:singleLine="true"
                     android:inputType="numberDecimal"/>
 
@@ -143,6 +150,7 @@
                 android:layout_width="286dp"
                 android:layout_height="82dp"
                 android:layout_marginTop="16dp"
+                app:endIconMode="password_toggle"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 app:errorEnabled="true">
 
@@ -151,6 +159,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="56dp"
                     android:singleLine="true"
+                    android:fontFamily="@font/average_sans"
                     android:hint="senha"
                     android:inputType="textPassword" />
             </com.google.android.material.textfield.TextInputLayout>
@@ -162,6 +171,7 @@
                 android:layout_marginBottom="40dp"
                 android:height="60dp"
                 android:text="@string/cadastrar"
+                android:fontFamily="@font/average_sans"
                 app:cornerRadius="100dp" />
 
         </LinearLayout>

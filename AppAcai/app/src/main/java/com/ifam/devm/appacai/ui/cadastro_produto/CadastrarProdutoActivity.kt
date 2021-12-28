@@ -42,7 +42,6 @@ class CadastrarProdutoActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_cadastrar_produto)
 
-
 //        spinner
         val itens: Array<TipoProduto> = TipoProduto.values()
         val adapter: ArrayAdapter<TipoProduto> =
@@ -81,15 +80,48 @@ class CadastrarProdutoActivity : AppCompatActivity() {
                     val produtoViewModel =
                         CadastrarProdutoViewModel(AppDatabase.getDatabase(this@CadastrarProdutoActivity))
 
-                    val resultadoConsultaProduto =
+                    val resultadoConsultaProduto: Produto =
                         produtoViewModel.consultarProdutoExistente(nome)
 
                     try {
                         println("Nome - ${resultadoConsultaProduto.nome}")
+                        uiThread {
 //                        se o nome do produto ja estiver cadastrado, uma mensagem sera emitida
-                        if (resultadoConsultaProduto.nome == nome) {
-                            uiThread {
-                                cadProdutoLayoutInputTextName.error = "Produto já existe!"
+                            if (resultadoConsultaProduto.descricao.uppercase() == descricao.uppercase()) {
+                                println("Descricao - ${resultadoConsultaProduto.descricao} e $descricao")
+                                cadProdutoLayoutInputTextDescricao.error = "Descricao nao pode ser Igual!"
+                            } else {
+                                try {
+                                    uiThread {
+                                        cadastrarProduto(
+                                            id,
+                                            nome,
+                                            descricao,
+                                            tipo,
+                                            valor.toFloat(),
+                                            0.0f,
+                                            0,
+                                            fotoFinal as ByteArray,
+                                            0
+                                        )
+                                        Toast.makeText(
+                                            this@CadastrarProdutoActivity,
+                                            "Produto cadastrado com sucesso!",
+                                            Toast.LENGTH_SHORT
+                                        ).show()
+                                        onBackPressed()
+                                        finish()
+                                    }
+                                } catch (e: Exception) {
+//                            erro no envio das informacoes
+                                    uiThread {
+                                        Toast.makeText(
+                                            this@CadastrarProdutoActivity,
+                                            "Erro no envio do formulario!",
+                                            Toast.LENGTH_SHORT
+                                        ).show()
+                                    }
+                                }
                             }
                         }
                     } catch (e: Exception) {
@@ -103,6 +135,7 @@ class CadastrarProdutoActivity : AppCompatActivity() {
                                     tipo,
                                     valor.toFloat(),
                                     0.0f,
+                                    0,
                                     fotoFinal as ByteArray,
                                     0
                                 )
@@ -111,7 +144,6 @@ class CadastrarProdutoActivity : AppCompatActivity() {
                                     "Produto cadastrado com sucesso!",
                                     Toast.LENGTH_SHORT
                                 ).show()
-
                                 onBackPressed()
                                 finish()
                             }
@@ -156,7 +188,6 @@ class CadastrarProdutoActivity : AppCompatActivity() {
                 //exibir a imagem no aplicativo
                 imageProdutoCad.setImageBitmap(imageBitMap)
 
-
                 var saida: ByteArrayOutputStream = ByteArrayOutputStream()
                 imageBitMap?.compress(Bitmap.CompressFormat.PNG, 100, saida)
                 fotoFinal = saida.toByteArray()
@@ -171,10 +202,11 @@ class CadastrarProdutoActivity : AppCompatActivity() {
         tipo: String,
         valor: Float,
         aval: Float,
+        votos: Int,
         foto: ByteArray,
         freq: Int
     ) {
-        produto = Produto(id, nome, descricao, tipo, valor, aval, foto, freq)
+        produto = Produto(id, nome, descricao, tipo, valor, aval, votos, foto, freq)
 
         if (foto != null) {
             println("Foto nao ta nula ><")

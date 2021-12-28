@@ -57,6 +57,7 @@ class VisualizarProdutoActivity : AppCompatActivity() {
             produto = prodViewModel.consultarProdutoExistente(produtoNome.toString())
 
             println("Produto ${produto.nome}")
+            println("Frequencia vendas ${produto.freqVenda}")
 
             uiThread {
                 if (produto?.foto != null) {
@@ -67,7 +68,7 @@ class VisualizarProdutoActivity : AppCompatActivity() {
                 txtDescricaoVerProduto.setText(produto.descricao)
                 txtValorVerProduto.setText((produto.valor).toString())
                 txtTipoVerProduto.setText(produto.tipo)
-                ratingBarProdutos.rating = produto.avaliacao
+                ratingBarProdutos.rating = (produto.avaliacao)/produto.qtdVotos
             }
         }
     }
