@@ -24,71 +24,69 @@
 
     </com.google.android.material.appbar.AppBarLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="?attr/actionBarSize"
-        android:orientation="vertical"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvListaConfirmProd"
+        android:layout_width="368dp"
+        android:layout_height="386dp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintBottom_toTopOf="@+id/cardView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/appBarConfirmaPedido">
+        app:layout_constraintTop_toBottomOf="@id/appBarConfirmaPedido"
+        tools:listitem="@layout/linha_confirm_prods" />
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rvListaConfirmProd"
-            android:layout_width="match_parent"
-            android:layout_height="500dp"
-            tools:listitem="@layout/linha_confirm_prods" />
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView"
+        android:layout_width="366dp"
+        android:layout_height="182dp"
+        app:cardBackgroundColor="@color/cream"
+        app:cardCornerRadius="30dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
 
-        <androidx.cardview.widget.CardView
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:layout_marginTop="10dp"
-            app:cardBackgroundColor="@color/cream"
-            app:cardCornerRadius="30dp">
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical">
+
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="center"
-                android:orientation="vertical">
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal">
 
-
-                <LinearLayout
-                    android:layout_width="match_parent"
+                <TextView
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginHorizontal="20dp"
-                        android:text="Total : R$"
-                        android:fontFamily="@font/average_sans"
-                        android:textColor="@color/black"
-                        android:textSize="8pt"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:id="@+id/textValorTotal"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="30dp"
-                        android:text="150.00"
-                        android:textColor="@color/black"
-                        android:textSize="16pt" />
-                </LinearLayout>
-
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/btConfirmarPedido"
-                    android:layout_width="200dp"
-                    android:layout_height="50dp"
                     android:fontFamily="@font/average_sans"
-                    android:text="Confirmar"
-                    app:cornerRadius="100dp" />
-            </LinearLayout>
-        </androidx.cardview.widget.CardView>
+                    android:text="Total : R$"
+                    android:textColor="@color/black"
+                    android:textSize="8pt"
+                    android:textStyle="bold" />
 
-    </LinearLayout>
+                <TextView
+                    android:id="@+id/textValorTotal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="30dp"
+                    android:text="150.00"
+                    android:textColor="@color/black"
+                    android:textSize="16pt" />
+            </LinearLayout>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btConfirmarPedido"
+                android:layout_width="200dp"
+                android:layout_height="50dp"
+                android:fontFamily="@font/average_sans"
+                android:text="Confirmar"
+                app:cornerRadius="100dp" />
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

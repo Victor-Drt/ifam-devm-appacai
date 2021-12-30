@@ -24,174 +24,169 @@
     </com.google.android.material.appbar.AppBarLayout>
 
     <LinearLayout
+        android:id="@+id/linearLayout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="?attr/actionBarSize"
-        android:orientation="vertical"
-        android:paddingVertical="20dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="56dp"
+        android:gravity="center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/appBarVendedorMain">
+        app:layout_constraintTop_toBottomOf="@+id/appBarVendedorMain">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
-            android:layout_marginBottom="60dp"
-            android:gravity="center">
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cardViewNovoPedido"
+            style="@style/Base.CardView"
+            android:layout_width="180dp"
+            android:layout_height="150dp"
+            android:layout_margin="8dp"
+            android:clickable="true"
+            android:focusable="true"
+            app:cardCornerRadius="10dp"
+            app:strokeColor="@color/acai_color"
+            app:strokeWidth="2dp">
 
-            <com.google.android.material.card.MaterialCardView
-                android:id="@+id/cardViewNovoPedido"
-                style="@style/Base.CardView"
-                android:layout_width="180dp"
-                android:layout_height="150dp"
-                android:layout_margin="8dp"
-                android:clickable="true"
-                android:focusable="true"
-                app:cardCornerRadius="10dp"
-                app:strokeColor="@color/acai_color"
-                app:strokeWidth="2dp">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="@color/cream"
-                    android:gravity="center"
-                    android:orientation="vertical">
-
-                    <ImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="110dp"
-                        android:background="@drawable/banner_acai"/>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/average_sans"
-                        android:text="Novo Pedido"
-                        android:textColor="@color/black"
-                        android:textAlignment="center"
-                        android:textSize="10pt" />
-
-                </LinearLayout>
-
-            </com.google.android.material.card.MaterialCardView>
-
-            <com.google.android.material.card.MaterialCardView
-                style="@style/Base.CardView"
-                android:layout_width="180dp"
-                android:layout_height="150dp"
-                android:layout_margin="8dp"
-                android:clickable="true"
-                android:focusable="true"
-                app:cardCornerRadius="10dp"
-                app:strokeColor="@color/acai_color"
-                app:strokeWidth="2dp">
-
-                <LinearLayout
-                    android:id="@+id/cardViewAvaliarProduto"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="@color/cream"
-                    android:gravity="center"
-                    android:orientation="vertical">
-
-
-                    <ImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="110dp"
-                        android:background="@drawable/banner_avalia"/>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/average_sans"
-                        android:text="Avaliar Produto"
-                        android:textColor="@color/black"
-                        android:textAlignment="center"
-                        android:textSize="10pt" />
-
-                </LinearLayout>
-
-            </com.google.android.material.card.MaterialCardView>
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="20dp"
-            android:gravity="center"
-            android:orientation="vertical">
-
-            <TextView
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/average_sans"
-                android:text="Valor Arrecadado: "
-                android:textColor="@color/black"
-                android:textSize="10pt"
-                android:textStyle="bold" />
+                android:layout_height="match_parent"
+                android:background="@color/cream"
+                android:gravity="center"
+                android:orientation="vertical">
 
-            <com.google.android.material.textfield.TextInputLayout
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/textValorArrecadadoMain"
+                <ImageView
                     android:layout_width="match_parent"
+                    android:layout_height="110dp"
+                    android:background="@drawable/banner_acai" />
+
+                <TextView
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:editable="false"
                     android:fontFamily="@font/average_sans"
-                    android:text="150.00"
+                    android:text="Novo Pedido"
                     android:textAlignment="center"
-                    android:textSize="10pt"
-                    android:textStyle="italic" />
+                    android:textColor="@color/black"
+                    android:textSize="10pt" />
 
-            </com.google.android.material.textfield.TextInputLayout>
+            </LinearLayout>
 
-        </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
 
-        <LinearLayout
+        <com.google.android.material.card.MaterialCardView
+            style="@style/Base.CardView"
+            android:layout_width="180dp"
+            android:layout_height="150dp"
+            android:layout_margin="8dp"
+            android:clickable="true"
+            android:focusable="true"
+            app:cardCornerRadius="10dp"
+            app:strokeColor="@color/acai_color"
+            app:strokeWidth="2dp">
+
+            <LinearLayout
+                android:id="@+id/cardViewAvaliarProduto"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/cream"
+                android:gravity="center"
+                android:orientation="vertical">
+
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="110dp"
+                    android:background="@drawable/banner_avalia" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/average_sans"
+                    android:text="Avaliar Produto"
+                    android:textAlignment="center"
+                    android:textColor="@color/black"
+                    android:textSize="10pt" />
+
+            </LinearLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+        tools:layout_editor_absoluteX="24dp">
+
+        <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="20dp"
-            android:layout_marginTop="30dp"
-            android:gravity="center"
-            android:orientation="vertical">
+            android:fontFamily="@font/average_sans"
+            android:text="Valor Arrecadado: "
+            android:textColor="@color/black"
+            android:textSize="10pt"
+            android:textStyle="bold" />
 
-            <TextView
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/textValorArrecadadoMain"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Progresso da meta de vendas: "
+                android:editable="false"
                 android:fontFamily="@font/average_sans"
-                android:textColor="@color/black"
+                android:text="150.00"
+                android:textAlignment="center"
                 android:textSize="10pt"
-                android:textStyle="bold" />
+                android:textStyle="italic" />
 
-            <ProgressBar
-                android:id="@+id/progressBarVendedor"
-                style="@android:style/Widget.ProgressBar.Horizontal"
-                android:layout_width="match_parent"
-                android:layout_height="30dp"
-                android:animationResolution="@integer/material_motion_duration_short_1"
-                android:indeterminateBehavior="cycle"
-                android:max="100"
-                android:progress="25"
-                android:progressBackgroundTint="@color/cream"
-                android:progressTint="@color/acai_color" />
+        </com.google.android.material.textfield.TextInputLayout>
 
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/btnLogoffVendedor"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/average_sans"
-                android:layout_marginTop="100dp"
-                android:text="@string/text_sair"/>
+    </LinearLayout>
 
-        </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout3"
+        tools:layout_editor_absoluteX="24dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/average_sans"
+            android:text="Progresso da meta de vendas: "
+            android:textColor="@color/black"
+            android:textSize="10pt"
+            android:textStyle="bold" />
+
+        <ProgressBar
+            android:id="@+id/progressBarVendedor"
+            style="@android:style/Widget.ProgressBar.Horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:animationResolution="@integer/material_motion_duration_short_1"
+            android:indeterminateBehavior="cycle"
+            android:max="100"
+            android:progress="25"
+            android:progressBackgroundTint="@color/cream"
+            android:progressTint="@color/acai_color" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnLogoffVendedor"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:fontFamily="@font/average_sans"
+            android:text="@string/text_sair" />
 
     </LinearLayout>
 

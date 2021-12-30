@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -10,9 +10,12 @@
         style="@style/Base.CardView"
         android:layout_width="match_parent"
         android:layout_height="100dp"
-        android:paddingHorizontal="15dp"
         android:layout_gravity="center_horizontal"
-        android:layout_marginBottom="20dp">
+        android:paddingHorizontal="15dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -23,15 +26,15 @@
                 android:id="@+id/imageProdutoConfirm"
                 android:layout_width="50dp"
                 android:layout_height="70dp"
-                android:layout_marginStart="10dp"
                 android:layout_gravity="center"
+                android:layout_marginStart="10dp"
                 app:srcCompat="@drawable/ic_breakfast" />
 
             <LinearLayout
                 android:layout_width="250dp"
                 android:layout_height="80dp"
-                android:layout_marginStart="20dp"
                 android:layout_gravity="center_vertical"
+                android:layout_marginStart="20dp"
                 android:orientation="vertical">
 
                 <TextView
@@ -41,9 +44,9 @@
                     android:layout_marginTop="12dp"
                     android:fontFamily="@font/average_sans"
                     android:text="Nome do produto"
-                    android:textStyle="bold"
                     android:textColor="@color/black"
-                    android:textSize="16sp" />
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -55,8 +58,8 @@
                         android:fontFamily="@font/average_sans"
                         android:text="R$ "
                         android:textColor="@color/black"
-                        android:textStyle="bold"
-                        android:textSize="16sp" />
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
 
                     <TextView
                         android:id="@+id/textValorProdutoConfirm"
@@ -89,4 +92,4 @@
 
     </androidx.cardview.widget.CardView>
 
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -27,8 +27,8 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/linearLayout2"
-        android:layout_width="410dp"
-        android:layout_height="674dp"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
         android:foregroundGravity="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
